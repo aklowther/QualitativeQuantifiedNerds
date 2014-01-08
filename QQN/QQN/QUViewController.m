@@ -14,6 +14,10 @@
 
 @implementation QUViewController
 
+-(IBAction)doSomething:(UIButton *)sender{
+    //code for doing what you want your button to do.
+    
+}
 - (void)viewDidLoad
 {
     [super viewDidLoad];
