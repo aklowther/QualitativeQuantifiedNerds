@@ -21,11 +21,11 @@
 		143E81C5187B8B7100BEFE8D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 143E81A7187B8B7100BEFE8D /* UIKit.framework */; };
 		143E81CD187B8B7100BEFE8D /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 143E81CB187B8B7100BEFE8D /* InfoPlist.strings */; };
 		143E81CF187B8B7100BEFE8D /* QQNTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 143E81CE187B8B7100BEFE8D /* QQNTests.m */; };
-		47D040D1187D368300F48EF3 /* OAuth1Controller.m in Sources */ = {isa = PBXBuildFile; fileRef = 47D040CE187D368300F48EF3 /* OAuth1Controller.m */; };
-		47D040D2187D368300F48EF3 /* NSString+URLEncoding.m in Sources */ = {isa = PBXBuildFile; fileRef = 47D040D0187D368300F48EF3 /* NSString+URLEncoding.m */; };
-		47D040DA187D369C00F48EF3 /* Base64Transcoder.c in Sources */ = {isa = PBXBuildFile; fileRef = 47D040D4187D369C00F48EF3 /* Base64Transcoder.c */; };
-		47D040DB187D369C00F48EF3 /* hmac.c in Sources */ = {isa = PBXBuildFile; fileRef = 47D040D6187D369C00F48EF3 /* hmac.c */; };
-		47D040DC187D369C00F48EF3 /* sha1.c in Sources */ = {isa = PBXBuildFile; fileRef = 47D040D8187D369C00F48EF3 /* sha1.c */; };
+		8C3997D1FF74064186DDEF9A /* OAuth1Controller.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C39903F45C4EE4AC266EA6F /* OAuth1Controller.m */; };
+		8C39986B2285E7A7628B7298 /* NSString+URLEncoding.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C3995A6576F92D430C1FF4C /* NSString+URLEncoding.m */; };
+		8C399C0441A07035D096294E /* hmac.c in Sources */ = {isa = PBXBuildFile; fileRef = 8C39951E820EF7520613097D /* hmac.c */; };
+		8C399C2705F67A4513E4E754 /* sha1.c in Sources */ = {isa = PBXBuildFile; fileRef = 8C399734A869FE22BB285578 /* sha1.c */; };
+		8C399E0B49813943DD7B74E0 /* Base64Transcoder.c in Sources */ = {isa = PBXBuildFile; fileRef = 8C39971A748CAE80261ACCE9 /* Base64Transcoder.c */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,16 +58,16 @@
 		143E81CA187B8B7100BEFE8D /* QQNTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "QQNTests-Info.plist"; sourceTree = "<group>"; };
 		143E81CC187B8B7100BEFE8D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		143E81CE187B8B7100BEFE8D /* QQNTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QQNTests.m; sourceTree = "<group>"; };
-		47D040CD187D368300F48EF3 /* OAuth1Controller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OAuth1Controller.h; path = "../../../../Downloads/simple-oauth1-master 2/Simple-OAuth1/Simple-OAuth1/OAuth1Controller.h"; sourceTree = "<group>"; };
-		47D040CE187D368300F48EF3 /* OAuth1Controller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OAuth1Controller.m; path = "../../../../Downloads/simple-oauth1-master 2/Simple-OAuth1/Simple-OAuth1/OAuth1Controller.m"; sourceTree = "<group>"; };
-		47D040CF187D368300F48EF3 /* NSString+URLEncoding.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSString+URLEncoding.h"; path = "../../../../Downloads/simple-oauth1-master 2/Simple-OAuth1/Simple-OAuth1/NSString+URLEncoding.h"; sourceTree = "<group>"; };
-		47D040D0187D368300F48EF3 /* NSString+URLEncoding.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSString+URLEncoding.m"; path = "../../../../Downloads/simple-oauth1-master 2/Simple-OAuth1/Simple-OAuth1/NSString+URLEncoding.m"; sourceTree = "<group>"; };
-		47D040D4187D369C00F48EF3 /* Base64Transcoder.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = Base64Transcoder.c; path = "../../../../Downloads/simple-oauth1-master 2/Simple-OAuth1/Simple-OAuth1/Crypto/Base64Transcoder.c"; sourceTree = "<group>"; };
-		47D040D5187D369C00F48EF3 /* Base64Transcoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Base64Transcoder.h; path = "../../../../Downloads/simple-oauth1-master 2/Simple-OAuth1/Simple-OAuth1/Crypto/Base64Transcoder.h"; sourceTree = "<group>"; };
-		47D040D6187D369C00F48EF3 /* hmac.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = hmac.c; path = "../../../../Downloads/simple-oauth1-master 2/Simple-OAuth1/Simple-OAuth1/Crypto/hmac.c"; sourceTree = "<group>"; };
-		47D040D7187D369C00F48EF3 /* hmac.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = hmac.h; path = "../../../../Downloads/simple-oauth1-master 2/Simple-OAuth1/Simple-OAuth1/Crypto/hmac.h"; sourceTree = "<group>"; };
-		47D040D8187D369C00F48EF3 /* sha1.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = sha1.c; path = "../../../../Downloads/simple-oauth1-master 2/Simple-OAuth1/Simple-OAuth1/Crypto/sha1.c"; sourceTree = "<group>"; };
-		47D040D9187D369C00F48EF3 /* sha1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = sha1.h; path = "../../../../Downloads/simple-oauth1-master 2/Simple-OAuth1/Simple-OAuth1/Crypto/sha1.h"; sourceTree = "<group>"; };
+		8C39903F45C4EE4AC266EA6F /* OAuth1Controller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OAuth1Controller.m; sourceTree = "<group>"; };
+		8C39951E820EF7520613097D /* hmac.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = hmac.c; sourceTree = "<group>"; };
+		8C39955112076642E441A93A /* OAuth1Controller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OAuth1Controller.h; sourceTree = "<group>"; };
+		8C3995A6576F92D430C1FF4C /* NSString+URLEncoding.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+URLEncoding.m"; sourceTree = "<group>"; };
+		8C3996B820877C4FCC0E0B7B /* sha1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = sha1.h; sourceTree = "<group>"; };
+		8C39971A748CAE80261ACCE9 /* Base64Transcoder.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = Base64Transcoder.c; sourceTree = "<group>"; };
+		8C399734A869FE22BB285578 /* sha1.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = sha1.c; sourceTree = "<group>"; };
+		8C39991BFC4EB4956A58664B /* Base64Transcoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Base64Transcoder.h; sourceTree = "<group>"; };
+		8C399D1A711244A59D7ECE23 /* NSString+URLEncoding.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+URLEncoding.h"; sourceTree = "<group>"; };
+		8C399E6980AD4F7EF645B942 /* hmac.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = hmac.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -127,13 +127,13 @@
 		143E81A9187B8B7100BEFE8D /* QQN */ = {
 			isa = PBXGroup;
 			children = (
-				47D040CC187D364900F48EF3 /* ThirdPartyIntegrations */,
 				47D040CB187D2E3C00F48EF3 /* First Page */,
 				143E81B2187B8B7100BEFE8D /* QUAppDelegate.h */,
 				143E81B3187B8B7100BEFE8D /* QUAppDelegate.m */,
 				143E81B5187B8B7100BEFE8D /* Main.storyboard */,
 				143E81BB187B8B7100BEFE8D /* Images.xcassets */,
 				143E81AA187B8B7100BEFE8D /* Supporting Files */,
+				8C399704202F3E9F73C415A9 /* ThirdPartyCode */,
 			);
 			path = QQN;
 			sourceTree = "<group>";
@@ -176,29 +176,29 @@
 			name = "First Page";
 			sourceTree = "<group>";
 		};
-		47D040CC187D364900F48EF3 /* ThirdPartyIntegrations */ = {
+		8C399704202F3E9F73C415A9 /* ThirdPartyCode */ = {
 			isa = PBXGroup;
 			children = (
-				47D040D3187D368800F48EF3 /* Crypto */,
-				47D040CD187D368300F48EF3 /* OAuth1Controller.h */,
-				47D040CE187D368300F48EF3 /* OAuth1Controller.m */,
-				47D040CF187D368300F48EF3 /* NSString+URLEncoding.h */,
-				47D040D0187D368300F48EF3 /* NSString+URLEncoding.m */,
+				8C399D1A711244A59D7ECE23 /* NSString+URLEncoding.h */,
+				8C39903F45C4EE4AC266EA6F /* OAuth1Controller.m */,
+				8C39955112076642E441A93A /* OAuth1Controller.h */,
+				8C3995A6576F92D430C1FF4C /* NSString+URLEncoding.m */,
+				8C399ADC0868C36AA121C1B3 /* Crypto */,
 			);
-			name = ThirdPartyIntegrations;
+			path = ThirdPartyCode;
 			sourceTree = "<group>";
 		};
-		47D040D3187D368800F48EF3 /* Crypto */ = {
+		8C399ADC0868C36AA121C1B3 /* Crypto */ = {
 			isa = PBXGroup;
 			children = (
-				47D040D4187D369C00F48EF3 /* Base64Transcoder.c */,
-				47D040D5187D369C00F48EF3 /* Base64Transcoder.h */,
-				47D040D6187D369C00F48EF3 /* hmac.c */,
-				47D040D7187D369C00F48EF3 /* hmac.h */,
-				47D040D8187D369C00F48EF3 /* sha1.c */,
-				47D040D9187D369C00F48EF3 /* sha1.h */,
+				8C39991BFC4EB4956A58664B /* Base64Transcoder.h */,
+				8C399734A869FE22BB285578 /* sha1.c */,
+				8C39951E820EF7520613097D /* hmac.c */,
+				8C3996B820877C4FCC0E0B7B /* sha1.h */,
+				8C399E6980AD4F7EF645B942 /* hmac.h */,
+				8C39971A748CAE80261ACCE9 /* Base64Transcoder.c */,
 			);
-			name = Crypto;
+			path = Crypto;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -302,14 +302,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				47D040D2187D368300F48EF3 /* NSString+URLEncoding.m in Sources */,
-				47D040DB187D369C00F48EF3 /* hmac.c in Sources */,
-				47D040DA187D369C00F48EF3 /* Base64Transcoder.c in Sources */,
 				143E81B4187B8B7100BEFE8D /* QUAppDelegate.m in Sources */,
-				47D040DC187D369C00F48EF3 /* sha1.c in Sources */,
 				143E81B0187B8B7100BEFE8D /* main.m in Sources */,
 				143E81BA187B8B7100BEFE8D /* QUViewController.m in Sources */,
-				47D040D1187D368300F48EF3 /* OAuth1Controller.m in Sources */,
+				8C3997D1FF74064186DDEF9A /* OAuth1Controller.m in Sources */,
+				8C39986B2285E7A7628B7298 /* NSString+URLEncoding.m in Sources */,
+				8C399C2705F67A4513E4E754 /* sha1.c in Sources */,
+				8C399C0441A07035D096294E /* hmac.c in Sources */,
+				8C399E0B49813943DD7B74E0 /* Base64Transcoder.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
