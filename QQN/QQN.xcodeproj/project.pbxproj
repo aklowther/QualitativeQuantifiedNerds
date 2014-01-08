@@ -253,7 +253,7 @@
 						DevelopmentTeam = E5ANWKSXGH;
 					};
 					143E81C0187B8B7100BEFE8D = {
-						TestTargetID = 143E819F187B8B7100BEFE8D;
+						TestTargetID = 143E819F187B8B7100BEFE8D /* QQN */;
 					};
 				};
 			};
