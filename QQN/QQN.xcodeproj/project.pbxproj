@@ -25,6 +25,7 @@
 		8C39986B2285E7A7628B7298 /* NSString+URLEncoding.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C3995A6576F92D430C1FF4C /* NSString+URLEncoding.m */; };
 		8C399C0441A07035D096294E /* hmac.c in Sources */ = {isa = PBXBuildFile; fileRef = 8C39951E820EF7520613097D /* hmac.c */; };
 		8C399C2705F67A4513E4E754 /* sha1.c in Sources */ = {isa = PBXBuildFile; fileRef = 8C399734A869FE22BB285578 /* sha1.c */; };
+		8C399E088069C684CB2F3C91 /* LoginWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C399B2A65F465CC63BEA9DF /* LoginWebViewController.m */; };
 		8C399E0B49813943DD7B74E0 /* Base64Transcoder.c in Sources */ = {isa = PBXBuildFile; fileRef = 8C39971A748CAE80261ACCE9 /* Base64Transcoder.c */; };
 /* End PBXBuildFile section */
 
@@ -59,6 +60,7 @@
 		143E81CC187B8B7100BEFE8D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		143E81CE187B8B7100BEFE8D /* QQNTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QQNTests.m; sourceTree = "<group>"; };
 		8C39903F45C4EE4AC266EA6F /* OAuth1Controller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OAuth1Controller.m; sourceTree = "<group>"; };
+		8C39918551FFF0C0A2AD62CC /* LoginWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginWebViewController.h; sourceTree = "<group>"; };
 		8C39951E820EF7520613097D /* hmac.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = hmac.c; sourceTree = "<group>"; };
 		8C39955112076642E441A93A /* OAuth1Controller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OAuth1Controller.h; sourceTree = "<group>"; };
 		8C3995A6576F92D430C1FF4C /* NSString+URLEncoding.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+URLEncoding.m"; sourceTree = "<group>"; };
@@ -66,6 +68,7 @@
 		8C39971A748CAE80261ACCE9 /* Base64Transcoder.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = Base64Transcoder.c; sourceTree = "<group>"; };
 		8C399734A869FE22BB285578 /* sha1.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = sha1.c; sourceTree = "<group>"; };
 		8C39991BFC4EB4956A58664B /* Base64Transcoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Base64Transcoder.h; sourceTree = "<group>"; };
+		8C399B2A65F465CC63BEA9DF /* LoginWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginWebViewController.m; sourceTree = "<group>"; };
 		8C399D1A711244A59D7ECE23 /* NSString+URLEncoding.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+URLEncoding.h"; sourceTree = "<group>"; };
 		8C399E6980AD4F7EF645B942 /* hmac.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = hmac.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -172,6 +175,8 @@
 			children = (
 				143E81B8187B8B7100BEFE8D /* QUViewController.h */,
 				143E81B9187B8B7100BEFE8D /* QUViewController.m */,
+				8C399B2A65F465CC63BEA9DF /* LoginWebViewController.m */,
+				8C39918551FFF0C0A2AD62CC /* LoginWebViewController.h */,
 			);
 			name = "First Page";
 			sourceTree = "<group>";
@@ -310,6 +315,7 @@
 				8C399C2705F67A4513E4E754 /* sha1.c in Sources */,
 				8C399C0441A07035D096294E /* hmac.c in Sources */,
 				8C399E0B49813943DD7B74E0 /* Base64Transcoder.c in Sources */,
+				8C399E088069C684CB2F3C91 /* LoginWebViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -8,7 +8,6 @@
         <!--View Controller-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
                 <viewController id="vXZ-lx-hvc" customClass="QUViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="jyV-Pf-zRb"/>
@@ -32,9 +31,41 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="-45" y="-114"/>
+        </scene>
+        <!--Login Web View Controller-->
+        <scene sceneID="W1K-jX-E2A">
+            <objects>
+                <viewController restorationIdentifier="loginWebViewController" storyboardIdentifier="loginWebViewController" id="w1m-TA-wYl" customClass="LoginWebViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="8AH-nt-sS5"/>
+                        <viewControllerLayoutGuide type="bottom" id="5pi-DW-NvN"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="UgD-6g-ged">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <webView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Wgp-MW-71F">
+                                <rect key="frame" x="60" y="182" width="200" height="332"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="1" green="0.89844666445838317" blue="0.38902511240680193" alpha="1" colorSpace="calibratedRGB"/>
+                            </webView>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="0.2277767473" blue="0.22694781510000001" alpha="1" colorSpace="calibratedRGB"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="RiG-p0-4Dz"/>
+                    <connections>
+                        <outlet property="view" destination="Wgp-MW-71F" id="qN9-eG-9IA"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="WOH-WX-WxN" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="383" y="-93"/>
         </scene>
     </scenes>
+    <color key="tintColor" red="0.44167889160216345" green="1" blue="0.25641622578337631" alpha="1" colorSpace="calibratedRGB"/>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

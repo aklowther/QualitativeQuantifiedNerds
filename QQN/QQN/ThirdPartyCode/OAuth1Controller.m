@@ -42,8 +42,8 @@ typedef void (^WebWiewDelegateHandler)(NSDictionary *oauthParams);
 //#define ACCESS_TOKEN_METHOD  @"POST"
 
 #define OAUTH_CALLBACK       @"http://www.mycallbackurl.com"
-#define CONSUMER_KEY         @"REDACTED"
-#define CONSUMER_SECRET      @"REDACTED"
+#define CONSUMER_KEY         @"8bf7ef0470df4cd5aa7048368eaed517"
+#define CONSUMER_SECRET      @"a6b13f6aa8224614804cf4e2691ca259"
 #define AUTH_URL             @"https://api.fitbit.com/"
 #define REQUEST_TOKEN_URL    @"oauth/request_token"
 #define AUTHENTICATE_URL     @"oauth/authorize"
