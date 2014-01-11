@@ -24,10 +24,10 @@
     }
     return _oauth1Controller;
 }
--(IBAction)doSomething:(UIButton *)sender{
+- (IBAction)doSomething:(id)sender {
     //code for doing what you want your button to do.
     LoginWebViewController *loginWebViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"loginWebViewController"];
-
+    
     [self presentViewController:loginWebViewController
                        animated:YES
                      completion:^{
@@ -36,7 +36,7 @@
                                  // Store your tokens for authenticating your later requests, consider storing the tokens in the Keychain
                                  self.oauthToken = oauthTokens[@"oauth_token"];
                                  self.oauthTokenSecret = oauthTokens[@"oauth_token_secret"];
-
+                                 
                                  //self.accessTokenLabel.text = self.oauthToken;
                                  //self.accessTokenSecretLabel.text = self.oauthTokenSecret;
                                  NSLog(@"oauthToken: %@", self.oauthToken);
@@ -52,6 +52,8 @@
                          }];
                      }];
 }
+
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];

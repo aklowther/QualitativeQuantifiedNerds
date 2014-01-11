@@ -175,8 +175,8 @@
 			children = (
 				143E81B8187B8B7100BEFE8D /* QUViewController.h */,
 				143E81B9187B8B7100BEFE8D /* QUViewController.m */,
-				8C399B2A65F465CC63BEA9DF /* LoginWebViewController.m */,
 				8C39918551FFF0C0A2AD62CC /* LoginWebViewController.h */,
+				8C399B2A65F465CC63BEA9DF /* LoginWebViewController.m */,
 			);
 			name = "First Page";
 			sourceTree = "<group>";
@@ -258,7 +258,7 @@
 						DevelopmentTeam = E5ANWKSXGH;
 					};
 					143E81C0187B8B7100BEFE8D = {
-						TestTargetID = 143E819F187B8B7100BEFE8D /* QQN */;
+						TestTargetID = 143E819F187B8B7100BEFE8D;
 					};
 				};
 			};
@@ -490,6 +490,7 @@
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = "QQNTests/QQNTests-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
@@ -509,6 +510,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "QQN/QQN-Prefix.pch";
 				INFOPLIST_FILE = "QQNTests/QQNTests-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
