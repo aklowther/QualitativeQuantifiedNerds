@@ -26,10 +26,10 @@
 			<key>CFBundleTypeRole</key>
 			<string>Editor</string>
 			<key>CFBundleURLName</key>
-			<string>localhost</string>
+			<string>fitbit</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>QQN</string>
+				<string>qqn</string>
 			</array>
 		</dict>
 	</array>

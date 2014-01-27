@@ -12,6 +12,20 @@
 @implementation QUAppDelegate
 - (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation
 {
+    NSLog(@"url: %@", url);
+    NSMutableDictionary *queryStringDictionary = [[NSMutableDictionary alloc] init];
+    NSString *urlString = [url absoluteString];
+    NSArray *urlComponents = [urlString  componentsSeparatedByString:@"&"];
+    for (NSString *keyValuePair in urlComponents)
+    {
+        NSArray *pairComponents = [keyValuePair componentsSeparatedByString:@"="];
+        NSString *key = [pairComponents objectAtIndex:0];
+        NSString *value = [pairComponents objectAtIndex:1];
+
+        [queryStringDictionary setObject:value forKey:key];
+    }
+    //Switch on Url prefix fitbit, jawbone, whatev and pass in query string dictionary
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"usrStateChanged" object:queryStringDictionary];
 
     return (YES);
 }
@@ -47,5 +61,8 @@
 {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
-
+- (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url
+{
+    return YES;
+}
 @end
