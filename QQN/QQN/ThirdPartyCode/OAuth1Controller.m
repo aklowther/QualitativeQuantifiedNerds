@@ -343,6 +343,7 @@ static inline NSDictionary *CHParametersFromQueryString(NSString *queryString)
     NSMutableDictionary *allParameters = [self.class standardOauthParameters];
     [allParameters setValue:oauth_verifier forKey:@"oauth_verifier"];
     [allParameters setValue:oauth_token    forKey:@"oauth_token"];
+
     
     NSString *parametersString = CHQueryStringFromParametersWithEncoding(allParameters, NSUTF8StringEncoding);
     

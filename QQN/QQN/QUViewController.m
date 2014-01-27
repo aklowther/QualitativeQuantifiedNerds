@@ -24,10 +24,11 @@
     }
     return _oauth1Controller;
 }
+
 - (IBAction)doSomething:(id)sender {
     //code for doing what you want your button to do.
     LoginWebViewController *loginWebViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"loginWebViewController"];
-    
+
     [self presentViewController:loginWebViewController
                        animated:YES
                      completion:^{
@@ -36,7 +37,7 @@
                                  // Store your tokens for authenticating your later requests, consider storing the tokens in the Keychain
                                  self.oauthToken = oauthTokens[@"oauth_token"];
                                  self.oauthTokenSecret = oauthTokens[@"oauth_token_secret"];
-                                 
+
                                  //self.accessTokenLabel.text = self.oauthToken;
                                  //self.accessTokenSecretLabel.text = self.oauthTokenSecret;
                                  NSLog(@"oauthToken: %@", self.oauthToken);
@@ -51,8 +52,28 @@
                              }];
                          }];
                      }];
+    [self getProfile];
 }
-
+- (void)getProfile
+{
+//    NSString *path = @"1/user/-/profile.json";
+//
+//    NSURLRequest *preparedRequest = [OAuth1Controller preparedRequestForPath:path
+//                                                                  parameters:nil
+//                                                                  HTTPmethod:@"GET"
+//                                                                  oauthToken:self.oauthToken
+//                                                                 oauthSecret:self.oauthTokenSecret];
+//
+//    [NSURLConnection sendAsynchronousRequest:preparedRequest
+//                                       queue:NSOperationQueue.mainQueue
+//                           completionHandler:^(NSURLResponse *response, NSData *data, NSError *error) {
+//                               dispatch_async(dispatch_get_main_queue(), ^{
+//                                   NSLog(@"path35 %@",[[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding]);
+//
+//                                   if (error) NSLog(@"Error in API request: %@", error.localizedDescription);
+//                               });
+//                           }];
+}
 
 - (void)viewDidLoad
 {
@@ -65,5 +86,4 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
 @end

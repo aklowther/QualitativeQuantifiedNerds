@@ -6,10 +6,15 @@
 //  Copyright (c) 2014 Adam Lowther. All rights reserved.
 //
 
+
 #import "QUAppDelegate.h"
 
 @implementation QUAppDelegate
+- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation
+{
 
+    return (YES);
+}
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
