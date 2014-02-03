@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1425B340189FCF530096C5CC /* QUExistingHeadacheTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1425B33F189FCF530096C5CC /* QUExistingHeadacheTableViewCell.m */; };
+		1425B344189FD3170096C5CC /* AMGProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1425B343189FD3170096C5CC /* AMGProgressView.m */; };
+		1425B348189FD3710096C5CC /* QUExistingHeadacheTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1425B347189FD3710096C5CC /* QUExistingHeadacheTableViewController.m */; };
 		143E81A4187B8B7100BEFE8D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 143E81A3187B8B7100BEFE8D /* Foundation.framework */; };
 		143E81A6187B8B7100BEFE8D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 143E81A5187B8B7100BEFE8D /* CoreGraphics.framework */; };
 		143E81A8187B8B7100BEFE8D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 143E81A7187B8B7100BEFE8D /* UIKit.framework */; };
@@ -21,11 +24,6 @@
 		143E81C5187B8B7100BEFE8D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 143E81A7187B8B7100BEFE8D /* UIKit.framework */; };
 		143E81CD187B8B7100BEFE8D /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 143E81CB187B8B7100BEFE8D /* InfoPlist.strings */; };
 		143E81CF187B8B7100BEFE8D /* QQNTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 143E81CE187B8B7100BEFE8D /* QQNTests.m */; };
-		47D040D1187D368300F48EF3 /* OAuth1Controller.m in Sources */ = {isa = PBXBuildFile; fileRef = 47D040CE187D368300F48EF3 /* OAuth1Controller.m */; };
-		47D040D2187D368300F48EF3 /* NSString+URLEncoding.m in Sources */ = {isa = PBXBuildFile; fileRef = 47D040D0187D368300F48EF3 /* NSString+URLEncoding.m */; };
-		47D040DA187D369C00F48EF3 /* Base64Transcoder.c in Sources */ = {isa = PBXBuildFile; fileRef = 47D040D4187D369C00F48EF3 /* Base64Transcoder.c */; };
-		47D040DB187D369C00F48EF3 /* hmac.c in Sources */ = {isa = PBXBuildFile; fileRef = 47D040D6187D369C00F48EF3 /* hmac.c */; };
-		47D040DC187D369C00F48EF3 /* sha1.c in Sources */ = {isa = PBXBuildFile; fileRef = 47D040D8187D369C00F48EF3 /* sha1.c */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,6 +37,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1425B33E189FCF530096C5CC /* QUExistingHeadacheTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QUExistingHeadacheTableViewCell.h; sourceTree = "<group>"; };
+		1425B33F189FCF530096C5CC /* QUExistingHeadacheTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QUExistingHeadacheTableViewCell.m; sourceTree = "<group>"; };
+		1425B342189FD3170096C5CC /* AMGProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMGProgressView.h; sourceTree = "<group>"; };
+		1425B343189FD3170096C5CC /* AMGProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMGProgressView.m; sourceTree = "<group>"; };
+		1425B346189FD3710096C5CC /* QUExistingHeadacheTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QUExistingHeadacheTableViewController.h; sourceTree = "<group>"; };
+		1425B347189FD3710096C5CC /* QUExistingHeadacheTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QUExistingHeadacheTableViewController.m; sourceTree = "<group>"; };
 		143E81A0187B8B7100BEFE8D /* QQN.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QQN.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		143E81A3187B8B7100BEFE8D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		143E81A5187B8B7100BEFE8D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -94,6 +98,26 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1425B341189FCF560096C5CC /* Headaches */ = {
+			isa = PBXGroup;
+			children = (
+				1425B33E189FCF530096C5CC /* QUExistingHeadacheTableViewCell.h */,
+				1425B33F189FCF530096C5CC /* QUExistingHeadacheTableViewCell.m */,
+				1425B346189FD3710096C5CC /* QUExistingHeadacheTableViewController.h */,
+				1425B347189FD3710096C5CC /* QUExistingHeadacheTableViewController.m */,
+			);
+			name = Headaches;
+			sourceTree = "<group>";
+		};
+		1425B345189FD31C0096C5CC /* GradientProgressView */ = {
+			isa = PBXGroup;
+			children = (
+				1425B342189FD3170096C5CC /* AMGProgressView.h */,
+				1425B343189FD3170096C5CC /* AMGProgressView.m */,
+			);
+			name = GradientProgressView;
+			sourceTree = "<group>";
+		};
 		143E8197187B8B7100BEFE8D = {
 			isa = PBXGroup;
 			children = (
@@ -132,6 +156,7 @@
 				143E81B2187B8B7100BEFE8D /* QUAppDelegate.h */,
 				143E81B3187B8B7100BEFE8D /* QUAppDelegate.m */,
 				143E81B5187B8B7100BEFE8D /* Main.storyboard */,
+				1425B341189FCF560096C5CC /* Headaches */,
 				143E81BB187B8B7100BEFE8D /* Images.xcassets */,
 				143E81AA187B8B7100BEFE8D /* Supporting Files */,
 			);
@@ -179,6 +204,7 @@
 		47D040CC187D364900F48EF3 /* ThirdPartyIntegrations */ = {
 			isa = PBXGroup;
 			children = (
+				1425B345189FD31C0096C5CC /* GradientProgressView */,
 				47D040D3187D368800F48EF3 /* Crypto */,
 				47D040CD187D368300F48EF3 /* OAuth1Controller.h */,
 				47D040CE187D368300F48EF3 /* OAuth1Controller.m */,
@@ -251,6 +277,11 @@
 				TargetAttributes = {
 					143E819F187B8B7100BEFE8D = {
 						DevelopmentTeam = E5ANWKSXGH;
+						SystemCapabilities = {
+							com.apple.InAppPurchase = {
+								enabled = 0;
+							};
+						};
 					};
 					143E81C0187B8B7100BEFE8D = {
 						TestTargetID = 143E819F187B8B7100BEFE8D;
@@ -302,14 +333,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				47D040D2187D368300F48EF3 /* NSString+URLEncoding.m in Sources */,
-				47D040DB187D369C00F48EF3 /* hmac.c in Sources */,
-				47D040DA187D369C00F48EF3 /* Base64Transcoder.c in Sources */,
+				1425B344189FD3170096C5CC /* AMGProgressView.m in Sources */,
 				143E81B4187B8B7100BEFE8D /* QUAppDelegate.m in Sources */,
-				47D040DC187D369C00F48EF3 /* sha1.c in Sources */,
 				143E81B0187B8B7100BEFE8D /* main.m in Sources */,
 				143E81BA187B8B7100BEFE8D /* QUViewController.m in Sources */,
-				47D040D1187D368300F48EF3 /* OAuth1Controller.m in Sources */,
+				1425B348189FD3710096C5CC /* QUExistingHeadacheTableViewController.m in Sources */,
+				1425B340189FCF530096C5CC /* QUExistingHeadacheTableViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
