@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="5059" systemVersion="13B42" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="Ailment" representedClassName="Ailment" syncable="YES">
+        <attribute name="createdByParse" attributeType="Date" syncable="YES"/>
+        <attribute name="type" attributeType="String" syncable="YES"/>
+        <relationship name="host" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="User" inverseName="ailment" inverseEntity="User" syncable="YES"/>
+        <relationship name="info" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="AilmentInfo" inverseName="ailmentType" inverseEntity="AilmentInfo" syncable="YES"/>
+    </entity>
+    <entity name="AilmentInfo" representedClassName="AilmentInfo" syncable="YES">
+        <attribute name="endTime" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="startTime" attributeType="Date" syncable="YES"/>
+        <relationship name="ailmentSeverity" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Severity" inverseName="info" inverseEntity="Severity" syncable="YES"/>
+        <relationship name="ailmentType" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Ailment" inverseName="info" inverseEntity="Ailment" syncable="YES"/>
+    </entity>
+    <entity name="Severity" representedClassName="Severity" syncable="YES">
+        <attribute name="currentSeverity" attributeType="Float" minValueString="0" maxValueString="1" defaultValueString="0.5" syncable="YES"/>
+        <attribute name="time" attributeType="Date" syncable="YES"/>
+        <relationship name="info" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="AilmentInfo" inverseName="ailmentSeverity" inverseEntity="AilmentInfo" syncable="YES"/>
+    </entity>
+    <entity name="User" representedClassName="User" syncable="YES">
+        <attribute name="dob" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="email" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="firstName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="fitbitAuthToken" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="lastName" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="ailment" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Ailment" inverseName="host" inverseEntity="Ailment" syncable="YES"/>
+    </entity>
+    <fetchRequest name="checkFirstLastName" entity="User" predicateString="firstName == $CHECK"/>
+    <elements>
+        <element name="Ailment" positionX="-90" positionY="200" width="128" height="103"/>
+        <element name="AilmentInfo" positionX="79" positionY="221" width="128" height="105"/>
+        <element name="Severity" positionX="252" positionY="252" width="128" height="90"/>
+        <element name="User" positionX="-279" positionY="101" width="128" height="133"/>
+    </elements>
+</model>

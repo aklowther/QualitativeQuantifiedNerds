@@ -50,6 +50,7 @@
 		143E81C5187B8B7100BEFE8D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 143E81A7187B8B7100BEFE8D /* UIKit.framework */; };
 		143E81CD187B8B7100BEFE8D /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 143E81CB187B8B7100BEFE8D /* InfoPlist.strings */; };
 		143E81CF187B8B7100BEFE8D /* QQNTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 143E81CE187B8B7100BEFE8D /* QQNTests.m */; };
+		148DDAF818A3BF1C00927A4D /* QUNewAilmentHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 148DDAF718A3BF1C00927A4D /* QUNewAilmentHeaderView.m */; };
 		149F466C18A03ED500CA70B2 /* QUser.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 149F466A18A03ED500CA70B2 /* QUser.xcdatamodeld */; };
 		149F467C18A040E500CA70B2 /* _Ailment.m in Sources */ = {isa = PBXBuildFile; fileRef = 149F467518A040E500CA70B2 /* _Ailment.m */; };
 		149F467D18A040E500CA70B2 /* _User.m in Sources */ = {isa = PBXBuildFile; fileRef = 149F467718A040E500CA70B2 /* _User.m */; };
@@ -131,6 +132,8 @@
 		143E81CA187B8B7100BEFE8D /* QQNTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "QQNTests-Info.plist"; sourceTree = "<group>"; };
 		143E81CC187B8B7100BEFE8D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		143E81CE187B8B7100BEFE8D /* QQNTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QQNTests.m; sourceTree = "<group>"; };
+		148DDAF618A3BF1C00927A4D /* QUNewAilmentHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QUNewAilmentHeaderView.h; sourceTree = "<group>"; };
+		148DDAF718A3BF1C00927A4D /* QUNewAilmentHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QUNewAilmentHeaderView.m; sourceTree = "<group>"; };
 		149F466B18A03ED500CA70B2 /* QUser.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = QUser.xcdatamodel; sourceTree = "<group>"; };
 		149F466D18A0400D00CA70B2 /* AilmentTypes.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AilmentTypes.h; sourceTree = "<group>"; };
 		149F467418A040E500CA70B2 /* _Ailment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _Ailment.h; sourceTree = "<group>"; };
@@ -159,6 +162,7 @@
 		149F469D18A075D200CA70B2 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		149F469F18A075D800CA70B2 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		149F46A118A075DD00CA70B2 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		14A6F92718A457BE0015E0BE /* QUser 2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "QUser 2.xcdatamodel"; sourceTree = "<group>"; };
 		47D040CD187D368300F48EF3 /* OAuth1Controller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OAuth1Controller.h; path = "../../../../Downloads/simple-oauth1-master 2/Simple-OAuth1/Simple-OAuth1/OAuth1Controller.h"; sourceTree = "<group>"; };
 		47D040CE187D368300F48EF3 /* OAuth1Controller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OAuth1Controller.m; path = "../../../../Downloads/simple-oauth1-master 2/Simple-OAuth1/Simple-OAuth1/OAuth1Controller.m"; sourceTree = "<group>"; };
 		47D040CF187D368300F48EF3 /* NSString+URLEncoding.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSString+URLEncoding.h"; path = "../../../../Downloads/simple-oauth1-master 2/Simple-OAuth1/Simple-OAuth1/NSString+URLEncoding.h"; sourceTree = "<group>"; };
@@ -393,6 +397,8 @@
 			children = (
 				141A4CB818A1C90E00531350 /* QUNewAilmentTableViewController.h */,
 				141A4CB918A1C90E00531350 /* QUNewAilmentTableViewController.m */,
+				148DDAF618A3BF1C00927A4D /* QUNewAilmentHeaderView.h */,
+				148DDAF718A3BF1C00927A4D /* QUNewAilmentHeaderView.m */,
 				149F468A18A06FB800CA70B2 /* QUAilmentsTableViewController.h */,
 				149F468B18A06FB800CA70B2 /* QUAilmentsTableViewController.m */,
 				1425B341189FCF560096C5CC /* Headaches */,
@@ -553,7 +559,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "cd QQN/\nmogenerator -m QUser.xcdatamodeld/QUser.xcdatamodel --template-var arc=true";
+			shellScript = "cd QQN/\nmogenerator -m QUser.xcdatamodeld/QUser\\ 2.xcdatamodel --template-var arc=true";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -573,6 +579,7 @@
 				141A4CC018A1CFF500531350 /* QUSeverityPickerTableViewCell.m in Sources */,
 				143E81B4187B8B7100BEFE8D /* QUAppDelegate.m in Sources */,
 				141A4CB718A1B1D600531350 /* SVProgressHUD.m in Sources */,
+				148DDAF818A3BF1C00927A4D /* QUNewAilmentHeaderView.m in Sources */,
 				143E81B0187B8B7100BEFE8D /* main.m in Sources */,
 				141A4CAF18A1B13B00531350 /* _AilmentInfo.m in Sources */,
 				149F468818A06ACA00CA70B2 /* QUAilmentsViewController.m in Sources */,
@@ -858,9 +865,10 @@
 		149F466A18A03ED500CA70B2 /* QUser.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
+				14A6F92718A457BE0015E0BE /* QUser 2.xcdatamodel */,
 				149F466B18A03ED500CA70B2 /* QUser.xcdatamodel */,
 			);
-			currentVersion = 149F466B18A03ED500CA70B2 /* QUser.xcdatamodel */;
+			currentVersion = 14A6F92718A457BE0015E0BE /* QUser 2.xcdatamodel */;
 			path = QUser.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;

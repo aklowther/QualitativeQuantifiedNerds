@@ -14,6 +14,8 @@
 @property (nonatomic) BOOL isModal;
 @property (nonatomic) BOOL editingExisting;
 @property (nonatomic) Ailment *type;
+@property (nonatomic) AilmentInfo *info;
 @property (nonatomic) CGFloat severitySliderValue;
 @property (nonatomic) NSDate *registeredTime;
+@property (nonatomic) NSPredicate *predicate;
 @end

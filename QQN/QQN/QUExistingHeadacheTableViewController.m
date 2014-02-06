@@ -77,7 +77,7 @@
     }
     
     
-    NSSortDescriptor *sort = [[NSSortDescriptor alloc] initWithKey:@"startTime" ascending:YES];
+    NSSortDescriptor *sort = [[NSSortDescriptor alloc] initWithKey:@"startTime" ascending:NO];
     //    NSSortDescriptor *sort2 = [[NSSortDescriptor alloc] initWithKey:@"name" ascending:YES];
     [fetchRequest setSortDescriptors:[NSArray arrayWithObjects:sort, nil]];
     
@@ -118,7 +118,29 @@
     NSString *startTime = [dateFormatter stringFromDate:info.startTime];
     
     [cell.timeLabel setText:startTime];
-//    [cell.durationLabel]
+    
+    NSString *duration = @"";
+    if (info.endTime) {
+        NSTimeInterval distanceBetweenDates = [info.endTime timeIntervalSinceDate:info.startTime];
+        float hours = distanceBetweenDates/3600.0f;
+        float minutes = hours/60.0f;
+        float seconds = round(distanceBetweenDates - minutes * 60.0f);
+//        double secondsInAnHour = 3600;
+//        CGFloat hoursBetweenDates = distanceBetweenDates / secondsInAnHour;
+        duration = [NSString stringWithFormat:@"%.2f hours", hours];
+        
+//        NSCalendar *gregorian = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
+//        
+//        NSUInteger unitFlags = NSMonthCalendarUnit | NSDayCalendarUnit;
+//        
+//        NSDateComponents *components = [gregorian components:unitFlags
+//                                                    fromDate:info.startTime
+//                                                      toDate:info.endTime options:0];
+        
+//        duration = [self prettyPrintTimeDurationWithComponents:components];
+    }
+
+    [cell.durationLabel setText:duration];
     
     CGFloat totalSeverity = 0.0f;
     CGFloat numberOfSpecificAilment = 0.0f;
@@ -139,6 +161,86 @@
     [self performSegueWithIdentifier:@"addNewAilment" sender:indexPath];
 }
 
+-(BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return YES;
+}
+
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        NSManagedObject *object = [self.fetchedResultsController objectAtIndexPath:indexPath];
+        [[[QUCoreDataManager sharedManager] context] deleteObject:object];
+        
+        NSError *error;
+        [[[QUCoreDataManager sharedManager] context] save:&error];
+        if (error != nil) {
+            NSLog(@"Error deleting context: Error = %@, details = %@",error,error.userInfo);
+        }
+    }
+}
+
+#pragma mark FetchedResultsController Delegate
+- (void)controllerWillChangeContent:(NSFetchedResultsController *)controller {
+    [self.tableView beginUpdates];
+}
+
+
+- (void)controller:(NSFetchedResultsController *)controller didChangeSection:(id <NSFetchedResultsSectionInfo>)sectionInfo
+           atIndex:(NSUInteger)sectionIndex forChangeType:(NSFetchedResultsChangeType)type {
+    
+    switch(type) {
+        case NSFetchedResultsChangeInsert:
+            [self.tableView insertSections:[NSIndexSet indexSetWithIndex:sectionIndex]
+                          withRowAnimation:UITableViewRowAnimationFade];
+            break;
+            
+        case NSFetchedResultsChangeDelete:
+            [self.tableView deleteSections:[NSIndexSet indexSetWithIndex:sectionIndex]
+                          withRowAnimation:UITableViewRowAnimationFade];
+            break;
+    }
+}
+
+
+- (void)controller:(NSFetchedResultsController *)controller didChangeObject:(id)anObject
+       atIndexPath:(NSIndexPath *)indexPath forChangeType:(NSFetchedResultsChangeType)type
+      newIndexPath:(NSIndexPath *)newIndexPath {
+    
+    UITableView *tableView = self.tableView;
+    
+    switch(type) {
+            
+        case NSFetchedResultsChangeInsert:
+            [tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:newIndexPath]
+                             withRowAnimation:UITableViewRowAnimationFade];
+            break;
+            
+        case NSFetchedResultsChangeDelete:
+            [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath]
+                             withRowAnimation:UITableViewRowAnimationFade];
+            break;
+            
+//        case NSFetchedResultsChangeUpdate:
+//            [self configureCell:[tableView cellForRowAtIndexPath:indexPath]
+//                    atIndexPath:indexPath];
+//            break;
+            
+        case NSFetchedResultsChangeMove:
+            [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath]
+                             withRowAnimation:UITableViewRowAnimationFade];
+            [tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:newIndexPath]
+                             withRowAnimation:UITableViewRowAnimationFade];
+            break;
+    }
+}
+
+
+- (void)controllerDidChangeContent:(NSFetchedResultsController *)controller {
+    [self.tableView endUpdates];
+}
+
+
 
 #pragma mark - Navigation
 
@@ -155,11 +257,17 @@
         [vc setIsModal:YES];
         [vc setType:self.ailment];
         [vc setTitle:[NSString stringWithFormat:@"%@", self.ailment.type]];
+        [vc setPredicate:[NSPredicate predicateWithFormat:@"ANY info.ailmentType.type == %@ AND info.startTime == %@", self.ailment.type, [NSDate date]]];
+        
+        
+//        NSPredicate *predicate = [NSPredicate predicateWithFormat:@"ANY ailmentType.type == %@ AND startTime == %@", self.type.type, self.info.startTime];
         
         if ([sender isKindOfClass:[NSIndexPath class]]) {
             NSIndexPath *indexPath = (NSIndexPath*)sender;
             AilmentInfo *info = [self.fetchedResultsController objectAtIndexPath:indexPath];
-            [vc setRegisteredTime:info.startTime];
+            [vc setInfo:info];
+            [vc setPredicate:[NSPredicate predicateWithFormat:@"ANY info.ailmentType.type == %@ AND info.startTime == %@", self.ailment.type, info.startTime]];
+//            [vc setRegisteredTime:info.startTime];
         }
         
 //    } else if ([segue.identifier isEqualToString:@"editExistingAilment"]) {
@@ -169,6 +277,33 @@
 //        [vc setType:self.ailment];
 //        [vc setTitle:[NSString stringWithFormat:@"Edit %@", self.title]];
     }
+}
+
+-(NSString*)prettyPrintTimeDurationWithComponents:(NSDateComponents*)components
+{
+    NSMutableString *formattedTime = [NSMutableString string];
+    NSInteger months = [components month];
+    NSInteger days = [components day];
+    NSInteger hours = [components hour];
+    NSInteger minutes = [components minute];
+    NSInteger seconds = [components second];
+    
+    if (months > 0) {
+        [formattedTime appendFormat:@"%d months ", months];
+    }
+    if (days > 0) {
+        [formattedTime appendFormat:@"%d days ", days];
+    }
+    if (hours > 0) {
+        [formattedTime appendFormat:@"%d hours ", hours];
+    }
+    if (minutes > 0) {
+        [formattedTime appendFormat:@"%d minutes ", minutes];
+    }
+    if (seconds > 0) {
+        [formattedTime appendFormat:@"%d seconds ", seconds];
+    }
+    return formattedTime;
 }
 
 

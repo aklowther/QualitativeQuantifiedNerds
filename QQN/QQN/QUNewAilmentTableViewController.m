@@ -10,9 +10,11 @@
 #import "QUSeverityPickerTableViewCell.h"
 #import "Severity.h"
 #import "QUCoreDataManager.h"
+#import "QUNewAilmentHeaderView.h"
 
 
-@interface QUNewAilmentTableViewController () <QUSeverityDelegate>
+@interface QUNewAilmentTableViewController () <QUSeverityDelegate, NSFetchedResultsControllerDelegate, UIActionSheetDelegate>
+@property (nonatomic, retain) NSFetchedResultsController *fetchedResultsController;
 
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *leftBarItem;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *rightBarItem;
@@ -29,12 +31,37 @@
     return self;
 }
 
+-(void)viewDidAppear:(BOOL)animated
+{
+    NSError *error;
+	if (![[self fetchedResultsController] performFetch:&error]) {
+		// Update to handle the error appropriately.
+		NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
+	}
+    [self.tableView reloadData];
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    NSError *error;
+	if (![[self fetchedResultsController] performFetch:&error]) {
+		// Update to handle the error appropriately.
+		NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
+	}
+//    [self.tableView reloadData];
+    
     if (self.isModal) {
         [self beingPresentedInModalPopup];
     }
+}
+
+-(void)dealloc
+{
+    self.fetchedResultsController = nil;
+    self.registeredTime = nil;
+    self.type = nil;
 }
 
 - (void)didReceiveMemoryWarning
@@ -52,29 +79,97 @@
     [self.rightBarItem setTitle:@"Save"];
     [self.rightBarItem setTarget:self];
     [self.rightBarItem setAction:@selector(newAilmentSaveButtonClicked)];
+    
+    if (self.info.endTime) {
+        [self.rightBarItem setEnabled:NO];
+    }
 }
 
 #pragma mark - Table view data source
+- (NSFetchedResultsController *)fetchedResultsController {
+    
+    if (_fetchedResultsController != nil) {
+        return _fetchedResultsController;
+    }
+    
+    NSManagedObjectContext *context = [[QUCoreDataManager sharedManager] context];
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Severity" inManagedObjectContext:context];
+    [fetchRequest setEntity:entity];
+    
+    if (self.predicate) {
+        [fetchRequest setPredicate:self.predicate];
+    }
+    
+    NSSortDescriptor *sort = [[NSSortDescriptor alloc] initWithKey:@"time" ascending:YES];
+    //    NSSortDescriptor *sort2 = [[NSSortDescriptor alloc] initWithKey:@"name" ascending:YES];
+    [fetchRequest setSortDescriptors:[NSArray arrayWithObjects:sort, nil]];
+    
+    [fetchRequest setFetchBatchSize:20];
+    
+    NSFetchedResultsController *theFetchedResultsController =
+    [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest
+                                        managedObjectContext:context
+                                          sectionNameKeyPath:nil
+                                                   cacheName:nil];
+    self.fetchedResultsController = theFetchedResultsController;
+    _fetchedResultsController.delegate = self;
+    
+    return _fetchedResultsController;
+}
+
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 1;
+    NSInteger numSections = [[self.fetchedResultsController sections] count];
+    if (!self.info.endTime) {
+        numSections+=1;
+    }
+    return numSections;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 2;
+    NSInteger numRowsInSection = 0;
+    if ([[self.fetchedResultsController sections] count] == 0) {
+        numRowsInSection = 2;
+    } else if([[self.fetchedResultsController sections] count] == section){
+        numRowsInSection = 2;
+    }else {
+        id<NSFetchedResultsSectionInfo> sectionInfo = [[self.fetchedResultsController sections] objectAtIndex:section];
+        numRowsInSection = [sectionInfo numberOfObjects];
+    }
+
+    return numRowsInSection;
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     CGFloat height = 0.0f;
-    if (indexPath.row == 1) {
+    if (indexPath.section < [[self.fetchedResultsController sections] count]) {
         height = 88.0f;
     } else {
-        height = 44.0f;
+//    if (indexPath.section == [self.tableView numberOfSections]) {
+        if (indexPath.row == 1) {
+            height = 88.0f;
+        } else {
+            height = 44.0f;
+        }
     }
     return height;
+}
+
+-(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
+{
+    UIView *headerView = nil;
+    if (!(section < [[self.fetchedResultsController sections] count])) {
+        headerView = [[UIView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, self.view.frame.size.width, 44.0f)];
+        [headerView setBackgroundColor:[UIColor blueColor]];
+//        QUNewAilmentHeaderView *newHeaderView = [[QUNewAilmentHeaderView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, self.view.frame.size.width, 44.0f)];
+//        [newHeaderView setHeaderViewTextContent:@"Add More Data"];
+//        headerView = newHeaderView;
+    }
+    return headerView;
 }
 
 
@@ -82,72 +177,72 @@
 {
     static NSString *identifierForCell = @"severityPicker";
     UITableViewCell *cell = nil;
-    if (indexPath.row == 1) {
+    
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"MMM dd, yyyy hh:mm a"];
+    
+    if (indexPath.section < [[self.fetchedResultsController sections] count]) {
+        Severity *ailmentSeverity = [self.fetchedResultsController objectAtIndexPath:indexPath];
         QUSeverityPickerTableViewCell *newCell = (QUSeverityPickerTableViewCell*)[tableView dequeueReusableCellWithIdentifier:identifierForCell forIndexPath:indexPath];
-        [newCell.severityLabel setText:@"Severity"];
+        [newCell.severityLabel setText:[dateFormatter stringFromDate:ailmentSeverity.time]];
+        [newCell.severitySlider setValue:ailmentSeverity.currentSeverityValue animated:YES];
+        [newCell.sliderValueLabel setText:[NSString stringWithFormat:@"%.2f", ailmentSeverity.currentSeverityValue*10]];
         [newCell setDelegate:self];
+        [newCell.severitySlider setEnabled:NO];
         cell = newCell;
-    } else {
-        cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
-        if (cell == nil) {
-            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:@"Cell"];
-        }
-        [cell.textLabel setText:@"Current Time"];
+    }else {
         
-        NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-        [dateFormatter setDateFormat:@"MMM dd, yyyy hh:mm a"];
-        
-        if (!self.registeredTime) {
-            NSString *currentTime = [dateFormatter stringFromDate:[NSDate date]];
-            [cell.detailTextLabel setText:currentTime];
-            _registeredTime = [NSDate date];
+        if (indexPath.row == 1) {
+            QUSeverityPickerTableViewCell *newCell = (QUSeverityPickerTableViewCell*)[tableView dequeueReusableCellWithIdentifier:identifierForCell forIndexPath:indexPath];
+            [newCell.severityLabel setText:@"Severity"];
+            [newCell setDelegate:self];
+            cell = newCell;
         } else {
-            NSString *currentTime = [dateFormatter stringFromDate:self.registeredTime];
-            [cell.detailTextLabel setText:currentTime];
+            cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
+            if (cell == nil) {
+                cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:@"Cell"];
+            }
+            [cell.textLabel setText:@"Current Time"];
+            
+            NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+            [dateFormatter setDateFormat:@"MMM dd, yyyy hh:mm a"];
+            
+            if (!self.registeredTime) {
+                NSString *currentTime = [dateFormatter stringFromDate:[NSDate date]];
+                [cell.detailTextLabel setText:currentTime];
+                _registeredTime = [NSDate date];
+            } else {
+//                NSString *currentTime = [dateFormatter stringFromDate:self.registeredTime];
+                NSString *currentTime = [dateFormatter stringFromDate:[NSDate date]];
+                [cell.detailTextLabel setText:currentTime];
+            }
+            
         }
-
     }
     return cell;
 }
 
-
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
+-(BOOL)tableView:(UITableView *)tableView shouldHighlightRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
+    BOOL shouldHighlight = NO;
+    if (indexPath.section < [[self.fetchedResultsController sections] count]) {
+        shouldHighlight = NO;
+    } else {
+//        if (indexPath.row == 0) {
+//            shouldHighlight = YES;
+//        }
+    }
+    return shouldHighlight;
 }
-*/
 
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
+    if (!(indexPath.section < [[self.fetchedResultsController sections] count])) {
+        if (indexPath.row == 0) {
+            NSLog(@"show date picker");
+        }
+    }
 }
-*/
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
-{
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
 
 -(void)severitySliderValueChanged:(UISlider *)slider
 {
@@ -156,11 +251,29 @@
 
 -(void)newAilmentSaveButtonClicked
 {
-    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"ANY ailmentType.type == %@ AND startTime == %@", self.type, self.registeredTime];
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"ANY ailmentType.type == %@ AND startTime == %@", self.type.type, self.info.startTime];
     NSArray *savedData = [[QUCoreDataManager sharedManager] getArrayOfDataFromEntity:@"AilmentInfo" withPredicate:predicate];
     if ([savedData count] > 1) {
         NSLog(@"more than one match");
-    } else {
+        return;
+    } else if([savedData count] == 1) {
+        AilmentInfo *info = [savedData firstObject];
+        Severity *addSeverity = (Severity*)[NSEntityDescription insertNewObjectForEntityForName:@"Severity" inManagedObjectContext:[[QUCoreDataManager sharedManager] context]];
+        [addSeverity setTime:self.registeredTime];
+        [addSeverity setCurrentSeverity:[NSNumber numberWithFloat:self.severitySliderValue]];
+        
+        if (self.severitySliderValue == 0.0f) {
+            [info setEndTime:[NSDate date]];
+        }
+        [addSeverity setInfo:info];
+        
+        NSError *error = nil;
+        [[[QUCoreDataManager sharedManager] context] save:&error];
+        if (error != nil) {
+            NSLog(@"uh oh");
+        }
+        
+    }else {
         AilmentInfo *info = (AilmentInfo*)[NSEntityDescription insertNewObjectForEntityForName:@"AilmentInfo" inManagedObjectContext:[QUCoreDataManager sharedManager].context];
         [info setAilmentType:self.type];
         [info setStartTime:self.registeredTime];
@@ -178,8 +291,8 @@
         if (error) {
             NSLog(@"uh oh");
         }
-        [self dismissViewControllerAnimated:YES completion:nil];
     }
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 /*

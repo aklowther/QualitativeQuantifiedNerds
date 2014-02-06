@@ -74,7 +74,7 @@
     Ailment *newestDownloadedAilment = [Ailment ailmentWithNewestCreatedDateInContext:[QUCoreDataManager sharedManager].context];
     NSPredicate *predicate = nil;
     if (newestDownloadedAilment.createdByParse != nil) {
-        predicate = [NSPredicate predicateWithFormat:@"createdAt >= '%@'", newestDownloadedAilment.createdByParse];
+        predicate = [NSPredicate predicateWithFormat:@"createdAt > %@", newestDownloadedAilment.createdByParse];
     }
     
     PFQuery *query = [PFQuery queryWithClassName:@"ailments" predicate:predicate];
@@ -201,9 +201,5 @@
     vc.predicate = [NSPredicate predicateWithFormat:@"ANY ailmentType.type == %@", ailment.type];
 }
 
-//-(void)addNewAilmentSelected
-//{
-//    
-//}
 
 @end
