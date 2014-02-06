@@ -7,6 +7,7 @@ const struct UserAttributes UserAttributes = {
 	.dob = @"dob",
 	.email = @"email",
 	.firstName = @"firstName",
+	.fitbitAuthToken = @"fitbitAuthToken",
 	.lastName = @"lastName",
 };
 
@@ -71,6 +72,13 @@ const struct UserFetchedProperties UserFetchedProperties = {
 
 
 
+@dynamic fitbitAuthToken;
+
+
+
+
+
+
 @dynamic lastName;
 
 
@@ -93,6 +101,41 @@ const struct UserFetchedProperties UserFetchedProperties = {
 
 
 
+
+
+
++ (NSArray*)fetchCheckFirstLastName:(NSManagedObjectContext*)moc_ CHECK:(NSString*)CHECK_ {
+	NSError *error = nil;
+	NSArray *result = [self fetchCheckFirstLastName:moc_ CHECK:CHECK_ error:&error];
+	if (error) {
+#ifdef NSAppKitVersionNumber10_0
+		[NSApp presentError:error];
+#else
+		NSLog(@"error: %@", error);
+#endif
+	}
+	return result;
+}
++ (NSArray*)fetchCheckFirstLastName:(NSManagedObjectContext*)moc_ CHECK:(NSString*)CHECK_ error:(NSError**)error_ {
+	NSParameterAssert(moc_);
+	NSError *error = nil;
+
+	NSManagedObjectModel *model = [[moc_ persistentStoreCoordinator] managedObjectModel];
+	
+	NSDictionary *substitutionVariables = [NSDictionary dictionaryWithObjectsAndKeys:
+														
+														CHECK_, @"CHECK",
+														
+														nil];
+	
+	NSFetchRequest *fetchRequest = [model fetchRequestFromTemplateWithName:@"checkFirstLastName"
+													 substitutionVariables:substitutionVariables];
+	NSAssert(fetchRequest, @"Can't find fetch request named \"checkFirstLastName\".");
+
+	NSArray *result = [moc_ executeFetchRequest:fetchRequest error:&error];
+	if (error_) *error_ = error;
+	return result;
+}
 
 
 

@@ -6,6 +6,8 @@
 //  Copyright (c) 2014 Adam Lowther. All rights reserved.
 //
 
+#import <Parse/Parse.h>
+#import "TestFlight.h"
 #import "QUAppDelegate.h"
 
 @implementation QUAppDelegate
@@ -13,6 +15,11 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
+    
+    [TestFlight takeOff:@"2d0ef8a3-afe1-411b-9f3a-216deae581dc"];
+    
+    [Parse setApplicationId:@"IFiPJOjPe7Pr3IrtpLI01N1KfNcu42mT6yEjJ3dd"
+                  clientKey:@"W3X44einRwnlKJMTmhzJRueOa7HrAmtxdQzuBKBC"];
     return YES;
 }
 							

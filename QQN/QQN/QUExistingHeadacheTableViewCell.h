@@ -7,11 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "AMGProgressView.h"
+#import "QUSeverityProgress.h"
 
 @interface QUExistingHeadacheTableViewCell : UITableViewCell
 
 @property (weak, nonatomic) IBOutlet UILabel *timeLabel;
 @property (weak, nonatomic) IBOutlet UILabel *durationLabel;
-@property (weak, nonatomic) IBOutlet AMGProgressView *headacheSeverity;
+@property (weak, nonatomic) IBOutlet QUSeverityProgress *headacheSeverity;
 @end

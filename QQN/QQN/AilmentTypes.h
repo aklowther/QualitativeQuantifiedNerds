@@ -10,9 +10,11 @@
 #define QQN_AilmentTypes_h
 
 typedef enum : NSUInteger {
-    @"SinusCold" = 0,
-    @"Headache" = 1,
-    @"Allergies" = 2
+    SinusCold = 0,
+    Headache = 1,
+    Allergies = 2,
+    Flu = 3,
+    Fever = 4
 } AilmentTypes;
 
 #endif

@@ -5,22 +5,20 @@
 
 
 extern const struct AilmentAttributes {
-	__unsafe_unretained NSString *endTime;
-	__unsafe_unretained NSString *severity;
-	__unsafe_unretained NSString *startTime;
+	__unsafe_unretained NSString *createdByParse;
 	__unsafe_unretained NSString *type;
 } AilmentAttributes;
 
 extern const struct AilmentRelationships {
 	__unsafe_unretained NSString *host;
+	__unsafe_unretained NSString *info;
 } AilmentRelationships;
 
 extern const struct AilmentFetchedProperties {
 } AilmentFetchedProperties;
 
 @class User;
-
-
+@class AilmentInfo;
 
 
 
@@ -38,47 +36,19 @@ extern const struct AilmentFetchedProperties {
 
 
 
-@property (nonatomic, strong) NSDate* endTime;
+@property (nonatomic, strong) NSDate* createdByParse;
 
 
 
-//- (BOOL)validateEndTime:(id*)value_ error:(NSError**)error_;
-
-
-
-
-
-@property (nonatomic, strong) NSNumber* severity;
-
-
-
-@property int16_t severityValue;
-- (int16_t)severityValue;
-- (void)setSeverityValue:(int16_t)value_;
-
-//- (BOOL)validateSeverity:(id*)value_ error:(NSError**)error_;
+//- (BOOL)validateCreatedByParse:(id*)value_ error:(NSError**)error_;
 
 
 
 
 
-@property (nonatomic, strong) NSDate* startTime;
+@property (nonatomic, strong) NSString* type;
 
 
-
-//- (BOOL)validateStartTime:(id*)value_ error:(NSError**)error_;
-
-
-
-
-
-@property (nonatomic, strong) NSNumber* type;
-
-
-
-@property int16_t typeValue;
-- (int16_t)typeValue;
-- (void)setTypeValue:(int16_t)value_;
 
 //- (BOOL)validateType:(id*)value_ error:(NSError**)error_;
 
@@ -93,42 +63,36 @@ extern const struct AilmentFetchedProperties {
 
 
 
+@property (nonatomic, strong) NSSet *info;
+
+- (NSMutableSet*)infoSet;
+
+
+
+
 
 @end
 
 @interface _Ailment (CoreDataGeneratedAccessors)
+
+- (void)addInfo:(NSSet*)value_;
+- (void)removeInfo:(NSSet*)value_;
+- (void)addInfoObject:(AilmentInfo*)value_;
+- (void)removeInfoObject:(AilmentInfo*)value_;
 
 @end
 
 @interface _Ailment (CoreDataGeneratedPrimitiveAccessors)
 
 
-- (NSDate*)primitiveEndTime;
-- (void)setPrimitiveEndTime:(NSDate*)value;
+- (NSDate*)primitiveCreatedByParse;
+- (void)setPrimitiveCreatedByParse:(NSDate*)value;
 
 
 
 
-- (NSNumber*)primitiveSeverity;
-- (void)setPrimitiveSeverity:(NSNumber*)value;
-
-- (int16_t)primitiveSeverityValue;
-- (void)setPrimitiveSeverityValue:(int16_t)value_;
-
-
-
-
-- (NSDate*)primitiveStartTime;
-- (void)setPrimitiveStartTime:(NSDate*)value;
-
-
-
-
-- (NSNumber*)primitiveType;
-- (void)setPrimitiveType:(NSNumber*)value;
-
-- (int16_t)primitiveTypeValue;
-- (void)setPrimitiveTypeValue:(int16_t)value_;
+- (NSString*)primitiveType;
+- (void)setPrimitiveType:(NSString*)value;
 
 
 
@@ -136,6 +100,11 @@ extern const struct AilmentFetchedProperties {
 
 - (User*)primitiveHost;
 - (void)setPrimitiveHost:(User*)value;
+
+
+
+- (NSMutableSet*)primitiveInfo;
+- (void)setPrimitiveInfo:(NSMutableSet*)value;
 
 
 @end

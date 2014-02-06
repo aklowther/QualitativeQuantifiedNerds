@@ -7,7 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Ailment.h"
+#import "AilmentInfo.h"
+#import "Severity.h"
 
 @interface QUExistingHeadacheTableViewController : UITableViewController
-
+@property (nonatomic) NSPredicate *predicate;
+@property (nonatomic) Ailment *ailment;
 @end

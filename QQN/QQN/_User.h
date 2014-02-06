@@ -8,6 +8,7 @@ extern const struct UserAttributes {
 	__unsafe_unretained NSString *dob;
 	__unsafe_unretained NSString *email;
 	__unsafe_unretained NSString *firstName;
+	__unsafe_unretained NSString *fitbitAuthToken;
 	__unsafe_unretained NSString *lastName;
 } UserAttributes;
 
@@ -19,6 +20,7 @@ extern const struct UserFetchedProperties {
 } UserFetchedProperties;
 
 @class Ailment;
+
 
 
 
@@ -68,6 +70,16 @@ extern const struct UserFetchedProperties {
 
 
 
+@property (nonatomic, strong) NSString* fitbitAuthToken;
+
+
+
+//- (BOOL)validateFitbitAuthToken:(id*)value_ error:(NSError**)error_;
+
+
+
+
+
 @property (nonatomic, strong) NSString* lastName;
 
 
@@ -82,6 +94,11 @@ extern const struct UserFetchedProperties {
 
 - (NSMutableSet*)ailmentSet;
 
+
+
+
++ (NSArray*)fetchCheckFirstLastName:(NSManagedObjectContext*)moc_ CHECK:(NSString*)CHECK_ ;
++ (NSArray*)fetchCheckFirstLastName:(NSManagedObjectContext*)moc_ CHECK:(NSString*)CHECK_ error:(NSError**)error_;
 
 
 
@@ -114,6 +131,12 @@ extern const struct UserFetchedProperties {
 
 - (NSString*)primitiveFirstName;
 - (void)setPrimitiveFirstName:(NSString*)value;
+
+
+
+
+- (NSString*)primitiveFitbitAuthToken;
+- (void)setPrimitiveFitbitAuthToken:(NSString*)value;
 
 
 

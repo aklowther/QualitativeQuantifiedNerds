@@ -4,14 +4,13 @@
 #import "_Ailment.h"
 
 const struct AilmentAttributes AilmentAttributes = {
-	.endTime = @"endTime",
-	.severity = @"severity",
-	.startTime = @"startTime",
+	.createdByParse = @"createdByParse",
 	.type = @"type",
 };
 
 const struct AilmentRelationships AilmentRelationships = {
 	.host = @"host",
+	.info = @"info",
 };
 
 const struct AilmentFetchedProperties AilmentFetchedProperties = {
@@ -43,16 +42,6 @@ const struct AilmentFetchedProperties AilmentFetchedProperties = {
 + (NSSet*)keyPathsForValuesAffectingValueForKey:(NSString*)key {
 	NSSet *keyPaths = [super keyPathsForValuesAffectingValueForKey:key];
 	
-	if ([key isEqualToString:@"severityValue"]) {
-		NSSet *affectingKey = [NSSet setWithObject:@"severity"];
-		keyPaths = [keyPaths setByAddingObjectsFromSet:affectingKey];
-		return keyPaths;
-	}
-	if ([key isEqualToString:@"typeValue"]) {
-		NSSet *affectingKey = [NSSet setWithObject:@"type"];
-		keyPaths = [keyPaths setByAddingObjectsFromSet:affectingKey];
-		return keyPaths;
-	}
 
 	return keyPaths;
 }
@@ -60,40 +49,7 @@ const struct AilmentFetchedProperties AilmentFetchedProperties = {
 
 
 
-@dynamic endTime;
-
-
-
-
-
-
-@dynamic severity;
-
-
-
-- (int16_t)severityValue {
-	NSNumber *result = [self severity];
-	return [result shortValue];
-}
-
-- (void)setSeverityValue:(int16_t)value_ {
-	[self setSeverity:[NSNumber numberWithShort:value_]];
-}
-
-- (int16_t)primitiveSeverityValue {
-	NSNumber *result = [self primitiveSeverity];
-	return [result shortValue];
-}
-
-- (void)setPrimitiveSeverityValue:(int16_t)value_ {
-	[self setPrimitiveSeverity:[NSNumber numberWithShort:value_]];
-}
-
-
-
-
-
-@dynamic startTime;
+@dynamic createdByParse;
 
 
 
@@ -104,30 +60,24 @@ const struct AilmentFetchedProperties AilmentFetchedProperties = {
 
 
 
-- (int16_t)typeValue {
-	NSNumber *result = [self type];
-	return [result shortValue];
-}
-
-- (void)setTypeValue:(int16_t)value_ {
-	[self setType:[NSNumber numberWithShort:value_]];
-}
-
-- (int16_t)primitiveTypeValue {
-	NSNumber *result = [self primitiveType];
-	return [result shortValue];
-}
-
-- (void)setPrimitiveTypeValue:(int16_t)value_ {
-	[self setPrimitiveType:[NSNumber numberWithShort:value_]];
-}
-
-
 
 
 
 @dynamic host;
 
+	
+
+@dynamic info;
+
+	
+- (NSMutableSet*)infoSet {
+	[self willAccessValueForKey:@"info"];
+  
+	NSMutableSet *result = (NSMutableSet*)[self mutableSetValueForKey:@"info"];
+  
+	[self didAccessValueForKey:@"info"];
+	return result;
+}
 	
 
 

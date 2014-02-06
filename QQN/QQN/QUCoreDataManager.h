@@ -7,7 +7,17 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "User.h"
 
 @interface QUCoreDataManager : NSObject
+
+@property (nonatomic, retain) NSPersistentStore *store;
+@property (nonatomic, retain) NSPersistentStoreCoordinator *coord;
+@property (nonatomic, retain) NSManagedObjectModel *model;
+@property (nonatomic, retain) NSManagedObjectContext *context;
+
++(QUCoreDataManager*)sharedManager;
+-(NSArray*)getArrayOfDataFromEntity:(NSString*)entityName withPredicate:(NSPredicate*)predicate;
+-(void)setAilments:(NSArray*)ailments;
 
 @end

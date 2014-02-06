@@ -21,6 +21,18 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
+		141A4CA818A1B11300531350 /* _Severity.m in Sources */ = {isa = PBXBuildFile; fileRef = 141A4CA518A1B11300531350 /* _Severity.m */; };
+		141A4CA918A1B11300531350 /* Severity.m in Sources */ = {isa = PBXBuildFile; fileRef = 141A4CA718A1B11300531350 /* Severity.m */; };
+		141A4CAF18A1B13B00531350 /* _AilmentInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 141A4CAC18A1B13B00531350 /* _AilmentInfo.m */; };
+		141A4CB018A1B13B00531350 /* AilmentInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 141A4CAE18A1B13B00531350 /* AilmentInfo.m */; };
+		141A4CB618A1B1D600531350 /* SVProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 141A4CB318A1B1D600531350 /* SVProgressHUD.bundle */; };
+		141A4CB718A1B1D600531350 /* SVProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 141A4CB518A1B1D600531350 /* SVProgressHUD.m */; };
+		141A4CBA18A1C90E00531350 /* QUNewAilmentTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 141A4CB918A1C90E00531350 /* QUNewAilmentTableViewController.m */; };
+		141A4CBD18A1C9F200531350 /* QUSeverityProgress.m in Sources */ = {isa = PBXBuildFile; fileRef = 141A4CBC18A1C9F200531350 /* QUSeverityProgress.m */; };
+		141A4CC018A1CFF500531350 /* QUSeverityPickerTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 141A4CBF18A1CFF500531350 /* QUSeverityPickerTableViewCell.m */; };
+		141A4CC918A1DB9A00531350 /* libTestFlight.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 141A4CC318A1DB9A00531350 /* libTestFlight.a */; };
+		141A4CCA18A1DB9A00531350 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 141A4CC418A1DB9A00531350 /* README.md */; };
+		141A4CCB18A1DB9A00531350 /* release_notes.md in Resources */ = {isa = PBXBuildFile; fileRef = 141A4CC518A1DB9A00531350 /* release_notes.md */; };
 		1425B340189FCF530096C5CC /* QUExistingHeadacheTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1425B33F189FCF530096C5CC /* QUExistingHeadacheTableViewCell.m */; };
 		1425B344189FD3170096C5CC /* AMGProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1425B343189FD3170096C5CC /* AMGProgressView.m */; };
 		1425B348189FD3710096C5CC /* QUExistingHeadacheTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1425B347189FD3710096C5CC /* QUExistingHeadacheTableViewController.m */; };
@@ -44,6 +56,19 @@
 		149F467E18A040E500CA70B2 /* Ailment.m in Sources */ = {isa = PBXBuildFile; fileRef = 149F467918A040E500CA70B2 /* Ailment.m */; };
 		149F467F18A040E500CA70B2 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 149F467B18A040E500CA70B2 /* User.m */; };
 		149F468218A0411200CA70B2 /* QUCoreDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 149F468118A0411200CA70B2 /* QUCoreDataManager.m */; };
+		149F468518A0420900CA70B2 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 149F468418A0420900CA70B2 /* CoreData.framework */; };
+		149F468818A06ACA00CA70B2 /* QUAilmentsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 149F468718A06ACA00CA70B2 /* QUAilmentsViewController.m */; };
+		149F468C18A06FB800CA70B2 /* QUAilmentsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 149F468B18A06FB800CA70B2 /* QUAilmentsTableViewController.m */; };
+		149F468E18A074B500CA70B2 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 149F468D18A074B500CA70B2 /* Parse.framework */; };
+		149F469018A0758900CA70B2 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 149F468F18A0758900CA70B2 /* CFNetwork.framework */; };
+		149F469418A075A800CA70B2 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 149F469318A075A800CA70B2 /* AudioToolbox.framework */; };
+		149F469618A075B600CA70B2 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 149F469518A075B600CA70B2 /* CoreLocation.framework */; };
+		149F469818A075BC00CA70B2 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 149F469718A075BC00CA70B2 /* libz.dylib */; };
+		149F469A18A075C400CA70B2 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 149F469918A075C400CA70B2 /* MobileCoreServices.framework */; };
+		149F469C18A075CE00CA70B2 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 149F469B18A075CE00CA70B2 /* QuartzCore.framework */; };
+		149F469E18A075D200CA70B2 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 149F469D18A075D200CA70B2 /* Security.framework */; };
+		149F46A018A075D800CA70B2 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 149F469F18A075D800CA70B2 /* StoreKit.framework */; };
+		149F46A218A075DD00CA70B2 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 149F46A118A075DD00CA70B2 /* SystemConfiguration.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +82,30 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		141A4CA418A1B11300531350 /* _Severity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _Severity.h; sourceTree = "<group>"; };
+		141A4CA518A1B11300531350 /* _Severity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _Severity.m; sourceTree = "<group>"; };
+		141A4CA618A1B11300531350 /* Severity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Severity.h; sourceTree = "<group>"; };
+		141A4CA718A1B11300531350 /* Severity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Severity.m; sourceTree = "<group>"; };
+		141A4CAB18A1B13B00531350 /* _AilmentInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _AilmentInfo.h; sourceTree = "<group>"; };
+		141A4CAC18A1B13B00531350 /* _AilmentInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _AilmentInfo.m; sourceTree = "<group>"; };
+		141A4CAD18A1B13B00531350 /* AilmentInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AilmentInfo.h; sourceTree = "<group>"; };
+		141A4CAE18A1B13B00531350 /* AilmentInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AilmentInfo.m; sourceTree = "<group>"; };
+		141A4CB218A1B1D600531350 /* SVProgressHUD-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SVProgressHUD-Prefix.pch"; sourceTree = "<group>"; };
+		141A4CB318A1B1D600531350 /* SVProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = SVProgressHUD.bundle; sourceTree = "<group>"; };
+		141A4CB418A1B1D600531350 /* SVProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVProgressHUD.h; sourceTree = "<group>"; };
+		141A4CB518A1B1D600531350 /* SVProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVProgressHUD.m; sourceTree = "<group>"; };
+		141A4CB818A1C90E00531350 /* QUNewAilmentTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QUNewAilmentTableViewController.h; sourceTree = "<group>"; };
+		141A4CB918A1C90E00531350 /* QUNewAilmentTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QUNewAilmentTableViewController.m; sourceTree = "<group>"; };
+		141A4CBB18A1C9F200531350 /* QUSeverityProgress.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QUSeverityProgress.h; sourceTree = "<group>"; };
+		141A4CBC18A1C9F200531350 /* QUSeverityProgress.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QUSeverityProgress.m; sourceTree = "<group>"; };
+		141A4CBE18A1CFF500531350 /* QUSeverityPickerTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QUSeverityPickerTableViewCell.h; sourceTree = "<group>"; };
+		141A4CBF18A1CFF500531350 /* QUSeverityPickerTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QUSeverityPickerTableViewCell.m; sourceTree = "<group>"; };
+		141A4CC318A1DB9A00531350 /* libTestFlight.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libTestFlight.a; sourceTree = "<group>"; };
+		141A4CC418A1DB9A00531350 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
+		141A4CC518A1DB9A00531350 /* release_notes.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = release_notes.md; sourceTree = "<group>"; };
+		141A4CC618A1DB9A00531350 /* TestFlight+AsyncLogging.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TestFlight+AsyncLogging.h"; sourceTree = "<group>"; };
+		141A4CC718A1DB9A00531350 /* TestFlight+ManualSessions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TestFlight+ManualSessions.h"; sourceTree = "<group>"; };
+		141A4CC818A1DB9A00531350 /* TestFlight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestFlight.h; sourceTree = "<group>"; };
 		1425B33E189FCF530096C5CC /* QUExistingHeadacheTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QUExistingHeadacheTableViewCell.h; sourceTree = "<group>"; };
 		1425B33F189FCF530096C5CC /* QUExistingHeadacheTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QUExistingHeadacheTableViewCell.m; sourceTree = "<group>"; };
 		1425B342189FD3170096C5CC /* AMGProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMGProgressView.h; sourceTree = "<group>"; };
@@ -94,6 +143,22 @@
 		149F467B18A040E500CA70B2 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
 		149F468018A0411200CA70B2 /* QUCoreDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QUCoreDataManager.h; sourceTree = "<group>"; };
 		149F468118A0411200CA70B2 /* QUCoreDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QUCoreDataManager.m; sourceTree = "<group>"; };
+		149F468418A0420900CA70B2 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		149F468618A06ACA00CA70B2 /* QUAilmentsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QUAilmentsViewController.h; sourceTree = "<group>"; };
+		149F468718A06ACA00CA70B2 /* QUAilmentsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QUAilmentsViewController.m; sourceTree = "<group>"; };
+		149F468A18A06FB800CA70B2 /* QUAilmentsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QUAilmentsTableViewController.h; sourceTree = "<group>"; };
+		149F468B18A06FB800CA70B2 /* QUAilmentsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QUAilmentsTableViewController.m; sourceTree = "<group>"; };
+		149F468D18A074B500CA70B2 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
+		149F468F18A0758900CA70B2 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		149F469118A0758D00CA70B2 /* CoreAudio.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreAudio.framework; path = System/Library/Frameworks/CoreAudio.framework; sourceTree = SDKROOT; };
+		149F469318A075A800CA70B2 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		149F469518A075B600CA70B2 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		149F469718A075BC00CA70B2 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
+		149F469918A075C400CA70B2 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		149F469B18A075CE00CA70B2 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		149F469D18A075D200CA70B2 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		149F469F18A075D800CA70B2 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		149F46A118A075DD00CA70B2 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		47D040CD187D368300F48EF3 /* OAuth1Controller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OAuth1Controller.h; path = "../../../../Downloads/simple-oauth1-master 2/Simple-OAuth1/Simple-OAuth1/OAuth1Controller.h"; sourceTree = "<group>"; };
 		47D040CE187D368300F48EF3 /* OAuth1Controller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OAuth1Controller.m; path = "../../../../Downloads/simple-oauth1-master 2/Simple-OAuth1/Simple-OAuth1/OAuth1Controller.m"; sourceTree = "<group>"; };
 		47D040CF187D368300F48EF3 /* NSString+URLEncoding.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSString+URLEncoding.h"; path = "../../../../Downloads/simple-oauth1-master 2/Simple-OAuth1/Simple-OAuth1/NSString+URLEncoding.h"; sourceTree = "<group>"; };
@@ -111,9 +176,21 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				141A4CC918A1DB9A00531350 /* libTestFlight.a in Frameworks */,
+				149F46A218A075DD00CA70B2 /* SystemConfiguration.framework in Frameworks */,
+				149F46A018A075D800CA70B2 /* StoreKit.framework in Frameworks */,
+				149F469E18A075D200CA70B2 /* Security.framework in Frameworks */,
+				149F469C18A075CE00CA70B2 /* QuartzCore.framework in Frameworks */,
+				149F469A18A075C400CA70B2 /* MobileCoreServices.framework in Frameworks */,
+				149F469818A075BC00CA70B2 /* libz.dylib in Frameworks */,
+				149F469618A075B600CA70B2 /* CoreLocation.framework in Frameworks */,
 				143E81A6187B8B7100BEFE8D /* CoreGraphics.framework in Frameworks */,
+				149F469418A075A800CA70B2 /* AudioToolbox.framework in Frameworks */,
+				149F469018A0758900CA70B2 /* CFNetwork.framework in Frameworks */,
+				149F468518A0420900CA70B2 /* CoreData.framework in Frameworks */,
 				143E81A8187B8B7100BEFE8D /* UIKit.framework in Frameworks */,
 				143E81A4187B8B7100BEFE8D /* Foundation.framework in Frameworks */,
+				149F468E18A074B500CA70B2 /* Parse.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -130,6 +207,39 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		141A4CB118A1B1D600531350 /* SVProgressHUD */ = {
+			isa = PBXGroup;
+			children = (
+				141A4CB218A1B1D600531350 /* SVProgressHUD-Prefix.pch */,
+				141A4CB318A1B1D600531350 /* SVProgressHUD.bundle */,
+				141A4CB418A1B1D600531350 /* SVProgressHUD.h */,
+				141A4CB518A1B1D600531350 /* SVProgressHUD.m */,
+			);
+			path = SVProgressHUD;
+			sourceTree = "<group>";
+		};
+		141A4CC118A1D3B500531350 /* FUCKING COLLECTION VIEW */ = {
+			isa = PBXGroup;
+			children = (
+				149F468618A06ACA00CA70B2 /* QUAilmentsViewController.h */,
+				149F468718A06ACA00CA70B2 /* QUAilmentsViewController.m */,
+			);
+			name = "FUCKING COLLECTION VIEW";
+			sourceTree = "<group>";
+		};
+		141A4CC218A1DB9A00531350 /* TestFlightSDK2 */ = {
+			isa = PBXGroup;
+			children = (
+				141A4CC318A1DB9A00531350 /* libTestFlight.a */,
+				141A4CC418A1DB9A00531350 /* README.md */,
+				141A4CC518A1DB9A00531350 /* release_notes.md */,
+				141A4CC618A1DB9A00531350 /* TestFlight+AsyncLogging.h */,
+				141A4CC718A1DB9A00531350 /* TestFlight+ManualSessions.h */,
+				141A4CC818A1DB9A00531350 /* TestFlight.h */,
+			);
+			path = TestFlightSDK2;
+			sourceTree = "<group>";
+		};
 		1425B341189FCF560096C5CC /* Headaches */ = {
 			isa = PBXGroup;
 			children = (
@@ -144,6 +254,8 @@
 		1425B345189FD31C0096C5CC /* GradientProgressView */ = {
 			isa = PBXGroup;
 			children = (
+				141A4CBB18A1C9F200531350 /* QUSeverityProgress.h */,
+				141A4CBC18A1C9F200531350 /* QUSeverityProgress.m */,
 				1425B342189FD3170096C5CC /* AMGProgressView.h */,
 				1425B343189FD3170096C5CC /* AMGProgressView.m */,
 			);
@@ -172,6 +284,19 @@
 		143E81A2187B8B7100BEFE8D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				141A4CC218A1DB9A00531350 /* TestFlightSDK2 */,
+				149F46A118A075DD00CA70B2 /* SystemConfiguration.framework */,
+				149F469F18A075D800CA70B2 /* StoreKit.framework */,
+				149F469D18A075D200CA70B2 /* Security.framework */,
+				149F469B18A075CE00CA70B2 /* QuartzCore.framework */,
+				149F469918A075C400CA70B2 /* MobileCoreServices.framework */,
+				149F469718A075BC00CA70B2 /* libz.dylib */,
+				149F469518A075B600CA70B2 /* CoreLocation.framework */,
+				149F469318A075A800CA70B2 /* AudioToolbox.framework */,
+				149F469118A0758D00CA70B2 /* CoreAudio.framework */,
+				149F468F18A0758900CA70B2 /* CFNetwork.framework */,
+				149F468D18A074B500CA70B2 /* Parse.framework */,
+				149F468418A0420900CA70B2 /* CoreData.framework */,
 				143E81A3187B8B7100BEFE8D /* Foundation.framework */,
 				143E81A5187B8B7100BEFE8D /* CoreGraphics.framework */,
 				143E81A7187B8B7100BEFE8D /* UIKit.framework */,
@@ -188,8 +313,8 @@
 				143E81B2187B8B7100BEFE8D /* QUAppDelegate.h */,
 				143E81B3187B8B7100BEFE8D /* QUAppDelegate.m */,
 				143E81B5187B8B7100BEFE8D /* Main.storyboard */,
+				149F468918A06AD100CA70B2 /* Ailments */,
 				149F467318A040D400CA70B2 /* CoreData */,
-				1425B341189FCF560096C5CC /* Headaches */,
 				143E81BB187B8B7100BEFE8D /* Images.xcassets */,
 				143E81AA187B8B7100BEFE8D /* Supporting Files */,
 			);
@@ -199,6 +324,7 @@
 		143E81AA187B8B7100BEFE8D /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				141A4CB118A1B1D600531350 /* SVProgressHUD */,
 				143E81AB187B8B7100BEFE8D /* QQN-Info.plist */,
 				143E81AC187B8B7100BEFE8D /* InfoPlist.strings */,
 				143E81AF187B8B7100BEFE8D /* main.m */,
@@ -228,6 +354,28 @@
 		149F467318A040D400CA70B2 /* CoreData */ = {
 			isa = PBXGroup;
 			children = (
+				149F468318A041DC00CA70B2 /* EntityClasses */,
+				149F466A18A03ED500CA70B2 /* QUser.xcdatamodeld */,
+				141A4CBE18A1CFF500531350 /* QUSeverityPickerTableViewCell.h */,
+				141A4CBF18A1CFF500531350 /* QUSeverityPickerTableViewCell.m */,
+				149F466D18A0400D00CA70B2 /* AilmentTypes.h */,
+				149F468018A0411200CA70B2 /* QUCoreDataManager.h */,
+				149F468118A0411200CA70B2 /* QUCoreDataManager.m */,
+			);
+			name = CoreData;
+			sourceTree = "<group>";
+		};
+		149F468318A041DC00CA70B2 /* EntityClasses */ = {
+			isa = PBXGroup;
+			children = (
+				141A4CAB18A1B13B00531350 /* _AilmentInfo.h */,
+				141A4CAC18A1B13B00531350 /* _AilmentInfo.m */,
+				141A4CAD18A1B13B00531350 /* AilmentInfo.h */,
+				141A4CAE18A1B13B00531350 /* AilmentInfo.m */,
+				141A4CA418A1B11300531350 /* _Severity.h */,
+				141A4CA518A1B11300531350 /* _Severity.m */,
+				141A4CA618A1B11300531350 /* Severity.h */,
+				141A4CA718A1B11300531350 /* Severity.m */,
 				149F467418A040E500CA70B2 /* _Ailment.h */,
 				149F467518A040E500CA70B2 /* _Ailment.m */,
 				149F467618A040E500CA70B2 /* _User.h */,
@@ -236,12 +384,21 @@
 				149F467918A040E500CA70B2 /* Ailment.m */,
 				149F467A18A040E500CA70B2 /* User.h */,
 				149F467B18A040E500CA70B2 /* User.m */,
-				149F466A18A03ED500CA70B2 /* QUser.xcdatamodeld */,
-				149F466D18A0400D00CA70B2 /* AilmentTypes.h */,
-				149F468018A0411200CA70B2 /* QUCoreDataManager.h */,
-				149F468118A0411200CA70B2 /* QUCoreDataManager.m */,
 			);
-			name = CoreData;
+			name = EntityClasses;
+			sourceTree = "<group>";
+		};
+		149F468918A06AD100CA70B2 /* Ailments */ = {
+			isa = PBXGroup;
+			children = (
+				141A4CB818A1C90E00531350 /* QUNewAilmentTableViewController.h */,
+				141A4CB918A1C90E00531350 /* QUNewAilmentTableViewController.m */,
+				149F468A18A06FB800CA70B2 /* QUAilmentsTableViewController.h */,
+				149F468B18A06FB800CA70B2 /* QUAilmentsTableViewController.m */,
+				1425B341189FCF560096C5CC /* Headaches */,
+				141A4CC118A1D3B500531350 /* FUCKING COLLECTION VIEW */,
+			);
+			name = Ailments;
 			sourceTree = "<group>";
 		};
 		47D040CB187D2E3C00F48EF3 /* First Page */ = {
@@ -365,9 +522,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				141A4CCB18A1DB9A00531350 /* release_notes.md in Resources */,
 				143E81BC187B8B7100BEFE8D /* Images.xcassets in Resources */,
 				143E81AE187B8B7100BEFE8D /* InfoPlist.strings in Resources */,
+				141A4CCA18A1DB9A00531350 /* README.md in Resources */,
 				143E81B7187B8B7100BEFE8D /* Main.storyboard in Resources */,
+				141A4CB618A1B1D600531350 /* SVProgressHUD.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -402,15 +562,25 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				141A4CA918A1B11300531350 /* Severity.m in Sources */,
 				149F467E18A040E500CA70B2 /* Ailment.m in Sources */,
+				141A4CBD18A1C9F200531350 /* QUSeverityProgress.m in Sources */,
+				141A4CA818A1B11300531350 /* _Severity.m in Sources */,
+				141A4CBA18A1C90E00531350 /* QUNewAilmentTableViewController.m in Sources */,
 				149F467D18A040E500CA70B2 /* _User.m in Sources */,
 				149F468218A0411200CA70B2 /* QUCoreDataManager.m in Sources */,
 				1425B344189FD3170096C5CC /* AMGProgressView.m in Sources */,
+				141A4CC018A1CFF500531350 /* QUSeverityPickerTableViewCell.m in Sources */,
 				143E81B4187B8B7100BEFE8D /* QUAppDelegate.m in Sources */,
+				141A4CB718A1B1D600531350 /* SVProgressHUD.m in Sources */,
 				143E81B0187B8B7100BEFE8D /* main.m in Sources */,
+				141A4CAF18A1B13B00531350 /* _AilmentInfo.m in Sources */,
+				149F468818A06ACA00CA70B2 /* QUAilmentsViewController.m in Sources */,
 				143E81BA187B8B7100BEFE8D /* QUViewController.m in Sources */,
 				149F467F18A040E500CA70B2 /* User.m in Sources */,
 				1425B348189FD3710096C5CC /* QUExistingHeadacheTableViewController.m in Sources */,
+				149F468C18A06FB800CA70B2 /* QUAilmentsTableViewController.m in Sources */,
+				141A4CB018A1B13B00531350 /* AilmentInfo.m in Sources */,
 				149F466C18A03ED500CA70B2 /* QUser.xcdatamodeld in Sources */,
 				149F467C18A040E500CA70B2 /* _Ailment.m in Sources */,
 				1425B340189FCF530096C5CC /* QUExistingHeadacheTableViewCell.m in Sources */,
@@ -542,10 +712,18 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "QQN/QQN-Prefix.pch";
 				INFOPLIST_FILE = "QQN/QQN-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/TestFlightSDK2",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = 1;
@@ -560,10 +738,18 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "QQN/QQN-Prefix.pch";
 				INFOPLIST_FILE = "QQN/QQN-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/TestFlightSDK2",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = 1;
@@ -664,6 +850,7 @@
 				149F467118A0407100CA70B2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
