@@ -28,20 +28,17 @@
 		141A4CB618A1B1D600531350 /* SVProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 141A4CB318A1B1D600531350 /* SVProgressHUD.bundle */; };
 		141A4CB718A1B1D600531350 /* SVProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 141A4CB518A1B1D600531350 /* SVProgressHUD.m */; };
 		141A4CBA18A1C90E00531350 /* QUNewAilmentTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 141A4CB918A1C90E00531350 /* QUNewAilmentTableViewController.m */; };
-		141A4CBD18A1C9F200531350 /* QUSeverityProgress.m in Sources */ = {isa = PBXBuildFile; fileRef = 141A4CBC18A1C9F200531350 /* QUSeverityProgress.m */; };
 		141A4CC018A1CFF500531350 /* QUSeverityPickerTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 141A4CBF18A1CFF500531350 /* QUSeverityPickerTableViewCell.m */; };
 		141A4CC918A1DB9A00531350 /* libTestFlight.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 141A4CC318A1DB9A00531350 /* libTestFlight.a */; };
 		141A4CCA18A1DB9A00531350 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 141A4CC418A1DB9A00531350 /* README.md */; };
 		141A4CCB18A1DB9A00531350 /* release_notes.md in Resources */ = {isa = PBXBuildFile; fileRef = 141A4CC518A1DB9A00531350 /* release_notes.md */; };
 		1425B340189FCF530096C5CC /* QUExistingHeadacheTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1425B33F189FCF530096C5CC /* QUExistingHeadacheTableViewCell.m */; };
-		1425B344189FD3170096C5CC /* AMGProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1425B343189FD3170096C5CC /* AMGProgressView.m */; };
 		1425B348189FD3710096C5CC /* QUExistingHeadacheTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1425B347189FD3710096C5CC /* QUExistingHeadacheTableViewController.m */; };
 		143E81A4187B8B7100BEFE8D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 143E81A3187B8B7100BEFE8D /* Foundation.framework */; };
 		143E81A6187B8B7100BEFE8D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 143E81A5187B8B7100BEFE8D /* CoreGraphics.framework */; };
 		143E81A8187B8B7100BEFE8D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 143E81A7187B8B7100BEFE8D /* UIKit.framework */; };
 		143E81AE187B8B7100BEFE8D /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 143E81AC187B8B7100BEFE8D /* InfoPlist.strings */; };
 		143E81B0187B8B7100BEFE8D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 143E81AF187B8B7100BEFE8D /* main.m */; };
-		143E81B4187B8B7100BEFE8D /* QUAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 143E81B3187B8B7100BEFE8D /* QUAppDelegate.m */; };
 		143E81B7187B8B7100BEFE8D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 143E81B5187B8B7100BEFE8D /* Main.storyboard */; };
 		143E81BA187B8B7100BEFE8D /* QUViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 143E81B9187B8B7100BEFE8D /* QUViewController.m */; };
 		143E81BC187B8B7100BEFE8D /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 143E81BB187B8B7100BEFE8D /* Images.xcassets */; };
@@ -70,8 +67,12 @@
 		149F469E18A075D200CA70B2 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 149F469D18A075D200CA70B2 /* Security.framework */; };
 		149F46A018A075D800CA70B2 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 149F469F18A075D800CA70B2 /* StoreKit.framework */; };
 		149F46A218A075DD00CA70B2 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 149F46A118A075DD00CA70B2 /* SystemConfiguration.framework */; };
-		8C3997D1FF74064186DDEF9A /* OAuth1Controller.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C39903F45C4EE4AC266EA6F /* OAuth1Controller.m */; };
-		8C39986B2285E7A7628B7298 /* NSString+URLEncoding.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C3995A6576F92D430C1FF4C /* NSString+URLEncoding.m */; };
+		14A6F92C18A45FBC0015E0BE /* NSString+URLEncoding.m in Sources */ = {isa = PBXBuildFile; fileRef = 14A6F92918A45FBC0015E0BE /* NSString+URLEncoding.m */; };
+		14A6F92D18A45FBC0015E0BE /* OAuth1Controller.m in Sources */ = {isa = PBXBuildFile; fileRef = 14A6F92B18A45FBC0015E0BE /* OAuth1Controller.m */; };
+		14A6F93018A460790015E0BE /* AMGProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 14A6F92F18A460790015E0BE /* AMGProgressView.m */; };
+		14A6F93318A460840015E0BE /* QUSeverityProgress.m in Sources */ = {isa = PBXBuildFile; fileRef = 14A6F93218A460840015E0BE /* QUSeverityProgress.m */; };
+		14CD15F118A4630200ECB26C /* QUAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 143E81B3187B8B7100BEFE8D /* QUAppDelegate.m */; };
+		14CD15F718A4660000ECB26C /* UI_111.png in Resources */ = {isa = PBXBuildFile; fileRef = 14CD15F618A4660000ECB26C /* UI_111.png */; };
 		8C399C0441A07035D096294E /* hmac.c in Sources */ = {isa = PBXBuildFile; fileRef = 8C39951E820EF7520613097D /* hmac.c */; };
 		8C399C2705F67A4513E4E754 /* sha1.c in Sources */ = {isa = PBXBuildFile; fileRef = 8C399734A869FE22BB285578 /* sha1.c */; };
 		8C399E088069C684CB2F3C91 /* LoginWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C399B2A65F465CC63BEA9DF /* LoginWebViewController.m */; };
@@ -103,8 +104,6 @@
 		141A4CB518A1B1D600531350 /* SVProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVProgressHUD.m; sourceTree = "<group>"; };
 		141A4CB818A1C90E00531350 /* QUNewAilmentTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QUNewAilmentTableViewController.h; sourceTree = "<group>"; };
 		141A4CB918A1C90E00531350 /* QUNewAilmentTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QUNewAilmentTableViewController.m; sourceTree = "<group>"; };
-		141A4CBB18A1C9F200531350 /* QUSeverityProgress.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QUSeverityProgress.h; sourceTree = "<group>"; };
-		141A4CBC18A1C9F200531350 /* QUSeverityProgress.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QUSeverityProgress.m; sourceTree = "<group>"; };
 		141A4CBE18A1CFF500531350 /* QUSeverityPickerTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QUSeverityPickerTableViewCell.h; sourceTree = "<group>"; };
 		141A4CBF18A1CFF500531350 /* QUSeverityPickerTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QUSeverityPickerTableViewCell.m; sourceTree = "<group>"; };
 		141A4CC318A1DB9A00531350 /* libTestFlight.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libTestFlight.a; sourceTree = "<group>"; };
@@ -115,8 +114,6 @@
 		141A4CC818A1DB9A00531350 /* TestFlight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestFlight.h; sourceTree = "<group>"; };
 		1425B33E189FCF530096C5CC /* QUExistingHeadacheTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QUExistingHeadacheTableViewCell.h; sourceTree = "<group>"; };
 		1425B33F189FCF530096C5CC /* QUExistingHeadacheTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QUExistingHeadacheTableViewCell.m; sourceTree = "<group>"; };
-		1425B342189FD3170096C5CC /* AMGProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMGProgressView.h; sourceTree = "<group>"; };
-		1425B343189FD3170096C5CC /* AMGProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMGProgressView.m; sourceTree = "<group>"; };
 		1425B346189FD3710096C5CC /* QUExistingHeadacheTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QUExistingHeadacheTableViewController.h; sourceTree = "<group>"; };
 		1425B347189FD3710096C5CC /* QUExistingHeadacheTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QUExistingHeadacheTableViewController.m; sourceTree = "<group>"; };
 		143E81A0187B8B7100BEFE8D /* QQN.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QQN.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -169,27 +166,22 @@
 		149F469F18A075D800CA70B2 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		149F46A118A075DD00CA70B2 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		14A6F92718A457BE0015E0BE /* QUser 2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "QUser 2.xcdatamodel"; sourceTree = "<group>"; };
-		47D040CD187D368300F48EF3 /* OAuth1Controller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OAuth1Controller.h; path = "../../../../Downloads/simple-oauth1-master 2/Simple-OAuth1/Simple-OAuth1/OAuth1Controller.h"; sourceTree = "<group>"; };
-		47D040CE187D368300F48EF3 /* OAuth1Controller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OAuth1Controller.m; path = "../../../../Downloads/simple-oauth1-master 2/Simple-OAuth1/Simple-OAuth1/OAuth1Controller.m"; sourceTree = "<group>"; };
-		47D040CF187D368300F48EF3 /* NSString+URLEncoding.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSString+URLEncoding.h"; path = "../../../../Downloads/simple-oauth1-master 2/Simple-OAuth1/Simple-OAuth1/NSString+URLEncoding.h"; sourceTree = "<group>"; };
-		47D040D0187D368300F48EF3 /* NSString+URLEncoding.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSString+URLEncoding.m"; path = "../../../../Downloads/simple-oauth1-master 2/Simple-OAuth1/Simple-OAuth1/NSString+URLEncoding.m"; sourceTree = "<group>"; };
-		47D040D4187D369C00F48EF3 /* Base64Transcoder.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = Base64Transcoder.c; path = "../../../../Downloads/simple-oauth1-master 2/Simple-OAuth1/Simple-OAuth1/Crypto/Base64Transcoder.c"; sourceTree = "<group>"; };
-		47D040D5187D369C00F48EF3 /* Base64Transcoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Base64Transcoder.h; path = "../../../../Downloads/simple-oauth1-master 2/Simple-OAuth1/Simple-OAuth1/Crypto/Base64Transcoder.h"; sourceTree = "<group>"; };
-		47D040D6187D369C00F48EF3 /* hmac.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = hmac.c; path = "../../../../Downloads/simple-oauth1-master 2/Simple-OAuth1/Simple-OAuth1/Crypto/hmac.c"; sourceTree = "<group>"; };
-		47D040D7187D369C00F48EF3 /* hmac.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = hmac.h; path = "../../../../Downloads/simple-oauth1-master 2/Simple-OAuth1/Simple-OAuth1/Crypto/hmac.h"; sourceTree = "<group>"; };
-		47D040D8187D369C00F48EF3 /* sha1.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = sha1.c; path = "../../../../Downloads/simple-oauth1-master 2/Simple-OAuth1/Simple-OAuth1/Crypto/sha1.c"; sourceTree = "<group>"; };
-		47D040D9187D369C00F48EF3 /* sha1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = sha1.h; path = "../../../../Downloads/simple-oauth1-master 2/Simple-OAuth1/Simple-OAuth1/Crypto/sha1.h"; sourceTree = "<group>"; };
-		8C39903F45C4EE4AC266EA6F /* OAuth1Controller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OAuth1Controller.m; sourceTree = "<group>"; };
+		14A6F92818A45FBC0015E0BE /* NSString+URLEncoding.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+URLEncoding.h"; sourceTree = "<group>"; };
+		14A6F92918A45FBC0015E0BE /* NSString+URLEncoding.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+URLEncoding.m"; sourceTree = "<group>"; };
+		14A6F92A18A45FBC0015E0BE /* OAuth1Controller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OAuth1Controller.h; sourceTree = "<group>"; };
+		14A6F92B18A45FBC0015E0BE /* OAuth1Controller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OAuth1Controller.m; sourceTree = "<group>"; };
+		14A6F92E18A460790015E0BE /* AMGProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMGProgressView.h; sourceTree = "<group>"; };
+		14A6F92F18A460790015E0BE /* AMGProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMGProgressView.m; sourceTree = "<group>"; };
+		14A6F93118A460840015E0BE /* QUSeverityProgress.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QUSeverityProgress.h; sourceTree = "<group>"; };
+		14A6F93218A460840015E0BE /* QUSeverityProgress.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QUSeverityProgress.m; sourceTree = "<group>"; };
+		14CD15F618A4660000ECB26C /* UI_111.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = UI_111.png; sourceTree = "<group>"; };
 		8C39918551FFF0C0A2AD62CC /* LoginWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginWebViewController.h; sourceTree = "<group>"; };
 		8C39951E820EF7520613097D /* hmac.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = hmac.c; sourceTree = "<group>"; };
-		8C39955112076642E441A93A /* OAuth1Controller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OAuth1Controller.h; sourceTree = "<group>"; };
-		8C3995A6576F92D430C1FF4C /* NSString+URLEncoding.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+URLEncoding.m"; sourceTree = "<group>"; };
 		8C3996B820877C4FCC0E0B7B /* sha1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = sha1.h; sourceTree = "<group>"; };
 		8C39971A748CAE80261ACCE9 /* Base64Transcoder.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = Base64Transcoder.c; sourceTree = "<group>"; };
 		8C399734A869FE22BB285578 /* sha1.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = sha1.c; sourceTree = "<group>"; };
 		8C39991BFC4EB4956A58664B /* Base64Transcoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Base64Transcoder.h; sourceTree = "<group>"; };
 		8C399B2A65F465CC63BEA9DF /* LoginWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginWebViewController.m; sourceTree = "<group>"; };
-		8C399D1A711244A59D7ECE23 /* NSString+URLEncoding.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+URLEncoding.h"; sourceTree = "<group>"; };
 		8C399E6980AD4F7EF645B942 /* hmac.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = hmac.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -276,10 +268,10 @@
 		1425B345189FD31C0096C5CC /* GradientProgressView */ = {
 			isa = PBXGroup;
 			children = (
-				141A4CBB18A1C9F200531350 /* QUSeverityProgress.h */,
-				141A4CBC18A1C9F200531350 /* QUSeverityProgress.m */,
-				1425B342189FD3170096C5CC /* AMGProgressView.h */,
-				1425B343189FD3170096C5CC /* AMGProgressView.m */,
+				14A6F92E18A460790015E0BE /* AMGProgressView.h */,
+				14A6F92F18A460790015E0BE /* AMGProgressView.m */,
+				14A6F93118A460840015E0BE /* QUSeverityProgress.h */,
+				14A6F93218A460840015E0BE /* QUSeverityProgress.m */,
 			);
 			name = GradientProgressView;
 			sourceTree = "<group>";
@@ -346,6 +338,7 @@
 		143E81AA187B8B7100BEFE8D /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				14CD15F618A4660000ECB26C /* UI_111.png */,
 				141A4CB118A1B1D600531350 /* SVProgressHUD */,
 				143E81AB187B8B7100BEFE8D /* QQN-Info.plist */,
 				143E81AC187B8B7100BEFE8D /* InfoPlist.strings */,
@@ -413,16 +406,24 @@
 		149F468918A06AD100CA70B2 /* Ailments */ = {
 			isa = PBXGroup;
 			children = (
-				141A4CB818A1C90E00531350 /* QUNewAilmentTableViewController.h */,
-				141A4CB918A1C90E00531350 /* QUNewAilmentTableViewController.m */,
-				148DDAF618A3BF1C00927A4D /* QUNewAilmentHeaderView.h */,
-				148DDAF718A3BF1C00927A4D /* QUNewAilmentHeaderView.m */,
+				14CD15F218A4637500ECB26C /* New/Edit */,
 				149F468A18A06FB800CA70B2 /* QUAilmentsTableViewController.h */,
 				149F468B18A06FB800CA70B2 /* QUAilmentsTableViewController.m */,
 				1425B341189FCF560096C5CC /* Headaches */,
 				141A4CC118A1D3B500531350 /* FUCKING COLLECTION VIEW */,
 			);
 			name = Ailments;
+			sourceTree = "<group>";
+		};
+		14CD15F218A4637500ECB26C /* New/Edit */ = {
+			isa = PBXGroup;
+			children = (
+				141A4CB818A1C90E00531350 /* QUNewAilmentTableViewController.h */,
+				141A4CB918A1C90E00531350 /* QUNewAilmentTableViewController.m */,
+				148DDAF618A3BF1C00927A4D /* QUNewAilmentHeaderView.h */,
+				148DDAF718A3BF1C00927A4D /* QUNewAilmentHeaderView.m */,
+			);
+			name = New/Edit;
 			sourceTree = "<group>";
 		};
 		47D040CB187D2E3C00F48EF3 /* First Page */ = {
@@ -440,15 +441,10 @@
 			isa = PBXGroup;
 			children = (
 				1425B345189FD31C0096C5CC /* GradientProgressView */,
-				47D040D3187D368800F48EF3 /* Crypto */,
-				47D040CD187D368300F48EF3 /* OAuth1Controller.h */,
-				47D040CE187D368300F48EF3 /* OAuth1Controller.m */,
-				47D040CF187D368300F48EF3 /* NSString+URLEncoding.h */,
-				47D040D0187D368300F48EF3 /* NSString+URLEncoding.m */,
-				8C399D1A711244A59D7ECE23 /* NSString+URLEncoding.h */,
-				8C39903F45C4EE4AC266EA6F /* OAuth1Controller.m */,
-				8C39955112076642E441A93A /* OAuth1Controller.h */,
-				8C3995A6576F92D430C1FF4C /* NSString+URLEncoding.m */,
+				14A6F92818A45FBC0015E0BE /* NSString+URLEncoding.h */,
+				14A6F92918A45FBC0015E0BE /* NSString+URLEncoding.m */,
+				14A6F92A18A45FBC0015E0BE /* OAuth1Controller.h */,
+				14A6F92B18A45FBC0015E0BE /* OAuth1Controller.m */,
 				8C399ADC0868C36AA121C1B3 /* Crypto */,
 			);
 			path = ThirdPartyCode;
@@ -555,6 +551,7 @@
 			files = (
 				141A4CCB18A1DB9A00531350 /* release_notes.md in Resources */,
 				143E81BC187B8B7100BEFE8D /* Images.xcassets in Resources */,
+				14CD15F718A4660000ECB26C /* UI_111.png in Resources */,
 				143E81AE187B8B7100BEFE8D /* InfoPlist.strings in Resources */,
 				141A4CCA18A1DB9A00531350 /* README.md in Resources */,
 				143E81B7187B8B7100BEFE8D /* Main.storyboard in Resources */,
@@ -593,19 +590,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				14CD15F118A4630200ECB26C /* QUAppDelegate.m in Sources */,
 				141A4CA918A1B11300531350 /* Severity.m in Sources */,
 				149F467E18A040E500CA70B2 /* Ailment.m in Sources */,
-				141A4CBD18A1C9F200531350 /* QUSeverityProgress.m in Sources */,
+				14A6F92D18A45FBC0015E0BE /* OAuth1Controller.m in Sources */,
 				141A4CA818A1B11300531350 /* _Severity.m in Sources */,
 				141A4CBA18A1C90E00531350 /* QUNewAilmentTableViewController.m in Sources */,
+				14A6F93318A460840015E0BE /* QUSeverityProgress.m in Sources */,
 				149F467D18A040E500CA70B2 /* _User.m in Sources */,
 				149F468218A0411200CA70B2 /* QUCoreDataManager.m in Sources */,
-				1425B344189FD3170096C5CC /* AMGProgressView.m in Sources */,
 				141A4CC018A1CFF500531350 /* QUSeverityPickerTableViewCell.m in Sources */,
-				143E81B4187B8B7100BEFE8D /* QUAppDelegate.m in Sources */,
 				141A4CB718A1B1D600531350 /* SVProgressHUD.m in Sources */,
 				148DDAF818A3BF1C00927A4D /* QUNewAilmentHeaderView.m in Sources */,
-				143E81B4187B8B7100BEFE8D /* QUAppDelegate.m in Sources */,
 				143E81B0187B8B7100BEFE8D /* main.m in Sources */,
 				141A4CAF18A1B13B00531350 /* _AilmentInfo.m in Sources */,
 				149F468818A06ACA00CA70B2 /* QUAilmentsViewController.m in Sources */,
@@ -613,12 +609,12 @@
 				149F467F18A040E500CA70B2 /* User.m in Sources */,
 				1425B348189FD3710096C5CC /* QUExistingHeadacheTableViewController.m in Sources */,
 				149F468C18A06FB800CA70B2 /* QUAilmentsTableViewController.m in Sources */,
+				14A6F92C18A45FBC0015E0BE /* NSString+URLEncoding.m in Sources */,
+				14A6F93018A460790015E0BE /* AMGProgressView.m in Sources */,
 				141A4CB018A1B13B00531350 /* AilmentInfo.m in Sources */,
 				149F466C18A03ED500CA70B2 /* QUser.xcdatamodeld in Sources */,
 				149F467C18A040E500CA70B2 /* _Ailment.m in Sources */,
 				1425B340189FCF530096C5CC /* QUExistingHeadacheTableViewCell.m in Sources */,
-				8C3997D1FF74064186DDEF9A /* OAuth1Controller.m in Sources */,
-				8C39986B2285E7A7628B7298 /* NSString+URLEncoding.m in Sources */,
 				8C399C2705F67A4513E4E754 /* sha1.c in Sources */,
 				8C399C0441A07035D096294E /* hmac.c in Sources */,
 				8C399E0B49813943DD7B74E0 /* Base64Transcoder.c in Sources */,
@@ -766,6 +762,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = 1;
+				VALID_ARCHS = "armv7 armv7s arm64";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -792,6 +789,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = 1;
+				VALID_ARCHS = "armv7 armv7s arm64";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

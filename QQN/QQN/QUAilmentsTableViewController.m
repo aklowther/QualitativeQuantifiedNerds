@@ -13,12 +13,17 @@
 #import "Ailment.h"
 #import "AilmentInfo.h"
 #import "Severity.h"
+#import "OAuth1Controller.h"
+#import "LoginWebViewController.h"
 
 #import <Parse/Parse.h>
 #import "SVProgressHUD.h"
 
 @interface QUAilmentsTableViewController () <NSFetchedResultsControllerDelegate>
 @property (nonatomic, retain) NSFetchedResultsController *fetchedResultsController;
+@property (nonatomic, strong) OAuth1Controller *oauth1Controller;
+@property (nonatomic, strong) NSString *oauthToken;
+@property (nonatomic, strong) NSString *oauthTokenSecret;
 
 @end
 
@@ -49,16 +54,9 @@
     [super viewDidLoad];
     [self setTitle:@"Ailments"];
     
-//    NSError *error;
-//	if (![[self fetchedResultsController] performFetch:&error]) {
-//		// Update to handle the error appropriately.
-//		NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
-//	}
-//    [self.tableView reloadData];
-    
-//    UIBarButtonItem *addNewAilment = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addNewAilmentSelected)];
-//
-//    self.navigationItem.rightBarButtonItem = addNewAilment;
+    UIBarButtonItem *settings = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"UI_111.png"] style:UIBarButtonItemStyleDone target:self action:@selector(settingsButtonPressed)];
+
+    [self.navigationItem setRightBarButtonItem:settings];
 }
 
 - (void)didReceiveMemoryWarning
@@ -193,12 +191,55 @@
 {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
-    QUExistingHeadacheTableViewController *vc = [segue destinationViewController];
-    NSIndexPath *indexPath = (NSIndexPath*)sender;
-    Ailment *ailment = [self.fetchedResultsController objectAtIndexPath:indexPath];
-    [vc setAilment:ailment];
+    if ([segue.identifier isEqualToString:@"reviewExisting"]) {
+        QUExistingHeadacheTableViewController *vc = [segue destinationViewController];
+        NSIndexPath *indexPath = (NSIndexPath*)sender;
+        Ailment *ailment = [self.fetchedResultsController objectAtIndexPath:indexPath];
+        [vc setAilment:ailment];
+        
+        vc.predicate = [NSPredicate predicateWithFormat:@"ANY ailmentType.type == %@", ailment.type];
+    } else if ([segue.identifier isEqualToString:@"settingsSegue"]) {
+        
+    }
+
+}
+
+- (OAuth1Controller *)oauth1Controller
+{
+    if (_oauth1Controller == nil) {
+        _oauth1Controller = [[OAuth1Controller alloc] init];
+    }
+    return _oauth1Controller;
+}
+
+-(void)settingsButtonPressed
+{
+//    [self performSegueWithIdentifier:@"settingsSegue" sender:self.navigationItem.rightBarButtonItem];
+    LoginWebViewController *loginWebViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"loginWebViewController"];
     
-    vc.predicate = [NSPredicate predicateWithFormat:@"ANY ailmentType.type == %@", ailment.type];
+    [self presentViewController:loginWebViewController
+                       animated:YES
+                     completion:^{
+                         [[self oauth1Controller] loginWithWebView:loginWebViewController.webView completion:^(NSDictionary *oauthTokens, NSError *error) {
+                             if (!error) {
+                                 // Store your tokens for authenticating your later requests, consider storing the tokens in the Keychain
+                                 self.oauthToken = oauthTokens[@"oauth_token"];
+                                 self.oauthTokenSecret = oauthTokens[@"oauth_token_secret"];
+                                 
+                                 //self.accessTokenLabel.text = self.oauthToken;
+                                 //self.accessTokenSecretLabel.text = self.oauthTokenSecret;
+                                 NSLog(@"oauthToken: %@", self.oauthToken);
+                                 NSLog(@"oauthToken: %@", self.oauthTokenSecret);
+                             }
+                             else
+                             {
+                                 NSLog(@"Error authenticating: %@", error.localizedDescription);
+                             }
+                             [self dismissViewControllerAnimated:YES completion: ^{
+                                 self.oauth1Controller = nil;
+                             }];
+                         }];
+                     }];
 }
 
 

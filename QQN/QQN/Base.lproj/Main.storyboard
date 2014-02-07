@@ -277,6 +277,7 @@
                     <navigationItem key="navigationItem" id="qp1-vy-Izl"/>
                     <connections>
                         <segue destination="pSf-0F-ooS" kind="push" identifier="reviewExisting" id="KD9-Ge-ZED"/>
+                        <segue destination="w1m-TA-wYl" kind="modal" identifier="settingsSegue" id="OW9-Kt-1yB"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KHm-TI-VfA" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -335,7 +336,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wY7-T0-r0h" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1245" y="-458"/>
-            <point key="canvasLocation" x="-45" y="-114"/>
         </scene>
         <!--Login Web View Controller-->
         <scene sceneID="W1K-jX-E2A">
@@ -364,7 +364,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WOH-WX-WxN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="329" y="-114"/>
+            <point key="canvasLocation" x="525" y="-604"/>
         </scene>
     </scenes>
     <color key="tintColor" red="0.44167889160216345" green="1" blue="0.25641622578337631" alpha="1" colorSpace="calibratedRGB"/>
