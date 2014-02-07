@@ -197,7 +197,7 @@
         Ailment *ailment = [self.fetchedResultsController objectAtIndexPath:indexPath];
         [vc setAilment:ailment];
         
-        vc.predicate = [NSPredicate predicateWithFormat:@"ANY ailmentType.type == %@", ailment.type];
+        vc.predicate = [NSPredicate predicateWithFormat:@"ailmentType.type == %@", ailment.type];
     } else if ([segue.identifier isEqualToString:@"settingsSegue"]) {
         
     }

@@ -226,12 +226,12 @@
 //                    atIndexPath:indexPath];
 //            break;
             
-        case NSFetchedResultsChangeMove:
-            [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath]
-                             withRowAnimation:UITableViewRowAnimationFade];
-            [tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:newIndexPath]
-                             withRowAnimation:UITableViewRowAnimationFade];
-            break;
+//        case NSFetchedResultsChangeMove:
+//            [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath]
+//                             withRowAnimation:UITableViewRowAnimationFade];
+//            [tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:newIndexPath]
+//                             withRowAnimation:UITableViewRowAnimationFade];
+//            break;
     }
 }
 
@@ -257,7 +257,7 @@
         [vc setIsModal:YES];
         [vc setType:self.ailment];
         [vc setTitle:[NSString stringWithFormat:@"%@", self.ailment.type]];
-        [vc setPredicate:[NSPredicate predicateWithFormat:@"ANY info.ailmentType.type == %@ AND info.startTime == %@", self.ailment.type, [NSDate date]]];
+        [vc setPredicate:[NSPredicate predicateWithFormat:@"info.ailmentType.type == %@ AND info.startTime == %@", self.ailment.type, [NSDate date]]];
         
         
 //        NSPredicate *predicate = [NSPredicate predicateWithFormat:@"ANY ailmentType.type == %@ AND startTime == %@", self.type.type, self.info.startTime];
@@ -266,7 +266,7 @@
             NSIndexPath *indexPath = (NSIndexPath*)sender;
             AilmentInfo *info = [self.fetchedResultsController objectAtIndexPath:indexPath];
             [vc setInfo:info];
-            [vc setPredicate:[NSPredicate predicateWithFormat:@"ANY info.ailmentType.type == %@ AND info.startTime == %@", self.ailment.type, info.startTime]];
+            [vc setPredicate:[NSPredicate predicateWithFormat:@"info.ailmentType.type == %@ AND info.startTime == %@", self.ailment.type, info.startTime]];
 //            [vc setRegisteredTime:info.startTime];
         }
         

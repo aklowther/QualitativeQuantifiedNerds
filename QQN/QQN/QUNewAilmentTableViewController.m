@@ -11,6 +11,7 @@
 #import "Severity.h"
 #import "QUCoreDataManager.h"
 #import "QUNewAilmentHeaderView.h"
+#import "User.h"
 
 
 @interface QUNewAilmentTableViewController () <QUSeverityDelegate, NSFetchedResultsControllerDelegate, UIActionSheetDelegate>
@@ -55,6 +56,7 @@
     if (self.isModal) {
         [self beingPresentedInModalPopup];
     }
+    self.severitySliderValue = 0.5f;
 }
 
 -(void)dealloc
@@ -251,7 +253,7 @@
 
 -(void)newAilmentSaveButtonClicked
 {
-    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"ANY ailmentType.type == %@ AND startTime == %@", self.type.type, self.info.startTime];
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"(ailmentType.type == %@) AND (startTime == %@)", self.info.ailmentType.type, self.info.startTime];
     NSArray *savedData = [[QUCoreDataManager sharedManager] getArrayOfDataFromEntity:@"AilmentInfo" withPredicate:predicate];
     if ([savedData count] > 1) {
         NSLog(@"more than one match");
@@ -266,7 +268,6 @@
             [info setEndTime:[NSDate date]];
         }
         [addSeverity setInfo:info];
-        
         NSError *error = nil;
         [[[QUCoreDataManager sharedManager] context] save:&error];
         if (error != nil) {
@@ -274,22 +275,26 @@
         }
         
     }else {
-        AilmentInfo *info = (AilmentInfo*)[NSEntityDescription insertNewObjectForEntityForName:@"AilmentInfo" inManagedObjectContext:[QUCoreDataManager sharedManager].context];
+        NSManagedObjectContext *context = [QUCoreDataManager sharedManager].context;
+//        User *user = [User findTheRegisteredUserWithName:@"Temp" inContext:context];
+        AilmentInfo *info = (AilmentInfo*)[NSEntityDescription insertNewObjectForEntityForName:@"AilmentInfo" inManagedObjectContext:context];
         [info setAilmentType:self.type];
         [info setStartTime:self.registeredTime];
         
-        Severity *severity = (Severity*)[NSEntityDescription insertNewObjectForEntityForName:@"Severity" inManagedObjectContext:[[QUCoreDataManager sharedManager] context]];
+        Severity *severity = (Severity*)[NSEntityDescription insertNewObjectForEntityForName:@"Severity" inManagedObjectContext:context];
         [severity setTime:self.registeredTime];
-        [severity setCurrentSeverity:[NSNumber numberWithFloat:self.severitySliderValue]];
+        [severity setCurrentSeverityValue:self.severitySliderValue];
+//        [severity setInfo:info];
         
         [info addAilmentSeverityObject:severity];
         
-        [[[QUCoreDataManager sharedManager] context] insertObject:info];
+        [context insertObject:info];
         
+        predicate = nil;
         NSError *error = nil;
-        [[[QUCoreDataManager sharedManager] context] save:&error];
-        if (error) {
-            NSLog(@"uh oh");
+        [context save:&error];
+        if (error != nil) {
+            NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
         }
     }
     [self dismissViewControllerAnimated:YES completion:nil];

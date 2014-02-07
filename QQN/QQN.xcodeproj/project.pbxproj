@@ -73,6 +73,7 @@
 		14A6F93318A460840015E0BE /* QUSeverityProgress.m in Sources */ = {isa = PBXBuildFile; fileRef = 14A6F93218A460840015E0BE /* QUSeverityProgress.m */; };
 		14CD15F118A4630200ECB26C /* QUAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 143E81B3187B8B7100BEFE8D /* QUAppDelegate.m */; };
 		14CD15F718A4660000ECB26C /* UI_111.png in Resources */ = {isa = PBXBuildFile; fileRef = 14CD15F618A4660000ECB26C /* UI_111.png */; };
+		14CD15FA18A47EC300ECB26C /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 14CD15F918A47EC300ECB26C /* Crashlytics.framework */; };
 		8C399C0441A07035D096294E /* hmac.c in Sources */ = {isa = PBXBuildFile; fileRef = 8C39951E820EF7520613097D /* hmac.c */; };
 		8C399C2705F67A4513E4E754 /* sha1.c in Sources */ = {isa = PBXBuildFile; fileRef = 8C399734A869FE22BB285578 /* sha1.c */; };
 		8C399E088069C684CB2F3C91 /* LoginWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C399B2A65F465CC63BEA9DF /* LoginWebViewController.m */; };
@@ -175,6 +176,7 @@
 		14A6F93118A460840015E0BE /* QUSeverityProgress.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QUSeverityProgress.h; sourceTree = "<group>"; };
 		14A6F93218A460840015E0BE /* QUSeverityProgress.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QUSeverityProgress.m; sourceTree = "<group>"; };
 		14CD15F618A4660000ECB26C /* UI_111.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = UI_111.png; sourceTree = "<group>"; };
+		14CD15F918A47EC300ECB26C /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
 		8C39918551FFF0C0A2AD62CC /* LoginWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginWebViewController.h; sourceTree = "<group>"; };
 		8C39951E820EF7520613097D /* hmac.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = hmac.c; sourceTree = "<group>"; };
 		8C3996B820877C4FCC0E0B7B /* sha1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = sha1.h; sourceTree = "<group>"; };
@@ -200,6 +202,7 @@
 				149F469618A075B600CA70B2 /* CoreLocation.framework in Frameworks */,
 				143E81A6187B8B7100BEFE8D /* CoreGraphics.framework in Frameworks */,
 				149F469418A075A800CA70B2 /* AudioToolbox.framework in Frameworks */,
+				14CD15FA18A47EC300ECB26C /* Crashlytics.framework in Frameworks */,
 				149F469018A0758900CA70B2 /* CFNetwork.framework in Frameworks */,
 				149F468518A0420900CA70B2 /* CoreData.framework in Frameworks */,
 				143E81A8187B8B7100BEFE8D /* UIKit.framework in Frameworks */,
@@ -298,6 +301,7 @@
 		143E81A2187B8B7100BEFE8D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				14CD15F918A47EC300ECB26C /* Crashlytics.framework */,
 				141A4CC218A1DB9A00531350 /* TestFlightSDK2 */,
 				149F46A118A075DD00CA70B2 /* SystemConfiguration.framework */,
 				149F469F18A075D800CA70B2 /* StoreKit.framework */,
@@ -473,6 +477,7 @@
 				143E819C187B8B7100BEFE8D /* Sources */,
 				143E819D187B8B7100BEFE8D /* Frameworks */,
 				143E819E187B8B7100BEFE8D /* Resources */,
+				14CD15F818A47EAD00ECB26C /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -582,6 +587,19 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "cd QQN/\nmogenerator -m QUser.xcdatamodeld/QUser\\ 2.xcdatamodel --template-var arc=true";
+		};
+		14CD15F818A47EAD00ECB26C /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "./Crashlytics.framework/run eecd5d7223d154df40298c76c362f6fbd8a5def9 6efc312843ee4e495673d975639b8410a0bd485dc4269b1d1e7d2cf8ee34f436";
 		};
 /* End PBXShellScriptBuildPhase section */
 
