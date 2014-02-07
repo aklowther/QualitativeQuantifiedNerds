@@ -70,6 +70,12 @@
 		149F469E18A075D200CA70B2 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 149F469D18A075D200CA70B2 /* Security.framework */; };
 		149F46A018A075D800CA70B2 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 149F469F18A075D800CA70B2 /* StoreKit.framework */; };
 		149F46A218A075DD00CA70B2 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 149F46A118A075DD00CA70B2 /* SystemConfiguration.framework */; };
+		8C3997D1FF74064186DDEF9A /* OAuth1Controller.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C39903F45C4EE4AC266EA6F /* OAuth1Controller.m */; };
+		8C39986B2285E7A7628B7298 /* NSString+URLEncoding.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C3995A6576F92D430C1FF4C /* NSString+URLEncoding.m */; };
+		8C399C0441A07035D096294E /* hmac.c in Sources */ = {isa = PBXBuildFile; fileRef = 8C39951E820EF7520613097D /* hmac.c */; };
+		8C399C2705F67A4513E4E754 /* sha1.c in Sources */ = {isa = PBXBuildFile; fileRef = 8C399734A869FE22BB285578 /* sha1.c */; };
+		8C399E088069C684CB2F3C91 /* LoginWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C399B2A65F465CC63BEA9DF /* LoginWebViewController.m */; };
+		8C399E0B49813943DD7B74E0 /* Base64Transcoder.c in Sources */ = {isa = PBXBuildFile; fileRef = 8C39971A748CAE80261ACCE9 /* Base64Transcoder.c */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -173,6 +179,18 @@
 		47D040D7187D369C00F48EF3 /* hmac.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = hmac.h; path = "../../../../Downloads/simple-oauth1-master 2/Simple-OAuth1/Simple-OAuth1/Crypto/hmac.h"; sourceTree = "<group>"; };
 		47D040D8187D369C00F48EF3 /* sha1.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = sha1.c; path = "../../../../Downloads/simple-oauth1-master 2/Simple-OAuth1/Simple-OAuth1/Crypto/sha1.c"; sourceTree = "<group>"; };
 		47D040D9187D369C00F48EF3 /* sha1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = sha1.h; path = "../../../../Downloads/simple-oauth1-master 2/Simple-OAuth1/Simple-OAuth1/Crypto/sha1.h"; sourceTree = "<group>"; };
+		8C39903F45C4EE4AC266EA6F /* OAuth1Controller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OAuth1Controller.m; sourceTree = "<group>"; };
+		8C39918551FFF0C0A2AD62CC /* LoginWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginWebViewController.h; sourceTree = "<group>"; };
+		8C39951E820EF7520613097D /* hmac.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = hmac.c; sourceTree = "<group>"; };
+		8C39955112076642E441A93A /* OAuth1Controller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OAuth1Controller.h; sourceTree = "<group>"; };
+		8C3995A6576F92D430C1FF4C /* NSString+URLEncoding.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+URLEncoding.m"; sourceTree = "<group>"; };
+		8C3996B820877C4FCC0E0B7B /* sha1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = sha1.h; sourceTree = "<group>"; };
+		8C39971A748CAE80261ACCE9 /* Base64Transcoder.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = Base64Transcoder.c; sourceTree = "<group>"; };
+		8C399734A869FE22BB285578 /* sha1.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = sha1.c; sourceTree = "<group>"; };
+		8C39991BFC4EB4956A58664B /* Base64Transcoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Base64Transcoder.h; sourceTree = "<group>"; };
+		8C399B2A65F465CC63BEA9DF /* LoginWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginWebViewController.m; sourceTree = "<group>"; };
+		8C399D1A711244A59D7ECE23 /* NSString+URLEncoding.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+URLEncoding.h"; sourceTree = "<group>"; };
+		8C399E6980AD4F7EF645B942 /* hmac.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = hmac.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -312,7 +330,6 @@
 		143E81A9187B8B7100BEFE8D /* QQN */ = {
 			isa = PBXGroup;
 			children = (
-				47D040CC187D364900F48EF3 /* ThirdPartyIntegrations */,
 				47D040CB187D2E3C00F48EF3 /* First Page */,
 				143E81B2187B8B7100BEFE8D /* QUAppDelegate.h */,
 				143E81B3187B8B7100BEFE8D /* QUAppDelegate.m */,
@@ -321,6 +338,7 @@
 				149F467318A040D400CA70B2 /* CoreData */,
 				143E81BB187B8B7100BEFE8D /* Images.xcassets */,
 				143E81AA187B8B7100BEFE8D /* Supporting Files */,
+				8C399704202F3E9F73C415A9 /* ThirdPartyCode */,
 			);
 			path = QQN;
 			sourceTree = "<group>";
@@ -412,11 +430,13 @@
 			children = (
 				143E81B8187B8B7100BEFE8D /* QUViewController.h */,
 				143E81B9187B8B7100BEFE8D /* QUViewController.m */,
+				8C39918551FFF0C0A2AD62CC /* LoginWebViewController.h */,
+				8C399B2A65F465CC63BEA9DF /* LoginWebViewController.m */,
 			);
 			name = "First Page";
 			sourceTree = "<group>";
 		};
-		47D040CC187D364900F48EF3 /* ThirdPartyIntegrations */ = {
+		8C399704202F3E9F73C415A9 /* ThirdPartyCode */ = {
 			isa = PBXGroup;
 			children = (
 				1425B345189FD31C0096C5CC /* GradientProgressView */,
@@ -425,21 +445,26 @@
 				47D040CE187D368300F48EF3 /* OAuth1Controller.m */,
 				47D040CF187D368300F48EF3 /* NSString+URLEncoding.h */,
 				47D040D0187D368300F48EF3 /* NSString+URLEncoding.m */,
+				8C399D1A711244A59D7ECE23 /* NSString+URLEncoding.h */,
+				8C39903F45C4EE4AC266EA6F /* OAuth1Controller.m */,
+				8C39955112076642E441A93A /* OAuth1Controller.h */,
+				8C3995A6576F92D430C1FF4C /* NSString+URLEncoding.m */,
+				8C399ADC0868C36AA121C1B3 /* Crypto */,
 			);
-			name = ThirdPartyIntegrations;
+			path = ThirdPartyCode;
 			sourceTree = "<group>";
 		};
-		47D040D3187D368800F48EF3 /* Crypto */ = {
+		8C399ADC0868C36AA121C1B3 /* Crypto */ = {
 			isa = PBXGroup;
 			children = (
-				47D040D4187D369C00F48EF3 /* Base64Transcoder.c */,
-				47D040D5187D369C00F48EF3 /* Base64Transcoder.h */,
-				47D040D6187D369C00F48EF3 /* hmac.c */,
-				47D040D7187D369C00F48EF3 /* hmac.h */,
-				47D040D8187D369C00F48EF3 /* sha1.c */,
-				47D040D9187D369C00F48EF3 /* sha1.h */,
+				8C39991BFC4EB4956A58664B /* Base64Transcoder.h */,
+				8C399734A869FE22BB285578 /* sha1.c */,
+				8C39951E820EF7520613097D /* hmac.c */,
+				8C3996B820877C4FCC0E0B7B /* sha1.h */,
+				8C399E6980AD4F7EF645B942 /* hmac.h */,
+				8C39971A748CAE80261ACCE9 /* Base64Transcoder.c */,
 			);
-			name = Crypto;
+			path = Crypto;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -580,6 +605,7 @@
 				143E81B4187B8B7100BEFE8D /* QUAppDelegate.m in Sources */,
 				141A4CB718A1B1D600531350 /* SVProgressHUD.m in Sources */,
 				148DDAF818A3BF1C00927A4D /* QUNewAilmentHeaderView.m in Sources */,
+				143E81B4187B8B7100BEFE8D /* QUAppDelegate.m in Sources */,
 				143E81B0187B8B7100BEFE8D /* main.m in Sources */,
 				141A4CAF18A1B13B00531350 /* _AilmentInfo.m in Sources */,
 				149F468818A06ACA00CA70B2 /* QUAilmentsViewController.m in Sources */,
@@ -591,6 +617,12 @@
 				149F466C18A03ED500CA70B2 /* QUser.xcdatamodeld in Sources */,
 				149F467C18A040E500CA70B2 /* _Ailment.m in Sources */,
 				1425B340189FCF530096C5CC /* QUExistingHeadacheTableViewCell.m in Sources */,
+				8C3997D1FF74064186DDEF9A /* OAuth1Controller.m in Sources */,
+				8C39986B2285E7A7628B7298 /* NSString+URLEncoding.m in Sources */,
+				8C399C2705F67A4513E4E754 /* sha1.c in Sources */,
+				8C399C0441A07035D096294E /* hmac.c in Sources */,
+				8C399E0B49813943DD7B74E0 /* Base64Transcoder.c in Sources */,
+				8C399E088069C684CB2F3C91 /* LoginWebViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -781,6 +813,7 @@
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = "QQNTests/QQNTests-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
@@ -800,6 +833,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "QQN/QQN-Prefix.pch";
 				INFOPLIST_FILE = "QQNTests/QQNTests-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
