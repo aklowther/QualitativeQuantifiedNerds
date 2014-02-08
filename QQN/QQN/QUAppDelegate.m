@@ -1,4 +1,4 @@
-//
+    //
 //  QUAppDelegate.m
 //  QQN
 //
@@ -58,6 +58,7 @@
 - (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)newDeviceToken
 {
     // Store the deviceToken in the current installation and save it to Parse.
+    NSLog(@"deviceToken returned");
     PFInstallation *currentInstallation = [PFInstallation currentInstallation];
     [currentInstallation setDeviceTokenFromData:newDeviceToken];
     [currentInstallation saveInBackground];

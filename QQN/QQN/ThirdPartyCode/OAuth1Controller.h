@@ -18,10 +18,14 @@
              oauthVerifier:(NSString *)oauth_verifier
                 completion:(void (^)(NSError *error, NSDictionary *responseParams))completion;
 
-+ (NSURLRequest *)preparedRequestForPath:(NSString *)path
-                              parameters:(NSDictionary *)parameters
-                              HTTPmethod:(NSString *)method
++ (NSURLRequest *)preparedRequestForHost:(NSString*)host
+                                    path:(NSString *)path
+                              parameters:(NSDictionary *)queryParameters
+                              HTTPmethod:(NSString *)HTTPmethod
                               oauthToken:(NSString *)oauth_token
-                             oauthSecret:(NSString *)oauth_token_secret;
+                             oauthSecret:(NSString *)oauth_token_secret
+                            consumerData:(NSDictionary*)consumerData;
+
++ (NSMutableDictionary *)standardOauthParameters;
 
 @end

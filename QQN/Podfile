@@ -1,0 +1,18 @@
+# Uncomment this line to define a global platform for your project
+platform :ios, "6.0"
+
+target "QQN" do
+pod 'NXOAuth2Client', '~> 1.2.2'
+pod 'SVProgressHUD', '~> 1.0'
+pod 'PDKeychainBindingsController', '~> 0.0.1'
+
+end
+
+#target "QQNTests" do
+
+#end
+
+#target "Mogenerator" do
+
+#end
+

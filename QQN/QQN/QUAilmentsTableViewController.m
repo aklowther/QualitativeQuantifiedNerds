@@ -53,10 +53,6 @@
     [self fetchAilmentsFromParse];
     [super viewDidLoad];
     [self setTitle:@"Ailments"];
-    
-    UIBarButtonItem *settings = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"UI_111.png"] style:UIBarButtonItemStyleDone target:self action:@selector(settingsButtonPressed)];
-
-    [self.navigationItem setRightBarButtonItem:settings];
 }
 
 - (void)didReceiveMemoryWarning
@@ -133,7 +129,7 @@
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 88.0f;
+    return 67.0f;
 }
 
 
@@ -214,32 +210,32 @@
 
 -(void)settingsButtonPressed
 {
-//    [self performSegueWithIdentifier:@"settingsSegue" sender:self.navigationItem.rightBarButtonItem];
-    LoginWebViewController *loginWebViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"loginWebViewController"];
-    
-    [self presentViewController:loginWebViewController
-                       animated:YES
-                     completion:^{
-                         [[self oauth1Controller] loginWithWebView:loginWebViewController.webView completion:^(NSDictionary *oauthTokens, NSError *error) {
-                             if (!error) {
-                                 // Store your tokens for authenticating your later requests, consider storing the tokens in the Keychain
-                                 self.oauthToken = oauthTokens[@"oauth_token"];
-                                 self.oauthTokenSecret = oauthTokens[@"oauth_token_secret"];
-                                 
-                                 //self.accessTokenLabel.text = self.oauthToken;
-                                 //self.accessTokenSecretLabel.text = self.oauthTokenSecret;
-                                 NSLog(@"oauthToken: %@", self.oauthToken);
-                                 NSLog(@"oauthToken: %@", self.oauthTokenSecret);
-                             }
-                             else
-                             {
-                                 NSLog(@"Error authenticating: %@", error.localizedDescription);
-                             }
-                             [self dismissViewControllerAnimated:YES completion: ^{
-                                 self.oauth1Controller = nil;
-                             }];
-                         }];
-                     }];
+    [self performSegueWithIdentifier:@"settingsSegue" sender:self.navigationItem.rightBarButtonItem];
+//    LoginWebViewController *loginWebViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"loginWebViewController"];
+//    
+//    [self presentViewController:loginWebViewController
+//                       animated:YES
+//                     completion:^{
+//                         [[self oauth1Controller] loginWithWebView:loginWebViewController.webView completion:^(NSDictionary *oauthTokens, NSError *error) {
+//                             if (!error) {
+//                                 // Store your tokens for authenticating your later requests, consider storing the tokens in the Keychain
+//                                 self.oauthToken = oauthTokens[@"oauth_token"];
+//                                 self.oauthTokenSecret = oauthTokens[@"oauth_token_secret"];
+//                                 
+//                                 //self.accessTokenLabel.text = self.oauthToken;
+//                                 //self.accessTokenSecretLabel.text = self.oauthTokenSecret;
+//                                 NSLog(@"oauthToken: %@", self.oauthToken);
+//                                 NSLog(@"oauthToken: %@", self.oauthTokenSecret);
+//                             }
+//                             else
+//                             {
+//                                 NSLog(@"Error authenticating: %@", error.localizedDescription);
+//                             }
+//                             [self dismissViewControllerAnimated:YES completion: ^{
+//                                 self.oauth1Controller = nil;
+//                             }];
+//                         }];
+//                     }];
 }
 
 

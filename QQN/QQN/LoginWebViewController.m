@@ -26,8 +26,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [self.view setBackgroundColor:[UIColor redColor]];
-	// Do any additional setup after loading the view.
 }
 
 - (void)didReceiveMemoryWarning
@@ -41,6 +39,11 @@
 {
     //why is this IBAction? it isn't attached to anything
     [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+-(BOOL)shouldAutorotate
+{
+    return NO;
 }
 
 @end

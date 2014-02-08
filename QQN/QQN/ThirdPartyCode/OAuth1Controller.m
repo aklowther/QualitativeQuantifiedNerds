@@ -49,7 +49,7 @@ typedef void (^WebWiewDelegateHandler)(NSDictionary *oauthParams);
 #define REQUEST_TOKEN_URL    @"oauth/request_token"
 #define AUTHENTICATE_URL     @"oauth/authorize"
 #define ACCESS_TOKEN_URL     @"oauth/access_token"
-#define API_URL              @"http://api.fitbit.com/"
+#define API_URL              @"https://api.fitbit.com/"
 #define OAUTH_SCOPE_PARAM    @""
 #define REDIRECT_URL         @"https://www.fitbit.com/"
 #define REQUEST_TOKEN_METHOD @"POST"
@@ -197,6 +197,7 @@ static inline NSDictionary *CHParametersFromQueryString(NSString *queryString)
     
     [self obtainRequestTokenWithCompletion:^(NSError *error, NSDictionary *responseParams)
      {
+         NSLog(@"initial responseParams: %@", responseParams);
          NSString *oauth_token_secret = responseParams[@"oauth_token_secret"];
          NSString *oauth_token = responseParams[@"oauth_token"];
          if (oauth_token_secret
@@ -397,11 +398,13 @@ static inline NSDictionary *CHParametersFromQueryString(NSString *queryString)
 
 
 #pragma mark build authorized API-requests
-+ (NSURLRequest *)preparedRequestForPath:(NSString *)path
++ (NSURLRequest *)preparedRequestForHost:(NSString*)host
+                                    path:(NSString *)path
                               parameters:(NSDictionary *)queryParameters
                               HTTPmethod:(NSString *)HTTPmethod
                               oauthToken:(NSString *)oauth_token
                              oauthSecret:(NSString *)oauth_token_secret
+                            consumerData:(NSDictionary*)consumerData
 {
     if (!HTTPmethod
         || !oauth_token) return nil;
@@ -412,9 +415,9 @@ static inline NSDictionary *CHParametersFromQueryString(NSString *queryString)
     
     NSString *parametersString = CHQueryStringFromParametersWithEncoding(allParameters, NSUTF8StringEncoding);
     
-    NSString *request_url = API_URL;
+    NSString *request_url = host;//API_URL;
     if (path) request_url = [request_url stringByAppendingString:path];
-    NSString *oauth_consumer_secret = CONSUMER_SECRET;
+    NSString *oauth_consumer_secret = consumerData[@"consumer_secret"];// CONSUMER_SECRET;
     NSString *baseString = [HTTPmethod stringByAppendingFormat:@"&%@&%@", request_url.utf8AndURLEncode, parametersString.utf8AndURLEncode];
     NSString *secretString = [oauth_consumer_secret.utf8AndURLEncode stringByAppendingFormat:@"&%@", oauth_token_secret.utf8AndURLEncode];
     NSString *oauth_signature = [self.class signClearText:baseString withSecret:secretString];
