@@ -1,0 +1,16 @@
+PODS:
+  - NXOAuth2Client (1.2.5)
+  - PDKeychainBindingsController (0.0.1)
+  - SVProgressHUD (1.0)
+
+DEPENDENCIES:
+  - NXOAuth2Client (~> 1.2.2)
+  - PDKeychainBindingsController (~> 0.0.1)
+  - SVProgressHUD (~> 1.0)
+
+SPEC CHECKSUMS:
+  NXOAuth2Client: 2ad31d48b28e00663ce4fe21345ccee0cab35e01
+  PDKeychainBindingsController: 463c207f8726e4aaec1ec20fd1876082ee86cb0a
+  SVProgressHUD: 5e10939a296debf5fe5a5895eda9539b8b2114f1
+
+COCOAPODS: 0.29.0
