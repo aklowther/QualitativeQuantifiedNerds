@@ -32,9 +32,18 @@
 
 + (NSString *)getNonce
 {
-    // uuid is simplified a bit, also the full uuid can be used as nonce
-    NSString *uuid = [self getUUID];
-    return [[uuid substringToIndex:10] stringByReplacingOccurrencesOfString:@"-" withString:@""].lowercaseString;
+    
+    NSString *letters = @"abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+    int length = 42;
+    NSMutableString *nonce = [NSMutableString stringWithCapacity: length];
+    for (int i = 0; i < length; i++) {
+        [nonce appendFormat: @"%C", [letters characterAtIndex: arc4random() % [letters length]]];
+    }
+    return nonce;
+    
+// uuid is simplified a bit, also the full uuid can be used as nonce
+//    NSString *uuid = [self getUUID];
+//    return [[uuid substringToIndex:10] stringByReplacingOccurrencesOfString:@"-" withString:@""].lowercaseString;
 }
 
 @end

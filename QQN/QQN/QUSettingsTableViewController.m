@@ -50,7 +50,6 @@
         NSDictionary *userInfo = [QUFitbitAPI getUserInfo];
         NSLog(@"%@",userInfo);
     }
-
 }
 
 - (void)didReceiveMemoryWarning
@@ -87,10 +86,11 @@
 {
     LoginWebViewController *loginWebViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"loginWebViewController"];
 //    [self.navigationController pushViewController:loginWebViewController animated:YES];
+    __block NSDictionary *data = [QUFitbitAPI getConsumerAppData];
     [self presentViewController:loginWebViewController
                        animated:YES
                      completion:^{
-                         [[self oauth1Controller] loginWithWebView:loginWebViewController.webView completion:^(NSDictionary *oauthTokens, NSError *error) {
+                         [[self oauth1Controller] loginWithData:data inWebView:loginWebViewController.webView completion:^(NSDictionary *oauthTokens, NSError *error) {
                              if (!error) {                                 
                                  NSString *token = oauthTokens[@"oauth_token"];
                                  NSString *tokenSecret = oauthTokens[@"oauth_token_secret"];

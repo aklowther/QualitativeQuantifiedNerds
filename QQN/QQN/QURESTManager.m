@@ -145,7 +145,6 @@
 
 -(NSDictionary *)doGetWithNSURLRequest:(NSURLRequest*)getRequest
 {
-
     NSURLConnection *connection = [[NSURLConnection alloc] initWithRequest:getRequest delegate:self startImmediately:YES];
 #pragma unused(connection)
     

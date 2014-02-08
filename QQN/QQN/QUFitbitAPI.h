@@ -10,6 +10,8 @@
 
 @interface QUFitbitAPI : NSObject
 
++(NSDictionary*)getOAuthData;
 +(NSDictionary *)getUserInfo;
++(NSDictionary*)getConsumerAppData;
 
 @end
