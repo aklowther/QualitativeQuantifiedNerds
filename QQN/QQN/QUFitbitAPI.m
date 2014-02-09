@@ -15,7 +15,7 @@
 #define OAUTH_CALLBACK       @"http://www.mycallbackurl.com"
 #define CONSUMER_KEY         @"fc15da9d5542486cb97c3faf1e6cef88"
 #define CONSUMER_SECRET      @"9e9b104950fb4240b4fac6f15a50a535"
-#define AUTH_URL             @"https://api.fitbit.com/"
+#define AUTH_URL             @"https://www.fitbit.com/"
 #define REQUEST_TOKEN_URL    @"oauth/request_token"
 #define AUTHENTICATE_URL     @"oauth/authorize"
 #define ACCESS_TOKEN_URL     @"oauth/access_token"

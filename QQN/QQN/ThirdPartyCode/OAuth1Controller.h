@@ -10,7 +10,8 @@
 
 @interface OAuth1Controller : NSObject <UIWebViewDelegate>
 
-- (void)loginWithData:(NSDictionary*)data
+- (void)loginWithConsumerData:(NSDictionary*)data
+             andStandardOauth:(NSDictionary*)oauthData
             inWebView:(UIWebView *)webWiew
            completion:(void (^)(NSDictionary *oauthTokens, NSError *error))completion;
 
@@ -27,6 +28,6 @@
                              oauthSecret:(NSString *)oauth_token_secret
                             consumerData:(NSDictionary*)consumerData;
 
--(NSDictionary*)standardOauthParameters;
+//+(NSDictionary*)standardOauthParameters;
 
 @end
