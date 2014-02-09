@@ -430,10 +430,10 @@
 		14CD15F218A4637500ECB26C /* New/Edit */ = {
 			isa = PBXGroup;
 			children = (
-				141A4CB818A1C90E00531350 /* QUNewAilmentTableViewController.h */,
-				141A4CB918A1C90E00531350 /* QUNewAilmentTableViewController.m */,
 				148DDAF618A3BF1C00927A4D /* QUNewAilmentHeaderView.h */,
 				148DDAF718A3BF1C00927A4D /* QUNewAilmentHeaderView.m */,
+				141A4CB818A1C90E00531350 /* QUNewAilmentTableViewController.h */,
+				141A4CB918A1C90E00531350 /* QUNewAilmentTableViewController.m */,
 			);
 			name = New/Edit;
 			sourceTree = "<group>";

@@ -14,9 +14,9 @@
 
 typedef void (^WebWiewDelegateHandler)(NSDictionary *oauthParams);
 
-#define OAUTH_CALLBACK       @"http://www.mycallbackurl.com"
-//#define CONSUMER_KEY         @"8bf7ef0470df4cd5aa7048368eaed517"
-//#define CONSUMER_SECRET      @"a6b13f6aa8224614804cf4e2691ca259"
+//#define OAUTH_CALLBACK       @"http://www.mycallbackurl.com"
+#define CONSUMER_KEY         @"fc15da9d5542486cb97c3faf1e6cef88"
+//#define CONSUMER_SECRET      @"9e9b104950fb4240b4fac6f15a50a535"
 //#define AUTH_URL             @"https://api.fitbit.com/"
 //#define REQUEST_TOKEN_URL    @"oauth/request_token"
 //#define AUTHENTICATE_URL     @"oauth/authorize"
@@ -148,7 +148,7 @@ static inline NSDictionary *CHParametersFromQueryString(NSString *queryString)
 @interface OAuth1Controller ()
 
 @property (nonatomic, weak) UIWebView *webView;
-//@property (nonatomic, strong) NSDictionary *consumerData;
+@property (nonatomic, strong) NSDictionary *consumerData;
 @property (nonatomic, strong) WebWiewDelegateHandler delegateHandler;
 
 @end
@@ -159,7 +159,7 @@ static inline NSDictionary *CHParametersFromQueryString(NSString *queryString)
 {
     self.webView = webWiew;
     self.webView.delegate = self;
-//    _consumerData = data;
+    _consumerData = data;
     [SVProgressHUD show];
     
     [self obtainRequestTokenWithConsumerData:data standardOauthData:oauthData andCompletion:^(NSError *error, NSDictionary *responseParams)
@@ -195,6 +195,7 @@ static inline NSDictionary *CHParametersFromQueryString(NSString *queryString)
              completion(responseParams, error);
          }
      }];
+    
 }
 
 
@@ -207,7 +208,7 @@ static inline NSDictionary *CHParametersFromQueryString(NSString *queryString)
     
     NSMutableDictionary *allParameters = [oauthData mutableCopy];
     if ([data[@"oauth_scope_param"] length] > 0) [allParameters setValue:data[@"oauth_scope_param"] forKey:@"scope"];
-
+    
     NSString *parametersString = CHQueryStringFromParametersWithEncoding(allParameters, NSUTF8StringEncoding);
     
     NSString *baseString = [data[@"request_token_method"] stringByAppendingFormat:@"&%@&%@", request_url.utf8AndURLEncode, parametersString.utf8AndURLEncode];
@@ -244,9 +245,9 @@ static inline NSDictionary *CHParametersFromQueryString(NSString *queryString)
     authenticate_url = [authenticate_url stringByAppendingFormat:@"?oauth_token=%@", oauthToken];
     authenticate_url = [authenticate_url stringByAppendingFormat:@"&oauth_callback=%@", oauth_callback.utf8AndURLEncode];
     authenticate_url = [authenticate_url stringByAppendingFormat:@"&display=touch"];
-
+    
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:authenticate_url]];
-//    [request setValue:[NSString stringWithFormat:@"%@/%@ (%@; iOS %@; Scale/%0.2f)", [[[NSBundle mainBundle] infoDictionary] objectForKey:(NSString *)kCFBundleExecutableKey] ?: [[[NSBundle mainBundle] infoDictionary] objectForKey:(NSString *)kCFBundleIdentifierKey], (__bridge id)CFBundleGetValueForInfoDictionaryKey(CFBundleGetMainBundle(), kCFBundleVersionKey) ?: [[[NSBundle mainBundle] infoDictionary] objectForKey:(NSString *)kCFBundleVersionKey], [[UIDevice currentDevice] model], [[UIDevice currentDevice] systemVersion], ([[UIScreen mainScreen] respondsToSelector:@selector(scale)] ? [[UIScreen mainScreen] scale] : 1.0f)] forHTTPHeaderField:@"User-Agent"];
+    //    [request setValue:[NSString stringWithFormat:@"%@/%@ (%@; iOS %@; Scale/%0.2f)", [[[NSBundle mainBundle] infoDictionary] objectForKey:(NSString *)kCFBundleExecutableKey] ?: [[[NSBundle mainBundle] infoDictionary] objectForKey:(NSString *)kCFBundleIdentifierKey], (__bridge id)CFBundleGetValueForInfoDictionaryKey(CFBundleGetMainBundle(), kCFBundleVersionKey) ?: [[[NSBundle mainBundle] infoDictionary] objectForKey:(NSString *)kCFBundleVersionKey], [[UIDevice currentDevice] model], [[UIDevice currentDevice] systemVersion], ([[UIScreen mainScreen] respondsToSelector:@selector(scale)] ? [[UIScreen mainScreen] scale] : 1.0f)] forHTTPHeaderField:@"User-Agent"];
     
     _delegateHandler = ^(NSDictionary *oauthParams) {
         if (oauthParams[@"oauth_verifier"] == nil) {
@@ -265,8 +266,8 @@ static inline NSDictionary *CHParametersFromQueryString(NSString *queryString)
 #pragma mark Turn off spinner
 - (void)webViewDidFinishLoad:(UIWebView *)webView
 {
-//    [self.loadingIndicator removeFromSuperview];
-//    self.loadingIndicator = nil;
+    //    [self.loadingIndicator removeFromSuperview];
+    //    self.loadingIndicator = nil;
     [SVProgressHUD dismiss];
 }
 
@@ -276,8 +277,8 @@ static inline NSDictionary *CHParametersFromQueryString(NSString *queryString)
     if (_delegateHandler) {
         // For other Oauth 1.0a service providers than LinkedIn, the call back URL might be part of the query of the URL (after the "?"). In this case use index 1 below. In any case NSLog the request URL after the user taps 'Allow'/'Authenticate' after he/she entered his/her username and password and see where in the URL the call back is. Note for some services the callback URL is set once on their website when registering an app, and the OAUTH_CALLBACK set here is ignored.
         NSString *urlWithoutQueryString = [request.URL.absoluteString componentsSeparatedByString:@"?"][0];
-//        if ([urlWithoutQueryString rangeOfString:self.consumerData[@"oauth_callback"]].location != NSNotFound)
-        if ([urlWithoutQueryString rangeOfString:OAUTH_CALLBACK].location != NSNotFound)
+        if ([urlWithoutQueryString rangeOfString:self.consumerData[@"oauth_callback"]].location != NSNotFound)
+//        if ([urlWithoutQueryString rangeOfString:OAUTH_CALLBACK].location != NSNotFound)
         {
             NSString *queryString = [request.URL.absoluteString substringFromIndex:[request.URL.absoluteString rangeOfString:@"?"].location + 1];
             NSDictionary *parameters = CHParametersFromQueryString(queryString);
@@ -347,14 +348,15 @@ static inline NSDictionary *CHParametersFromQueryString(NSString *queryString)
                                NSString *responseString = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
                                completion(nil, CHParametersFromQueryString(responseString));
                            }];
+    
 }
 
 
 //+(NSMutableDictionary *)standardOauthParameters
 //{
-//    NSString *oauth_timestamp = [NSString stringWithFormat:@"%lu", (unsigned long)[NSDate.date timeIntervalSince1970]];
+//    NSString *oauth_timestamp = [NSString stringWithFormat:@"%i", (NSInteger)[NSDate.date timeIntervalSince1970]];
 //    NSString *oauth_nonce = [NSString getNonce];
-//    NSString *oauth_consumer_key = self.consumerData[@"consumer_key"];
+//    NSString *oauth_consumer_key = CONSUMER_KEY;//self.consumerData[@"consumer_key"];
 //    NSString *oauth_signature_method = @"HMAC-SHA1";
 //    NSString *oauth_version = @"1.0";
 //    
@@ -380,13 +382,14 @@ static inline NSDictionary *CHParametersFromQueryString(NSString *queryString)
 {
     if (!HTTPmethod
         || !oauth_token) return nil;
+    
     NSString *consumer_secret = consumerData[@"consumer_secret"];
     [consumerData removeObjectForKey:@"consumer_secret"];
-    NSMutableDictionary *allParameters = consumerData;
-    allParameters[@"oauth_token"] = oauth_token;
-    if (queryParameters) [allParameters addEntriesFromDictionary:queryParameters];
+    //    NSMutableDictionary *allParameters = consumerData;
+    consumerData[@"oauth_token"] = oauth_token;
+    if (queryParameters) [consumerData addEntriesFromDictionary:queryParameters];
     
-    NSString *parametersString = CHQueryStringFromParametersWithEncoding(allParameters, NSUTF8StringEncoding);
+    NSString *parametersString = CHQueryStringFromParametersWithEncoding(consumerData, NSUTF8StringEncoding);
     
     NSString *request_url = host;//API_URL;
     if (path) request_url = [request_url stringByAppendingString:path];
@@ -394,7 +397,7 @@ static inline NSDictionary *CHParametersFromQueryString(NSString *queryString)
     NSString *baseString = [HTTPmethod stringByAppendingFormat:@"&%@&%@", request_url.utf8AndURLEncode, parametersString.utf8AndURLEncode];
     NSString *secretString = [oauth_consumer_secret.utf8AndURLEncode stringByAppendingFormat:@"&%@", oauth_token_secret.utf8AndURLEncode];
     NSString *oauth_signature = [self.class signClearText:baseString withSecret:secretString];
-    allParameters[@"oauth_signature"] = oauth_signature;
+    consumerData[@"oauth_signature"] = oauth_signature;
     
     NSString *queryString;
     if (queryParameters) queryString = CHQueryStringFromParametersWithEncoding(queryParameters, NSUTF8StringEncoding);
@@ -403,9 +406,9 @@ static inline NSDictionary *CHParametersFromQueryString(NSString *queryString)
     request.HTTPMethod = HTTPmethod;
     
     NSMutableArray *parameterPairs = [NSMutableArray array];
-    [allParameters removeObjectsForKeys:queryParameters.allKeys];
-    for (NSString *name in allParameters) {
-        NSString *aPair = [name stringByAppendingFormat:@"=\"%@\"", [allParameters[name] utf8AndURLEncode]];
+    [consumerData removeObjectsForKeys:queryParameters.allKeys];
+    for (NSString *name in consumerData) {
+        NSString *aPair = [name stringByAppendingFormat:@"=\"%@\"", [consumerData[name] utf8AndURLEncode]];
         [parameterPairs addObject:aPair];
     }
     NSString *oAuthHeader = [@"OAuth " stringByAppendingFormat:@"%@", [parameterPairs componentsJoinedByString:@", "]];
@@ -416,6 +419,7 @@ static inline NSDictionary *CHParametersFromQueryString(NSString *queryString)
         [request setHTTPBody:body];
     }
     return request;
+    
 }
 
 

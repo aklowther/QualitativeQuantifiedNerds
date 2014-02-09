@@ -49,7 +49,7 @@
 
 +(NSMutableDictionary*)getOAuthData
 {
-    NSString *oauth_timestamp = [NSString stringWithFormat:@"%lu", (unsigned long)[NSDate.date timeIntervalSince1970]];
+    NSString *oauth_timestamp = [NSString stringWithFormat:@"%i", (NSInteger)[NSDate.date timeIntervalSince1970]];
     NSString *oauth_nonce = [NSString getNonce];
     NSString *oauth_consumer_key = CONSUMER_KEY;
     NSString *oauth_signature_method = @"HMAC-SHA1";
@@ -70,18 +70,21 @@
     NSString *methodURL = @"1/user/-/profile.json";
     
     NSDictionary *headers = @{@"Accept-Language": @"en_US"};
-    NSString *oauthToken = [[PDKeychainBindings sharedKeychainBindings] objectForKey:@"fitbitToken"];
-    NSString *oauthSecret = [[PDKeychainBindings sharedKeychainBindings] objectForKey:@"fitbitSecretToken"];
+    NSDictionary *tokens = [[QURESTManager sharedManager] getTokensForSource:@"fitbit"];
+    NSString *oauthToken = tokens[@"token"];//[[PDKeychainBindings sharedKeychainBindings] stringForKey:@"fitbitToken"];
+    NSString *oauthSecret = tokens[@"secretToken"];//[[PDKeychainBindings sharedKeychainBindings] stringForKey:@"fitbitSecretToken"];
     
     NSMutableDictionary *consumerData = [self getOAuthData];
     [consumerData setObject:CONSUMER_SECRET forKey:@"consumer_secret"];
     NSURLRequest *request = [OAuth1Controller preparedRequestForHost:API_URL
                                                                 path:methodURL
-                                                          parameters:headers
+                                                          parameters:nil
                                                           HTTPmethod:@"GET"
                                                           oauthToken:oauthToken
                                                          oauthSecret:oauthSecret
                                                         consumerData:consumerData];
+    
+    
     
     
     NSDictionary *returnData = [[QURESTManager sharedManager] doGetWithNSURLRequest:request];

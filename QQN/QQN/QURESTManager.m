@@ -236,17 +236,34 @@
 
 -(void)setTokensForSource:(NSDictionary *)data
 {
-    NSString *source = data[@"source"];
-    PDKeychainBindings *binding = [PDKeychainBindings sharedKeychainBindings];
-    [binding setObject:data[@"token"] forKey:[NSString stringWithFormat:@"%@Token", source]];
-    [binding setObject:data[@"secretToken"] forKey:[NSString stringWithFormat:@"%@SecretToken",source]];
+    if (data != nil) {
+        NSString *source = data[@"source"];
+        PDKeychainBindings *binding = [PDKeychainBindings sharedKeychainBindings];
+        NSString *tokenKey = [NSString stringWithFormat:@"%@Token", source];
+        if ([binding stringForKey:tokenKey] != nil) {
+            [binding removeObjectForKey:tokenKey];
+        }
+        [binding setString:data[@"token"] forKey:tokenKey];
+        
+        NSString *tokenSecret = [NSString stringWithFormat:@"%@SecretToken", source];
+        if ([binding stringForKey:tokenSecret] != nil) {
+            [binding removeObjectForKey:tokenSecret];
+        }
+        
+        
+//        [binding setObject:[NSString stringWithString:data[@"token"]] forKey:[NSString stringWithFormat:@"%@Token", source]];
+        [binding setString:data[@"secretToken"] forKey:tokenSecret];
+//        [binding setString:@"aaae288bfaaa50c7e2b5a5bbbc8add29" forKey:@"test"];
+//        [binding setObject:data[@"secretToken"] forKey:[NSString stringWithFormat:@"%@SecretToken",source]];
+    }
 }
 
 -(NSDictionary *)getTokensForSource:(NSString*)source
 {
-    NSString *token = [[PDKeychainBindings sharedKeychainBindings] objectForKey:[NSString stringWithFormat:@"%@Token", source]];
-    NSString *secretToken = [[PDKeychainBindings sharedKeychainBindings] objectForKey:[NSString stringWithFormat:@"%@SecretToken", source]];
-    NSDictionary *returnTokens = [NSDictionary dictionaryWithObjects:@[token, secretToken] forKeys:@[@"token", @"secretToken"]];
+    NSString *token = [[PDKeychainBindings sharedKeychainBindings] stringForKey:[NSString stringWithFormat:@"%@Token", source]];
+    NSString *secretToken = [[PDKeychainBindings sharedKeychainBindings] stringForKey:[NSString stringWithFormat:@"%@SecretToken", source]];
+    NSString *test = [[PDKeychainBindings sharedKeychainBindings] stringForKey:@"test"];
+    NSDictionary *returnTokens = [NSDictionary dictionaryWithObjects:@[token, secretToken, test] forKeys:@[@"token", @"secretToken", @"test"]];
     return returnTokens;
 }
 

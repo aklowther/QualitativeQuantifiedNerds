@@ -50,6 +50,24 @@
         NSDictionary *userInfo = [QUFitbitAPI getUserInfo];
         NSLog(@"%@",userInfo);
     }
+    
+//    NSString *path = @"1/user/-/profile.json";
+//    
+//    NSURLRequest *preparedRequest = [OAuth1Controller preparedRequestForPath:path
+//                                                                  parameters:nil
+//                                                                  HTTPmethod:@"GET"
+//                                                                  oauthToken:self.oauthToken
+//                                                                 oauthSecret:self.oauthTokenSecret];
+//
+//    [NSURLConnection sendAsynchronousRequest:preparedRequest
+//                                       queue:NSOperationQueue.mainQueue
+//                           completionHandler:^(NSURLResponse *response, NSData *data, NSError *error) {
+//                               dispatch_async(dispatch_get_main_queue(), ^{
+//                                   NSLog(@"path35 %@",[[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding]);
+//                                   
+//                                   if (error) NSLog(@"Error in API request: %@", error.localizedDescription);
+//                               });
+//                           }];
 }
 
 - (void)didReceiveMemoryWarning
@@ -91,10 +109,20 @@
     [self presentViewController:loginWebViewController
                        animated:YES
                      completion:^{
-                         [[self oauth1Controller] loginWithConsumerData:data andStandardOauth:oauthData inWebView:loginWebViewController.webView completion:^(NSDictionary *oauthTokens, NSError *error) {
+                         [[self oauth1Controller] loginWithConsumerData:data andStandardOauth:oauthData inWebView:loginWebViewController.webView completion:^(NSDictionary *oauthTokens, NSError *error)
+//                          [[self oauth1Controller] loginWithWebView:loginWebViewController.webView completion:^(NSDictionary *oauthTokens, NSError *error)
+                         {
                              if (!error) {                                 
                                  NSString *token = oauthTokens[@"oauth_token"];
                                  NSString *tokenSecret = oauthTokens[@"oauth_token_secret"];
+                                 
+                                 self.oauthToken = token;
+                                 self.oauthTokenSecret = tokenSecret;
+                                 
+//                                 NSMutableString *mutToken = [NSMutableString string];
+//                                 [mutToken appendString:@"\""];
+//                                 [mutToken appendString:token];
+//                                 [mutToken appendString:@"\""];
                                  
                                  NSDictionary *dataToSet = [NSDictionary dictionaryWithObjects:@[token, tokenSecret, @"fitbit"] forKeys:@[@"token", @"secretToken", @"source"]];
                                  
