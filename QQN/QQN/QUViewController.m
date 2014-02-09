@@ -64,10 +64,6 @@
 }
 - (void)getProfile
 {
-    self.oauthToken = @"cb1f98a9f92d4bde2b4228001c8c3a47";
-    self.oauthTokenSecret = @"cf8748daefd44cbb905799f9447d96cd";
-
-
     NSString *path = @"1/user/-/profile.json";
 
     NSURLRequest *preparedRequest = [OAuth1Controller preparedRequestForPath:path
