@@ -202,8 +202,7 @@ static inline NSDictionary *CHParametersFromQueryString(NSString *queryString)
 //- (void)obtainRequestTokenWithCompletion:(void (^)(NSError *error, NSDictionary *responseParams))completion
 - (void)obtainRequestTokenWithConsumerData:(NSDictionary*)data standardOauthData:(NSDictionary*)oauthData andCompletion:(void (^)(NSError *error, NSDictionary *responseParams))completion
 {
-//    NSString *request_url = [data[@"auth_url"] stringByAppendingString:data[@"request_token_url"]];
-    NSString *request_url = [data[@"api_url"] stringByAppendingString:data[@"request_token_url"]];
+    NSString *request_url = [data[@"auth_url"] stringByAppendingString:data[@"request_token_url"]];
     NSString *oauth_consumer_secret = data[@"consumer_secret"];
     
     NSMutableDictionary *allParameters = [oauthData mutableCopy];
