@@ -68,13 +68,44 @@
 +(NSDictionary *)getUserInfo
 {
     NSString *methodURL = @"1/user/-/profile.json";
+    NSDictionary *userInfo = [self.class getInfoFromFitbitAPI:methodURL];
+    return userInfo;
+}
+
++(NSDictionary *)getWaterForDate:(NSDate*)date
+{
+    //GET /<api-version>/user/-/foods/log/water/date/<date>.<response-format>
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"yyyy-MM-dd"];
+    NSString *dateString = [dateFormatter stringFromDate:date];
     
-    NSDictionary *headers = @{@"Accept-Language": @"en_US"};
+    
+    NSString *methodURL = [NSString stringWithFormat:@"1/user/-/foods/log/water/date/%@.json", dateString];
+    NSDictionary *userInfo = [self.class getInfoFromFitbitAPI:methodURL];
+    return userInfo;
+}
+
++(NSDictionary*) getActivitiesForDate:(NSDate*)date
+{
+    //GET /<api-version>/user/<user-id>/activities/date/<date>.<response-format>
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"yyyy-MM-dd"];
+    NSString *dateString = [dateFormatter stringFromDate:date];
+    
+    
+    NSString *methodURL = [NSString stringWithFormat:@"1/user/-/activities/date/%@.json", dateString];
+    NSDictionary *userInfo = [self.class getInfoFromFitbitAPI:methodURL];
+    return userInfo;
+}
+
++(NSDictionary*)getInfoFromFitbitAPI:(NSString*)methodURL
+{
+//    NSDictionary *headers = @{@"Accept-Language": @"en_US"};
     NSDictionary *tokens = [[QURESTManager sharedManager] getTokensForSource:@"fitbit"];
-    NSString *oauthToken = tokens[@"token"];//[[PDKeychainBindings sharedKeychainBindings] stringForKey:@"fitbitToken"];
-    NSString *oauthSecret = tokens[@"secretToken"];//[[PDKeychainBindings sharedKeychainBindings] stringForKey:@"fitbitSecretToken"];
+    NSString *oauthToken = tokens[@"token"];
+    NSString *oauthSecret = tokens[@"secretToken"];
     
-    NSMutableDictionary *consumerData = [self getOAuthData];
+    NSMutableDictionary *consumerData = [self.class getOAuthData];
     [consumerData setObject:CONSUMER_SECRET forKey:@"consumer_secret"];
     NSURLRequest *request = [OAuth1Controller preparedRequestForHost:API_URL
                                                                 path:methodURL
@@ -90,5 +121,6 @@
     NSDictionary *returnData = [[QURESTManager sharedManager] doGetWithNSURLRequest:request];
     return returnData;
 }
+
 
 @end

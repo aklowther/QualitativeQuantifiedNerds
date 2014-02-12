@@ -249,12 +249,7 @@
         if ([binding stringForKey:tokenSecret] != nil) {
             [binding removeObjectForKey:tokenSecret];
         }
-        
-        
-//        [binding setObject:[NSString stringWithString:data[@"token"]] forKey:[NSString stringWithFormat:@"%@Token", source]];
         [binding setString:data[@"secretToken"] forKey:tokenSecret];
-//        [binding setString:@"aaae288bfaaa50c7e2b5a5bbbc8add29" forKey:@"test"];
-//        [binding setObject:data[@"secretToken"] forKey:[NSString stringWithFormat:@"%@SecretToken",source]];
     }
 }
 
@@ -262,8 +257,7 @@
 {
     NSString *token = [[PDKeychainBindings sharedKeychainBindings] stringForKey:[NSString stringWithFormat:@"%@Token", source]];
     NSString *secretToken = [[PDKeychainBindings sharedKeychainBindings] stringForKey:[NSString stringWithFormat:@"%@SecretToken", source]];
-    NSString *test = [[PDKeychainBindings sharedKeychainBindings] stringForKey:@"test"];
-    NSDictionary *returnTokens = [NSDictionary dictionaryWithObjects:@[token, secretToken, test] forKeys:@[@"token", @"secretToken", @"test"]];
+    NSDictionary *returnTokens = [NSDictionary dictionaryWithObjects:@[token, secretToken] forKeys:@[@"token", @"secretToken"]];
     return returnTokens;
 }
 

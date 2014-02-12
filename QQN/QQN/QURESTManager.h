@@ -44,8 +44,6 @@ typedef void (^CompletionBlock)(NSDictionary *parsedResults, NSError *err);
 
 -(void)setupInfoWithAuthToken:(NSString *)authToken ifModifiedSince:(NSDate *)sinceDate completion:(CompletionBlock)completion;
 
--(void)moduleListWithAuthToken:(NSString *)authToken ifModifiedSince:(NSDate *)sinceDate completion:(CompletionBlock)completion;
-
 
 
 @end

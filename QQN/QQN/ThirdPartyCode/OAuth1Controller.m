@@ -148,7 +148,7 @@ static inline NSDictionary *CHParametersFromQueryString(NSString *queryString)
 @interface OAuth1Controller ()
 
 @property (nonatomic, weak) UIWebView *webView;
-@property (nonatomic, strong) NSDictionary *consumerData;
+@property (nonatomic, strong) NSDictionary *consumerData;//don't need to use a whole dict, could be NSString
 @property (nonatomic, strong) WebWiewDelegateHandler delegateHandler;
 
 @end
@@ -351,26 +351,6 @@ static inline NSDictionary *CHParametersFromQueryString(NSString *queryString)
     
 }
 
-
-//+(NSMutableDictionary *)standardOauthParameters
-//{
-//    NSString *oauth_timestamp = [NSString stringWithFormat:@"%i", (NSInteger)[NSDate.date timeIntervalSince1970]];
-//    NSString *oauth_nonce = [NSString getNonce];
-//    NSString *oauth_consumer_key = CONSUMER_KEY;//self.consumerData[@"consumer_key"];
-//    NSString *oauth_signature_method = @"HMAC-SHA1";
-//    NSString *oauth_version = @"1.0";
-//    
-//    NSMutableDictionary *standardParameters = [NSMutableDictionary dictionary];
-//    [standardParameters setValue:oauth_consumer_key     forKey:@"oauth_consumer_key"];
-//    [standardParameters setValue:oauth_nonce            forKey:@"oauth_nonce"];
-//    [standardParameters setValue:oauth_signature_method forKey:@"oauth_signature_method"];
-//    [standardParameters setValue:oauth_timestamp        forKey:@"oauth_timestamp"];
-//    [standardParameters setValue:oauth_version          forKey:@"oauth_version"];
-//    
-//    return standardParameters;
-//}
-
-
 #pragma mark build authorized API-requests
 + (NSURLRequest *)preparedRequestForHost:(NSString*)host
                                     path:(NSString *)path
@@ -385,7 +365,7 @@ static inline NSDictionary *CHParametersFromQueryString(NSString *queryString)
     
     NSString *consumer_secret = consumerData[@"consumer_secret"];
     [consumerData removeObjectForKey:@"consumer_secret"];
-    //    NSMutableDictionary *allParameters = consumerData;
+
     consumerData[@"oauth_token"] = oauth_token;
     if (queryParameters) [consumerData addEntriesFromDictionary:queryParameters];
     

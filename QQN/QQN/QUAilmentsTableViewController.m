@@ -50,7 +50,7 @@
 
 - (void)viewDidLoad
 {
-    [self fetchAilmentsFromParse];
+//    [self fetchAilmentsFromParse];
     [super viewDidLoad];
     [self setTitle:@"Ailments"];
 }

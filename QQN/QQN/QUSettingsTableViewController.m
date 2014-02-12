@@ -11,9 +11,10 @@
 #import "OAuth1Controller.h"
 #import "QURESTManager.h"
 #import "QUFitbitAPI.h"
+#import "QUJawboneAPI.h"
 
 
-@interface QUSettingsTableViewController ()
+@interface QUSettingsTableViewController () <UIWebViewDelegate>
 @property (nonatomic, strong) OAuth1Controller *oauth1Controller;
 @property (nonatomic, strong) NSString *oauthToken;
 @property (nonatomic, strong) NSString *oauthTokenSecret;
@@ -39,35 +40,60 @@
     UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAction target:self action:@selector(testGetUserInfo)];
     [self.navigationItem setRightBarButtonItem:item];
     
+    [[NSNotificationCenter defaultCenter] addObserverForName:NXOAuth2AccountStoreAccountsDidChangeNotification
+                                                      object:[NXOAuth2AccountStore sharedStore]
+                                                       queue:nil
+                                                  usingBlock:^(NSNotification *aNotification){
+                                                      // Update your UI
+                                                      NSLog(@"success: %@", [aNotification userInfo]);
+                                                      [self dismissViewControllerAnimated:NO completion:nil];
+                                                  }];
     
-//    UIBarButtonItem *cancel = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel target:self action:@selector(cancelButtonSelected)];
-//    [self.navigationItem setLeftBarButtonItem:cancel];
+    [[NSNotificationCenter defaultCenter] addObserverForName:NXOAuth2AccountStoreDidFailToRequestAccessNotification
+                                                      object:[NXOAuth2AccountStore sharedStore]
+                                                       queue:nil
+                                                  usingBlock:^(NSNotification *aNotification){
+                                                      NSError *error = [aNotification.userInfo objectForKey:NXOAuth2AccountStoreErrorKey];
+                                                      // Do something with the error
+                                                      NSLog(@"error: %@", [error userInfo]);
+                                                      [self dismissViewControllerAnimated:NO completion:nil];
+                                                  }];
 }
 
 -(void)testGetUserInfo
 {
-    if ([[QURESTManager sharedManager] hasTokenForSource:@"fitbit"]) {
-        NSDictionary *userInfo = [QUFitbitAPI getUserInfo];
-        NSLog(@"%@",userInfo);
-    }
+//    if ([[QURESTManager sharedManager] hasTokenForSource:@"fitbit"]) {
+//        NSDictionary *userInfo = [QUFitbitAPI getActivitiesForDate:[NSDate date]];
+//        NSLog(@"%@",userInfo);
+//        NSString *numSteps = [userInfo[@"data"][@"summary"] objectForKey:@"steps"];
+//        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Steps"
+//                                                        message:[NSString stringWithFormat:@"You've taken %@ steps today", numSteps]
+//                                                       delegate:nil
+//                                              cancelButtonTitle:@"OK"
+//                                              otherButtonTitles:nil, nil];
+//        [alert show];
+//        
+//    }
     
-//    NSString *path = @"1/user/-/profile.json";
-//    
-//    NSURLRequest *preparedRequest = [OAuth1Controller preparedRequestForPath:path
-//                                                                  parameters:nil
-//                                                                  HTTPmethod:@"GET"
-//                                                                  oauthToken:self.oauthToken
-//                                                                 oauthSecret:self.oauthTokenSecret];
-//
-//    [NSURLConnection sendAsynchronousRequest:preparedRequest
-//                                       queue:NSOperationQueue.mainQueue
-//                           completionHandler:^(NSURLResponse *response, NSData *data, NSError *error) {
-//                               dispatch_async(dispatch_get_main_queue(), ^{
-//                                   NSLog(@"path35 %@",[[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding]);
-//                                   
-//                                   if (error) NSLog(@"Error in API request: %@", error.localizedDescription);
-//                               });
-//                           }];
+    NXOAuth2Request *theRequest = [[NXOAuth2Request alloc] initWithResource:[NSURL URLWithString:@"https://jawbone.com/nudge/api/v.1.0/users/@me/moves"] method:@"GET" parameters:nil];
+    theRequest.account = [[[NXOAuth2AccountStore sharedStore] accountsWithAccountType:@"jawboneService"] firstObject];
+    
+    NSURLRequest *signedRequest = [theRequest signedURLRequest];
+    NSDictionary *returnData = [[QURESTManager sharedManager] doGetWithNSURLRequest:signedRequest];
+    
+    
+//    [NXOAuth2Request performMethod:@"GET"
+//                        onResource:[NSURL URLWithString:@"https://jawbone.com/nudge/api/v.1.0/users/@me/moves"]
+//                   usingParameters:@{@"start_time": @"1383289200"}
+//                       withAccount:account
+//               sendProgressHandler:^(unsigned long long bytesSend, unsigned long long bytesTotal) {
+//                   // e.g., update a progress indicator
+//               }
+//               responseHandler:^(NSURLResponse *response, NSData *responseData, NSError *error){
+//                   // Process the response
+//                   NSLog(@"%@", response);
+//               }];
+    
 }
 
 - (void)didReceiveMemoryWarning
@@ -85,7 +111,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 1;
+    return 2;
 }
 
 
@@ -95,14 +121,19 @@
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"Cell"];
     }
+    if (indexPath.row == 0) {
+        [cell.textLabel setText:@"Fitbit Auth"];
+    } else if (indexPath.row == 1) {
+        [cell.textLabel setText:@"Jawbone Auth"];
+    }
     
-    [cell.textLabel setText:@"Fitbit Auth"];
     return cell;
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    LoginWebViewController *loginWebViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"loginWebViewController"];
+        LoginWebViewController *loginWebViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"loginWebViewController"];
+    if (indexPath.row == 0) {
 //    [self.navigationController pushViewController:loginWebViewController animated:YES];
     __block NSDictionary *data = [QUFitbitAPI getConsumerAppData];
     __block NSDictionary *oauthData = [QUFitbitAPI getOAuthData];
@@ -119,10 +150,6 @@
                                  self.oauthToken = token;
                                  self.oauthTokenSecret = tokenSecret;
                                  
-//                                 NSMutableString *mutToken = [NSMutableString string];
-//                                 [mutToken appendString:@"\""];
-//                                 [mutToken appendString:token];
-//                                 [mutToken appendString:@"\""];
                                  
                                  NSDictionary *dataToSet = [NSDictionary dictionaryWithObjects:@[token, tokenSecret, @"fitbit"] forKeys:@[@"token", @"secretToken", @"source"]];
                                  
@@ -140,7 +167,24 @@
                              }];
                          }];
                      }];
+    } else if (indexPath.row == 1) {
+        [QUJawboneAPI initAuth];
+        [self presentViewController:loginWebViewController animated:YES completion:^{
+            [loginWebViewController.webView setDelegate:self];
+            [QUJawboneAPI requestAcessUsingViewController:loginWebViewController.webView];
+        }];
+    }
 
+}
+
+-(BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navType {
+    if ([[request.URL absoluteString] hasPrefix:[[NSURL URLWithString:@"qqn://jawbone"] absoluteString]]) {
+        [[NXOAuth2AccountStore sharedStore] handleRedirectURL:request.URL];
+//        [self webViewDidFinishLoad:webView];
+        return NO;
+    } else {
+    }
+    return YES;
 }
 
 - (OAuth1Controller *)oauth1Controller

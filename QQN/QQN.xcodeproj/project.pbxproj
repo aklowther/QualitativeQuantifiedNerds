@@ -45,6 +45,7 @@
 		143E81CD187B8B7100BEFE8D /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 143E81CB187B8B7100BEFE8D /* InfoPlist.strings */; };
 		143E81CF187B8B7100BEFE8D /* QQNTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 143E81CE187B8B7100BEFE8D /* QQNTests.m */; };
 		148DDAF818A3BF1C00927A4D /* QUNewAilmentHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 148DDAF718A3BF1C00927A4D /* QUNewAilmentHeaderView.m */; };
+		148DEFDA18A839AF007D6613 /* QUJawboneAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 148DEFD918A839AF007D6613 /* QUJawboneAPI.m */; };
 		149F466C18A03ED500CA70B2 /* QUser.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 149F466A18A03ED500CA70B2 /* QUser.xcdatamodeld */; };
 		149F467C18A040E500CA70B2 /* _Ailment.m in Sources */ = {isa = PBXBuildFile; fileRef = 149F467518A040E500CA70B2 /* _Ailment.m */; };
 		149F467D18A040E500CA70B2 /* _User.m in Sources */ = {isa = PBXBuildFile; fileRef = 149F467718A040E500CA70B2 /* _User.m */; };
@@ -134,6 +135,8 @@
 		143E81CE187B8B7100BEFE8D /* QQNTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QQNTests.m; sourceTree = "<group>"; };
 		148DDAF618A3BF1C00927A4D /* QUNewAilmentHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QUNewAilmentHeaderView.h; sourceTree = "<group>"; };
 		148DDAF718A3BF1C00927A4D /* QUNewAilmentHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QUNewAilmentHeaderView.m; sourceTree = "<group>"; };
+		148DEFD818A839AF007D6613 /* QUJawboneAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QUJawboneAPI.h; sourceTree = "<group>"; };
+		148DEFD918A839AF007D6613 /* QUJawboneAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QUJawboneAPI.m; sourceTree = "<group>"; };
 		149F466B18A03ED500CA70B2 /* QUser.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = QUser.xcdatamodel; sourceTree = "<group>"; };
 		149F466D18A0400D00CA70B2 /* AilmentTypes.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AilmentTypes.h; sourceTree = "<group>"; };
 		149F467418A040E500CA70B2 /* _Ailment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _Ailment.h; sourceTree = "<group>"; };
@@ -418,6 +421,8 @@
 		14A9243B18A5BD0F0008DA66 /* DataManagement */ = {
 			isa = PBXGroup;
 			children = (
+				148DEFD818A839AF007D6613 /* QUJawboneAPI.h */,
+				148DEFD918A839AF007D6613 /* QUJawboneAPI.m */,
 				14A9244618A5CCE30008DA66 /* QUFitbitAPI.h */,
 				14A9244718A5CCE30008DA66 /* QUFitbitAPI.m */,
 				14A9243818A5BD090008DA66 /* QURESTManager.h */,
@@ -658,6 +663,7 @@
 				148DDAF818A3BF1C00927A4D /* QUNewAilmentHeaderView.m in Sources */,
 				143E81B0187B8B7100BEFE8D /* main.m in Sources */,
 				141A4CAF18A1B13B00531350 /* _AilmentInfo.m in Sources */,
+				148DEFDA18A839AF007D6613 /* QUJawboneAPI.m in Sources */,
 				14A9244818A5CCE30008DA66 /* QUFitbitAPI.m in Sources */,
 				149F468818A06ACA00CA70B2 /* QUAilmentsViewController.m in Sources */,
 				149F467F18A040E500CA70B2 /* User.m in Sources */,
@@ -821,6 +827,7 @@
 					QuartzCore,
 					"-framework",
 					Security,
+					"-ObjC",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
@@ -855,6 +862,7 @@
 					QuartzCore,
 					"-framework",
 					Security,
+					"-ObjC",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
