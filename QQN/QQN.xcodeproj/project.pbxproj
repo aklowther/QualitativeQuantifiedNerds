@@ -72,9 +72,12 @@
 		14A9243718A580D90008DA66 /* QUSettingsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 14A9243618A580D90008DA66 /* QUSettingsTableViewController.m */; };
 		14A9243A18A5BD090008DA66 /* QURESTManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 14A9243918A5BD090008DA66 /* QURESTManager.m */; };
 		14A9244818A5CCE30008DA66 /* QUFitbitAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 14A9244718A5CCE30008DA66 /* QUFitbitAPI.m */; };
+		14CC046718AC4F750082135E /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 14CC046618AC4F750082135E /* CoreMotion.framework */; };
+		14CC046A18AC59800082135E /* QUM7Manager.m in Sources */ = {isa = PBXBuildFile; fileRef = 14CC046918AC59800082135E /* QUM7Manager.m */; };
 		14CD15F118A4630200ECB26C /* QUAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 143E81B3187B8B7100BEFE8D /* QUAppDelegate.m */; };
 		14CD15F718A4660000ECB26C /* UI_111.png in Resources */ = {isa = PBXBuildFile; fileRef = 14CD15F618A4660000ECB26C /* UI_111.png */; };
 		14CD15FA18A47EC300ECB26C /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 14CD15F918A47EC300ECB26C /* Crashlytics.framework */; };
+		14D2A50218AEACA00041B899 /* QUDateManagementTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 14D2A50118AEACA00041B899 /* QUDateManagementTableViewCell.m */; };
 		8C399C0441A07035D096294E /* hmac.c in Sources */ = {isa = PBXBuildFile; fileRef = 8C39951E820EF7520613097D /* hmac.c */; };
 		8C399C2705F67A4513E4E754 /* sha1.c in Sources */ = {isa = PBXBuildFile; fileRef = 8C399734A869FE22BB285578 /* sha1.c */; };
 		8C399E088069C684CB2F3C91 /* LoginWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C399B2A65F465CC63BEA9DF /* LoginWebViewController.m */; };
@@ -133,6 +136,7 @@
 		143E81CA187B8B7100BEFE8D /* QQNTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "QQNTests-Info.plist"; sourceTree = "<group>"; };
 		143E81CC187B8B7100BEFE8D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		143E81CE187B8B7100BEFE8D /* QQNTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QQNTests.m; sourceTree = "<group>"; };
+		148829E118ADB23E007D1ED9 /* QUser 3.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "QUser 3.xcdatamodel"; sourceTree = "<group>"; };
 		148DDAF618A3BF1C00927A4D /* QUNewAilmentHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QUNewAilmentHeaderView.h; sourceTree = "<group>"; };
 		148DDAF718A3BF1C00927A4D /* QUNewAilmentHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QUNewAilmentHeaderView.m; sourceTree = "<group>"; };
 		148DEFD818A839AF007D6613 /* QUJawboneAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QUJawboneAPI.h; sourceTree = "<group>"; };
@@ -180,8 +184,13 @@
 		14A9243918A5BD090008DA66 /* QURESTManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QURESTManager.m; sourceTree = "<group>"; };
 		14A9244618A5CCE30008DA66 /* QUFitbitAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QUFitbitAPI.h; sourceTree = "<group>"; };
 		14A9244718A5CCE30008DA66 /* QUFitbitAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QUFitbitAPI.m; sourceTree = "<group>"; };
+		14CC046618AC4F750082135E /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
+		14CC046818AC59800082135E /* QUM7Manager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QUM7Manager.h; sourceTree = "<group>"; };
+		14CC046918AC59800082135E /* QUM7Manager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QUM7Manager.m; sourceTree = "<group>"; };
 		14CD15F618A4660000ECB26C /* UI_111.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = UI_111.png; sourceTree = "<group>"; };
 		14CD15F918A47EC300ECB26C /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
+		14D2A50018AEACA00041B899 /* QUDateManagementTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QUDateManagementTableViewCell.h; sourceTree = "<group>"; };
+		14D2A50118AEACA00041B899 /* QUDateManagementTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QUDateManagementTableViewCell.m; sourceTree = "<group>"; };
 		5EB5C80327394A6D98610F2D /* libPods-QQN.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-QQN.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8C39918551FFF0C0A2AD62CC /* LoginWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginWebViewController.h; sourceTree = "<group>"; };
 		8C39951E820EF7520613097D /* hmac.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = hmac.c; sourceTree = "<group>"; };
@@ -198,6 +207,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				149F469618A075B600CA70B2 /* CoreLocation.framework in Frameworks */,
+				14CC046718AC4F750082135E /* CoreMotion.framework in Frameworks */,
 				141A4CC918A1DB9A00531350 /* libTestFlight.a in Frameworks */,
 				149F46A218A075DD00CA70B2 /* SystemConfiguration.framework in Frameworks */,
 				149F46A018A075D800CA70B2 /* StoreKit.framework in Frameworks */,
@@ -205,7 +216,6 @@
 				149F469C18A075CE00CA70B2 /* QuartzCore.framework in Frameworks */,
 				149F469A18A075C400CA70B2 /* MobileCoreServices.framework in Frameworks */,
 				149F469818A075BC00CA70B2 /* libz.dylib in Frameworks */,
-				149F469618A075B600CA70B2 /* CoreLocation.framework in Frameworks */,
 				143E81A6187B8B7100BEFE8D /* CoreGraphics.framework in Frameworks */,
 				149F469418A075A800CA70B2 /* AudioToolbox.framework in Frameworks */,
 				14CD15FA18A47EC300ECB26C /* Crashlytics.framework in Frameworks */,
@@ -298,6 +308,7 @@
 		143E81A2187B8B7100BEFE8D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				14CC046618AC4F750082135E /* CoreMotion.framework */,
 				14CD15F918A47EC300ECB26C /* Crashlytics.framework */,
 				141A4CC218A1DB9A00531350 /* TestFlightSDK2 */,
 				149F46A118A075DD00CA70B2 /* SystemConfiguration.framework */,
@@ -374,8 +385,6 @@
 			children = (
 				149F468318A041DC00CA70B2 /* EntityClasses */,
 				149F466A18A03ED500CA70B2 /* QUser.xcdatamodeld */,
-				141A4CBE18A1CFF500531350 /* QUSeverityPickerTableViewCell.h */,
-				141A4CBF18A1CFF500531350 /* QUSeverityPickerTableViewCell.m */,
 				149F466D18A0400D00CA70B2 /* AilmentTypes.h */,
 				149F468018A0411200CA70B2 /* QUCoreDataManager.h */,
 				149F468118A0411200CA70B2 /* QUCoreDataManager.m */,
@@ -421,6 +430,8 @@
 		14A9243B18A5BD0F0008DA66 /* DataManagement */ = {
 			isa = PBXGroup;
 			children = (
+				14CC046818AC59800082135E /* QUM7Manager.h */,
+				14CC046918AC59800082135E /* QUM7Manager.m */,
 				148DEFD818A839AF007D6613 /* QUJawboneAPI.h */,
 				148DEFD918A839AF007D6613 /* QUJawboneAPI.m */,
 				14A9244618A5CCE30008DA66 /* QUFitbitAPI.h */,
@@ -435,6 +446,10 @@
 		14CD15F218A4637500ECB26C /* New/Edit */ = {
 			isa = PBXGroup;
 			children = (
+				14D2A50018AEACA00041B899 /* QUDateManagementTableViewCell.h */,
+				14D2A50118AEACA00041B899 /* QUDateManagementTableViewCell.m */,
+				141A4CBE18A1CFF500531350 /* QUSeverityPickerTableViewCell.h */,
+				141A4CBF18A1CFF500531350 /* QUSeverityPickerTableViewCell.m */,
 				148DDAF618A3BF1C00927A4D /* QUNewAilmentHeaderView.h */,
 				148DDAF718A3BF1C00927A4D /* QUNewAilmentHeaderView.m */,
 				141A4CB818A1C90E00531350 /* QUNewAilmentTableViewController.h */,
@@ -598,7 +613,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "cd QQN/\nmogenerator -m QUser.xcdatamodeld/QUser\\ 2.xcdatamodel --template-var arc=true";
+			shellScript = "cd QQN/\nmogenerator -m QUser.xcdatamodeld/QUser\\ 3.xcdatamodel --template-var arc=true";
 		};
 		14CD15F818A47EAD00ECB26C /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -663,6 +678,7 @@
 				148DDAF818A3BF1C00927A4D /* QUNewAilmentHeaderView.m in Sources */,
 				143E81B0187B8B7100BEFE8D /* main.m in Sources */,
 				141A4CAF18A1B13B00531350 /* _AilmentInfo.m in Sources */,
+				14CC046A18AC59800082135E /* QUM7Manager.m in Sources */,
 				148DEFDA18A839AF007D6613 /* QUJawboneAPI.m in Sources */,
 				14A9244818A5CCE30008DA66 /* QUFitbitAPI.m in Sources */,
 				149F468818A06ACA00CA70B2 /* QUAilmentsViewController.m in Sources */,
@@ -678,6 +694,7 @@
 				8C399C2705F67A4513E4E754 /* sha1.c in Sources */,
 				14A9243718A580D90008DA66 /* QUSettingsTableViewController.m in Sources */,
 				8C399C0441A07035D096294E /* hmac.c in Sources */,
+				14D2A50218AEACA00041B899 /* QUDateManagementTableViewCell.m in Sources */,
 				14A9243A18A5BD090008DA66 /* QURESTManager.m in Sources */,
 				8C399E0B49813943DD7B74E0 /* Base64Transcoder.c in Sources */,
 				8C399E088069C684CB2F3C91 /* LoginWebViewController.m in Sources */,
@@ -975,10 +992,11 @@
 		149F466A18A03ED500CA70B2 /* QUser.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
+				148829E118ADB23E007D1ED9 /* QUser 3.xcdatamodel */,
 				14A6F92718A457BE0015E0BE /* QUser 2.xcdatamodel */,
 				149F466B18A03ED500CA70B2 /* QUser.xcdatamodel */,
 			);
-			currentVersion = 14A6F92718A457BE0015E0BE /* QUser 2.xcdatamodel */;
+			currentVersion = 148829E118ADB23E007D1ED9 /* QUser 3.xcdatamodel */;
 			path = QUser.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;

@@ -12,6 +12,7 @@
 #import "QURESTManager.h"
 #import "QUFitbitAPI.h"
 #import "QUJawboneAPI.h"
+#import "QUM7Manager.h"
 
 
 @interface QUSettingsTableViewController () <UIWebViewDelegate>
@@ -36,6 +37,7 @@
 {
     [super viewDidLoad];
     [self setTitle:@"Settings"];
+    [QUJawboneAPI initAuth];
     
     UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAction target:self action:@selector(testGetUserInfo)];
     [self.navigationItem setRightBarButtonItem:item];
@@ -58,6 +60,7 @@
                                                       NSLog(@"error: %@", [error userInfo]);
                                                       [self dismissViewControllerAnimated:NO completion:nil];
                                                   }];
+    [QUM7Manager getStepsIfM7Available];
 }
 
 -(void)testGetUserInfo
@@ -75,25 +78,16 @@
 //        
 //    }
     
+    if (!([[[NXOAuth2AccountStore sharedStore] accountsWithAccountType:@"jawboneService"] count] > 0)) {
+//        [QUJawboneAPI initAuth];
+        [[[UIAlertView alloc] initWithTitle:@"Error" message:@"Please Auth First" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil] show];
+    }
+    
     NXOAuth2Request *theRequest = [[NXOAuth2Request alloc] initWithResource:[NSURL URLWithString:@"https://jawbone.com/nudge/api/v.1.0/users/@me/moves"] method:@"GET" parameters:nil];
     theRequest.account = [[[NXOAuth2AccountStore sharedStore] accountsWithAccountType:@"jawboneService"] firstObject];
     
     NSURLRequest *signedRequest = [theRequest signedURLRequest];
     NSDictionary *returnData = [[QURESTManager sharedManager] doGetWithNSURLRequest:signedRequest];
-    
-    
-//    [NXOAuth2Request performMethod:@"GET"
-//                        onResource:[NSURL URLWithString:@"https://jawbone.com/nudge/api/v.1.0/users/@me/moves"]
-//                   usingParameters:@{@"start_time": @"1383289200"}
-//                       withAccount:account
-//               sendProgressHandler:^(unsigned long long bytesSend, unsigned long long bytesTotal) {
-//                   // e.g., update a progress indicator
-//               }
-//               responseHandler:^(NSURLResponse *response, NSData *responseData, NSError *error){
-//                   // Process the response
-//                   NSLog(@"%@", response);
-//               }];
-    
 }
 
 - (void)didReceiveMemoryWarning
@@ -168,7 +162,7 @@
                          }];
                      }];
     } else if (indexPath.row == 1) {
-        [QUJawboneAPI initAuth];
+//        [QUJawboneAPI initAuth];
         [self presentViewController:loginWebViewController animated:YES completion:^{
             [loginWebViewController.webView setDelegate:self];
             [QUJawboneAPI requestAcessUsingViewController:loginWebViewController.webView];

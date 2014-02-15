@@ -10,6 +10,7 @@
 #import <Crashlytics/Crashlytics.h>
 #import "TestFlight.h"
 #import "QUAppDelegate.h"
+#import <CoreMotion/CoreMotion.h>
 
 @implementation QUAppDelegate
 
@@ -25,6 +26,9 @@
     [Crashlytics startWithAPIKey:@"eecd5d7223d154df40298c76c362f6fbd8a5def9"];
     
     [application registerForRemoteNotificationTypes: UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeAlert | UIRemoteNotificationTypeSound];
+
+    NSLog(@"%@", [NSNumber numberWithBool:[CMStepCounter isStepCountingAvailable]]);
+    NSLog(@"%@", [NSNumber numberWithBool:[CMMotionActivityManager isActivityAvailable]]);
     
     return YES;
 }

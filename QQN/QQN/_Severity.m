@@ -5,6 +5,8 @@
 
 const struct SeverityAttributes SeverityAttributes = {
 	.currentSeverity = @"currentSeverity",
+	.humidity = @"humidity",
+	.temperature = @"temperature",
 	.time = @"time",
 };
 
@@ -46,6 +48,16 @@ const struct SeverityFetchedProperties SeverityFetchedProperties = {
 		keyPaths = [keyPaths setByAddingObjectsFromSet:affectingKey];
 		return keyPaths;
 	}
+	if ([key isEqualToString:@"humidityValue"]) {
+		NSSet *affectingKey = [NSSet setWithObject:@"humidity"];
+		keyPaths = [keyPaths setByAddingObjectsFromSet:affectingKey];
+		return keyPaths;
+	}
+	if ([key isEqualToString:@"temperatureValue"]) {
+		NSSet *affectingKey = [NSSet setWithObject:@"temperature"];
+		keyPaths = [keyPaths setByAddingObjectsFromSet:affectingKey];
+		return keyPaths;
+	}
 
 	return keyPaths;
 }
@@ -73,6 +85,58 @@ const struct SeverityFetchedProperties SeverityFetchedProperties = {
 
 - (void)setPrimitiveCurrentSeverityValue:(float)value_ {
 	[self setPrimitiveCurrentSeverity:[NSNumber numberWithFloat:value_]];
+}
+
+
+
+
+
+@dynamic humidity;
+
+
+
+- (float)humidityValue {
+	NSNumber *result = [self humidity];
+	return [result floatValue];
+}
+
+- (void)setHumidityValue:(float)value_ {
+	[self setHumidity:[NSNumber numberWithFloat:value_]];
+}
+
+- (float)primitiveHumidityValue {
+	NSNumber *result = [self primitiveHumidity];
+	return [result floatValue];
+}
+
+- (void)setPrimitiveHumidityValue:(float)value_ {
+	[self setPrimitiveHumidity:[NSNumber numberWithFloat:value_]];
+}
+
+
+
+
+
+@dynamic temperature;
+
+
+
+- (float)temperatureValue {
+	NSNumber *result = [self temperature];
+	return [result floatValue];
+}
+
+- (void)setTemperatureValue:(float)value_ {
+	[self setTemperature:[NSNumber numberWithFloat:value_]];
+}
+
+- (float)primitiveTemperatureValue {
+	NSNumber *result = [self primitiveTemperature];
+	return [result floatValue];
+}
+
+- (void)setPrimitiveTemperatureValue:(float)value_ {
+	[self setPrimitiveTemperature:[NSNumber numberWithFloat:value_]];
 }
 
 

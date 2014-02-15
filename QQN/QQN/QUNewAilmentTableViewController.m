@@ -5,6 +5,7 @@
 //  Created by Adam Lowther on 2/4/14.
 //  Copyright (c) 2014 Adam Lowther. All rights reserved.
 //
+#import <CoreLocation/CoreLocation.h>
 
 #import "QUNewAilmentTableViewController.h"
 #import "QUSeverityPickerTableViewCell.h"
@@ -12,13 +13,25 @@
 #import "QUCoreDataManager.h"
 #import "QUNewAilmentHeaderView.h"
 #import "User.h"
+#import "QURESTManager.h"
+#import "QUDateManagementTableViewCell.h"
+
+#define forecastAPIKey @"e1dcdf6858860bc839fc93808acd6b51"
 
 
-@interface QUNewAilmentTableViewController () <QUSeverityDelegate, NSFetchedResultsControllerDelegate, UIActionSheetDelegate>
+@interface QUNewAilmentTableViewController () <QUSeverityDelegate, NSFetchedResultsControllerDelegate, UIActionSheetDelegate, CLLocationManagerDelegate>
 @property (nonatomic, retain) NSFetchedResultsController *fetchedResultsController;
 
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *leftBarItem;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *rightBarItem;
+
+@property (strong, nonatomic) CLLocationManager *locationManager;
+
+@property (nonatomic) NSNumber *currentWeatherTemp;
+@property (nonatomic) NSNumber *currentWeatherHumidity;
+
+@property (nonatomic) UIDatePicker *pickerView;
+
 @end
 
 @implementation QUNewAilmentTableViewController
@@ -57,7 +70,25 @@
         [self beingPresentedInModalPopup];
     }
     self.severitySliderValue = 0.5f;
+    [self isLocationAuthorized];
 }
+
+
+-(void)isLocationAuthorized
+{
+//    if ([CLLocationManager authorizationStatus] == kCLAuthorizationStatusAuthorized){
+        if ([CLLocationManager locationServicesEnabled]) {
+            self.locationManager = [[CLLocationManager alloc] init];
+            self.locationManager.desiredAccuracy = kCLLocationAccuracyHundredMeters;
+            [self.locationManager setDelegate:self];
+            [self.locationManager startUpdatingLocation];
+//            self.location = [[CLLocation alloc] init];
+        }
+//    } else {
+//        //UIAlertView to get auth
+//    }
+}
+
 
 -(void)dealloc
 {
@@ -191,58 +222,117 @@
         [newCell.sliderValueLabel setText:[NSString stringWithFormat:@"%.2f", ailmentSeverity.currentSeverityValue*10]];
         [newCell setDelegate:self];
         [newCell.severitySlider setEnabled:NO];
+        
+        NSString *severityTemp = nil;
+        if (ailmentSeverity.temperature != nil) {
+            severityTemp = [NSString stringWithFormat:@"%.1f %@F",[ailmentSeverity.temperature doubleValue], @"\u00B0"];
+        }
+        [newCell.temperatureLabel setText:severityTemp];
+        
+        NSString *severityHumidity = nil;
+        if (ailmentSeverity.humidity != nil) {
+            severityHumidity = [NSString stringWithFormat:@"Humidity: %.1f%%",[ailmentSeverity.humidity doubleValue]];
+        }
+        [newCell.humidityLabel setText:severityHumidity];
+        
         cell = newCell;
     }else {
-        
         if (indexPath.row == 1) {
             QUSeverityPickerTableViewCell *newCell = (QUSeverityPickerTableViewCell*)[tableView dequeueReusableCellWithIdentifier:identifierForCell forIndexPath:indexPath];
             [newCell.severityLabel setText:@"Severity"];
             [newCell setDelegate:self];
+            
+            NSString *currentTemp = [NSString stringWithFormat:@"%.1f %@F",[self.currentWeatherTemp doubleValue], @"\u00B0"];
+            [newCell.temperatureLabel setText:currentTemp];
+            
+            NSString *currentHumidity = [NSString stringWithFormat:@"Humidity: %.1f%%",[self.currentWeatherHumidity doubleValue]];
+            [newCell.humidityLabel setText:currentHumidity];
+            
             cell = newCell;
         } else {
-            cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
-            if (cell == nil) {
-                cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:@"Cell"];
-            }
-            [cell.textLabel setText:@"Current Time"];
+            QUDateManagementTableViewCell *newCell = (QUDateManagementTableViewCell*)[tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
+//            cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
+//            if (cell == nil) {
+//                cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:@"Cell"];
+//            }
+            
+            [newCell.titleLabel setText:@"Current Time"];
+            [newCell setDateToManage:[NSDate date]];
+            
+//            [cell.textLabel setText:@"Current Time"];
             
             NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
             [dateFormatter setDateFormat:@"MMM dd, yyyy hh:mm a"];
             
             if (!self.registeredTime) {
                 NSString *currentTime = [dateFormatter stringFromDate:[NSDate date]];
-                [cell.detailTextLabel setText:currentTime];
+//                [cell.detailTextLabel setText:currentTime];
+                [newCell.detailLabel setText:currentTime];
                 _registeredTime = [NSDate date];
             } else {
 //                NSString *currentTime = [dateFormatter stringFromDate:self.registeredTime];
                 NSString *currentTime = [dateFormatter stringFromDate:[NSDate date]];
-                [cell.detailTextLabel setText:currentTime];
+                [newCell.detailLabel setText:currentTime];
+//                [cell.detailTextLabel setText:currentTime];
             }
-            
+            cell = newCell;
         }
     }
     return cell;
 }
 
--(BOOL)tableView:(UITableView *)tableView shouldHighlightRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    BOOL shouldHighlight = NO;
-    if (indexPath.section < [[self.fetchedResultsController sections] count]) {
-        shouldHighlight = NO;
-    } else {
-//        if (indexPath.row == 0) {
-//            shouldHighlight = YES;
-//        }
-    }
-    return shouldHighlight;
-}
+//-(BOOL)tableView:(UITableView *)tableView shouldHighlightRowAtIndexPath:(NSIndexPath *)indexPath
+//{
+//    BOOL shouldHighlight = NO;
+//    if (indexPath.section < [[self.fetchedResultsController sections] count]) {
+//        shouldHighlight = NO;
+//    } else {
+////        if (indexPath.row == 0) {
+////            shouldHighlight = YES;
+////        }
+//    }
+//    return shouldHighlight;
+//}
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (!(indexPath.section < [[self.fetchedResultsController sections] count])) {
         if (indexPath.row == 0) {
             NSLog(@"show date picker");
+            [self displayExternalDatePickerForRowAtIndexPath:indexPath];
         }
+    }
+}
+
+- (void)displayExternalDatePickerForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    // first update the date picker's date value according to our model
+    QUDateManagementTableViewCell *cell = (QUDateManagementTableViewCell*)[self.tableView cellForRowAtIndexPath:indexPath];
+    
+    
+    [self.pickerView setDate:cell.dateToManage animated:YES];
+    
+    // the date picker might already be showing, so don't add it to our view
+    if (self.pickerView.superview == nil)
+    {
+        CGRect startFrame = self.pickerView.frame;
+        CGRect endFrame = self.pickerView.frame;
+        
+        // the start position is below the bottom of the visible frame
+        startFrame.origin.y = self.view.frame.size.height;
+        
+        // the end position is slid up by the height of the view
+        endFrame.origin.y = startFrame.origin.y - endFrame.size.height;
+        
+        self.pickerView.frame = startFrame;
+        
+        [self.view addSubview:self.pickerView];
+        
+        // animate the date picker into view
+        [UIView animateWithDuration:0.50 animations: ^{ self.pickerView.frame = endFrame; }
+                         completion:^(BOOL finished) {
+                             // add the "Done" button to the nav bar
+                         }];
     }
 }
 
@@ -264,6 +354,13 @@
         [addSeverity setTime:self.registeredTime];
         [addSeverity setCurrentSeverity:[NSNumber numberWithFloat:self.severitySliderValue]];
         
+        if (self.currentWeatherHumidity != nil) {
+            [addSeverity setHumidity:self.currentWeatherHumidity];
+        }
+        if (self.currentWeatherTemp != nil) {
+            [addSeverity setTemperature:self.currentWeatherTemp];
+        }
+        
         if (self.severitySliderValue == 0.0f) {
             [info setEndTime:[NSDate date]];
         }
@@ -284,6 +381,14 @@
         Severity *severity = (Severity*)[NSEntityDescription insertNewObjectForEntityForName:@"Severity" inManagedObjectContext:context];
         [severity setTime:self.registeredTime];
         [severity setCurrentSeverityValue:self.severitySliderValue];
+        
+        if (self.currentWeatherHumidity != nil) {
+            [severity setHumidity:self.currentWeatherHumidity];
+        }
+        if (self.currentWeatherTemp != nil) {
+            [severity setTemperature:self.currentWeatherTemp];
+        }
+        
 //        [severity setInfo:info];
         
         [info addAilmentSeverityObject:severity];
@@ -298,6 +403,27 @@
         }
     }
     [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+-(void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations
+{
+    CLLocation *location = locations.lastObject;
+    [self.locationManager stopUpdatingLocation];
+    NSLog(@"%@", location);
+    
+    if (location) {
+        NSDate *rightNow = [NSDate date];
+        NSTimeInterval rightNowTime = [rightNow timeIntervalSince1970];
+        
+        NSURL *urlToRequest = [NSURL URLWithString:[NSString stringWithFormat:@"https://api.forecast.io/forecast/%@/%f,%f,%.0f", forecastAPIKey, location.coordinate.latitude, location.coordinate.longitude, rightNowTime]];
+        NSURLRequest *request = [NSURLRequest requestWithURL:urlToRequest];
+        NSDictionary *weather = [[QURESTManager sharedManager] doGetWithNSURLRequest:request];
+        NSNumber *tempHumidity = weather[@"data"][@"currently"][@"humidity"];
+        self.currentWeatherHumidity = [NSNumber numberWithFloat:([tempHumidity floatValue]*100)];
+        
+        self.currentWeatherTemp = weather[@"data"][@"currently"][@"temperature"];
+        [self.tableView reloadData];
+    }
 }
 
 /*

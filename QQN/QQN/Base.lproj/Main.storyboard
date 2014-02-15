@@ -118,15 +118,31 @@
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ep4-se-kev">
+                                            <rect key="frame" x="20" y="60" width="63" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mU7-TI-yS4">
+                                            <rect key="frame" x="188" y="60" width="112" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
+                                    <outlet property="humidityLabel" destination="mU7-TI-yS4" id="a25-y5-SFn"/>
                                     <outlet property="severityLabel" destination="w2o-kL-pg5" id="AsV-2w-dat"/>
                                     <outlet property="severitySlider" destination="m8E-AQ-jwG" id="WgG-K6-tVZ"/>
                                     <outlet property="sliderValueLabel" destination="y4O-49-kl5" id="U2q-nJ-tco"/>
+                                    <outlet property="temperatureLabel" destination="ep4-se-kev" id="xFc-x1-e3B"/>
                                 </connections>
                             </tableViewCell>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" textLabel="8If-a3-nXG" detailTextLabel="8jc-N6-68h" rowHeight="44" style="IBUITableViewCellStyleValue1" id="HcQ-XD-iit" customClass="QUSeverityPickerTableViewCell">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" textLabel="8If-a3-nXG" detailTextLabel="8jc-N6-68h" rowHeight="44" style="IBUITableViewCellStyleValue1" id="HcQ-XD-iit" customClass="QUDateManagementTableViewCell">
                                 <rect key="frame" x="0.0" y="218" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="HcQ-XD-iit" id="RNa-Wz-5ev">
@@ -149,6 +165,10 @@
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="detailLabel" destination="8jc-N6-68h" id="Rvg-li-oKR"/>
+                                    <outlet property="titleLabel" destination="8If-a3-nXG" id="Zec-cZ-e83"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -429,7 +449,6 @@
                     </tabBar>
                     <connections>
                         <segue destination="vhx-vj-9Pe" kind="relationship" relationship="viewControllers" id="OaO-hd-jh5"/>
-                        <segue destination="fJ7-4M-dz4" kind="relationship" relationship="viewControllers" id="yl8-Zf-5I9"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dOv-gq-TYh" userLabel="First Responder" sceneMemberID="firstResponder"/>

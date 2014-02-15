@@ -6,6 +6,8 @@
 
 extern const struct SeverityAttributes {
 	__unsafe_unretained NSString *currentSeverity;
+	__unsafe_unretained NSString *humidity;
+	__unsafe_unretained NSString *temperature;
 	__unsafe_unretained NSString *time;
 } SeverityAttributes;
 
@@ -17,6 +19,8 @@ extern const struct SeverityFetchedProperties {
 } SeverityFetchedProperties;
 
 @class AilmentInfo;
+
+
 
 
 
@@ -43,6 +47,34 @@ extern const struct SeverityFetchedProperties {
 - (void)setCurrentSeverityValue:(float)value_;
 
 //- (BOOL)validateCurrentSeverity:(id*)value_ error:(NSError**)error_;
+
+
+
+
+
+@property (nonatomic, strong) NSNumber* humidity;
+
+
+
+@property float humidityValue;
+- (float)humidityValue;
+- (void)setHumidityValue:(float)value_;
+
+//- (BOOL)validateHumidity:(id*)value_ error:(NSError**)error_;
+
+
+
+
+
+@property (nonatomic, strong) NSNumber* temperature;
+
+
+
+@property float temperatureValue;
+- (float)temperatureValue;
+- (void)setTemperatureValue:(float)value_;
+
+//- (BOOL)validateTemperature:(id*)value_ error:(NSError**)error_;
 
 
 
@@ -80,6 +112,24 @@ extern const struct SeverityFetchedProperties {
 
 - (float)primitiveCurrentSeverityValue;
 - (void)setPrimitiveCurrentSeverityValue:(float)value_;
+
+
+
+
+- (NSNumber*)primitiveHumidity;
+- (void)setPrimitiveHumidity:(NSNumber*)value;
+
+- (float)primitiveHumidityValue;
+- (void)setPrimitiveHumidityValue:(float)value_;
+
+
+
+
+- (NSNumber*)primitiveTemperature;
+- (void)setPrimitiveTemperature:(NSNumber*)value;
+
+- (float)primitiveTemperatureValue;
+- (void)setPrimitiveTemperatureValue:(float)value_;
 
 
 

@@ -20,6 +20,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *severityLabel;
 @property (weak, nonatomic) IBOutlet UILabel *sliderValueLabel;
 @property (weak, nonatomic) IBOutlet UISlider *severitySlider;
+@property (weak, nonatomic) IBOutlet UILabel *temperatureLabel;
+@property (weak, nonatomic) IBOutlet UILabel *humidityLabel;
 
 @property (nonatomic)id<QUSeverityDelegate> delegate;
 @end
