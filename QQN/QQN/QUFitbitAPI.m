@@ -75,6 +75,7 @@
 +(NSDictionary *)getWaterForDate:(NSDate*)date
 {
     //GET /<api-version>/user/-/foods/log/water/date/<date>.<response-format>
+    //always returns in ml
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     [dateFormatter setDateFormat:@"yyyy-MM-dd"];
     NSString *dateString = [dateFormatter stringFromDate:date];
@@ -100,7 +101,7 @@
 
 +(NSDictionary*)getInfoFromFitbitAPI:(NSString*)methodURL
 {
-//    NSDictionary *headers = @{@"Accept-Language": @"en_US"};
+    NSDictionary *headers = nil;//@{@"Accept-Language": @"en_US"}; //doesn't seem to be working the way I think it should
     NSDictionary *tokens = [[QURESTManager sharedManager] getTokensForSource:@"fitbit"];
     NSString *oauthToken = tokens[@"token"];
     NSString *oauthSecret = tokens[@"secretToken"];
@@ -109,7 +110,7 @@
     [consumerData setObject:CONSUMER_SECRET forKey:@"consumer_secret"];
     NSURLRequest *request = [OAuth1Controller preparedRequestForHost:API_URL
                                                                 path:methodURL
-                                                          parameters:nil
+                                                          parameters:headers
                                                           HTTPmethod:@"GET"
                                                           oauthToken:oauthToken
                                                          oauthSecret:oauthSecret

@@ -53,6 +53,7 @@
 		NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
 	}
     [self.tableView reloadData];
+    [self isLocationAuthorized];
 }
 
 - (void)viewDidLoad
@@ -64,13 +65,21 @@
 		// Update to handle the error appropriately.
 		NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
 	}
-//    [self.tableView reloadData];
     
     if (self.isModal) {
         [self beingPresentedInModalPopup];
     }
     self.severitySliderValue = 0.5f;
-    [self isLocationAuthorized];
+    
+    
+    self.pickerView = [[UIDatePicker alloc] init];
+    [self.pickerView setMaximumDate:[NSDate date]];
+    if (self.info.startTime) {
+        [self.pickerView setMinimumDate:self.info.startTime];
+    }
+
+    [self.pickerView setBackgroundColor:[UIColor lightGrayColor]];
+    [self.pickerView addTarget:self action:@selector(datePickerDateChanged:) forControlEvents:UIControlEventValueChanged];
 }
 
 
@@ -78,11 +87,12 @@
 {
 //    if ([CLLocationManager authorizationStatus] == kCLAuthorizationStatusAuthorized){
         if ([CLLocationManager locationServicesEnabled]) {
-            self.locationManager = [[CLLocationManager alloc] init];
+            if (self.locationManager == nil) {
+                self.locationManager = [[CLLocationManager alloc] init];
+            }
             self.locationManager.desiredAccuracy = kCLLocationAccuracyHundredMeters;
             [self.locationManager setDelegate:self];
             [self.locationManager startUpdatingLocation];
-//            self.location = [[CLLocation alloc] init];
         }
 //    } else {
 //        //UIAlertView to get auth
@@ -95,6 +105,16 @@
     self.fetchedResultsController = nil;
     self.registeredTime = nil;
     self.type = nil;
+    self.locationManager = nil;
+    self.pickerView = nil;
+    
+    if (self.currentWeatherTemp) {
+        self.currentWeatherTemp = nil;
+    }
+    
+    if (self.currentWeatherHumidity) {
+        self.currentWeatherHumidity = nil;
+    }
 }
 
 - (void)didReceiveMemoryWarning
@@ -186,7 +206,7 @@
         if (indexPath.row == 1) {
             height = 88.0f;
         } else {
-            height = 44.0f;
+            height = 44.0f; //179.0f
         }
     }
     return height;
@@ -250,90 +270,110 @@
             
             cell = newCell;
         } else {
-            QUDateManagementTableViewCell *newCell = (QUDateManagementTableViewCell*)[tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
-//            cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
-//            if (cell == nil) {
-//                cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:@"Cell"];
-//            }
+            QUDateManagementTableViewCell *newCell = (QUDateManagementTableViewCell*)[tableView dequeueReusableCellWithIdentifier:@"timeStampCell" forIndexPath:indexPath]; //datePickerCell
             
             [newCell.titleLabel setText:@"Current Time"];
             [newCell setDateToManage:[NSDate date]];
-            
-//            [cell.textLabel setText:@"Current Time"];
             
             NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
             [dateFormatter setDateFormat:@"MMM dd, yyyy hh:mm a"];
             
             if (!self.registeredTime) {
                 NSString *currentTime = [dateFormatter stringFromDate:[NSDate date]];
-//                [cell.detailTextLabel setText:currentTime];
                 [newCell.detailLabel setText:currentTime];
                 _registeredTime = [NSDate date];
             } else {
 //                NSString *currentTime = [dateFormatter stringFromDate:self.registeredTime];
                 NSString *currentTime = [dateFormatter stringFromDate:[NSDate date]];
                 [newCell.detailLabel setText:currentTime];
-//                [cell.detailTextLabel setText:currentTime];
             }
+//            [newCell.datePicker setDate:[NSDate date]];
+//            [newCell.datePicker setMaximumDate:[NSDate date]];
             cell = newCell;
         }
     }
     return cell;
 }
 
-//-(BOOL)tableView:(UITableView *)tableView shouldHighlightRowAtIndexPath:(NSIndexPath *)indexPath
-//{
-//    BOOL shouldHighlight = NO;
-//    if (indexPath.section < [[self.fetchedResultsController sections] count]) {
-//        shouldHighlight = NO;
-//    } else {
-////        if (indexPath.row == 0) {
-////            shouldHighlight = YES;
-////        }
-//    }
-//    return shouldHighlight;
-//}
+-(BOOL)tableView:(UITableView *)tableView shouldHighlightRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    BOOL shouldHighlight = NO;
+    if (indexPath.section < [[self.fetchedResultsController sections] count]) {
+        shouldHighlight = NO;
+    } else {
+        if (indexPath.row == 0) {
+            shouldHighlight = YES;
+        }
+    }
+    return shouldHighlight;
+}
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (!(indexPath.section < [[self.fetchedResultsController sections] count])) {
         if (indexPath.row == 0) {
             NSLog(@"show date picker");
-            [self displayExternalDatePickerForRowAtIndexPath:indexPath];
+            
+            // the date picker might already be showing, so don't add it to our view
+            if (self.pickerView.superview == nil)
+            {
+                QUDateManagementTableViewCell *cell = (QUDateManagementTableViewCell*)[self.tableView cellForRowAtIndexPath:indexPath];
+                
+                [self.pickerView setDate:cell.dateToManage animated:YES];
+                CGRect startFrame = self.pickerView.frame;
+                CGRect endFrame = self.pickerView.frame;
+                
+                // the start position is below the bottom of the visible frame
+                startFrame.origin.y = self.view.frame.size.height;
+                
+                // the end position is slid up by the height of the view
+                endFrame.origin.y = startFrame.origin.y - endFrame.size.height;
+                
+                self.pickerView.frame = startFrame;
+                
+                [self.view addSubview:self.pickerView];
+                
+                // animate the date picker into view
+                [UIView animateWithDuration:0.5 animations: ^{
+                    self.pickerView.frame = endFrame;
+                }
+                                 completion:^(BOOL finished) {
+
+                                 }];
+            } else {
+                self.currentWeatherHumidity = nil;
+                self.currentWeatherTemp = nil;
+                
+                CGRect pickerFrame = self.pickerView.frame;
+                pickerFrame.origin.y = self.view.frame.size.height;
+                
+                // animate the date picker out of view
+                [UIView animateWithDuration:0.5 animations: ^{ self.pickerView.frame = pickerFrame; }
+                                 completion:^(BOOL finished) {
+                                     [self.pickerView removeFromSuperview];
+                                 }];
+                
+                NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+                [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
+                [self.tableView setNeedsDisplay];
+            }
         }
     }
 }
 
-- (void)displayExternalDatePickerForRowAtIndexPath:(NSIndexPath *)indexPath
+-(void)datePickerDateChanged:(id)sender
 {
-    // first update the date picker's date value according to our model
-    QUDateManagementTableViewCell *cell = (QUDateManagementTableViewCell*)[self.tableView cellForRowAtIndexPath:indexPath];
+    UIDatePicker *picker = (UIDatePicker*)sender;
     
+    QUDateManagementTableViewCell *cell = (QUDateManagementTableViewCell*)[self.tableView cellForRowAtIndexPath:[self.tableView indexPathForSelectedRow]];
+    cell.dateToManage = picker.date;
     
-    [self.pickerView setDate:cell.dateToManage animated:YES];
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"MMM dd, yyyy hh:mm a"];
     
-    // the date picker might already be showing, so don't add it to our view
-    if (self.pickerView.superview == nil)
-    {
-        CGRect startFrame = self.pickerView.frame;
-        CGRect endFrame = self.pickerView.frame;
-        
-        // the start position is below the bottom of the visible frame
-        startFrame.origin.y = self.view.frame.size.height;
-        
-        // the end position is slid up by the height of the view
-        endFrame.origin.y = startFrame.origin.y - endFrame.size.height;
-        
-        self.pickerView.frame = startFrame;
-        
-        [self.view addSubview:self.pickerView];
-        
-        // animate the date picker into view
-        [UIView animateWithDuration:0.50 animations: ^{ self.pickerView.frame = endFrame; }
-                         completion:^(BOOL finished) {
-                             // add the "Done" button to the nav bar
-                         }];
-    }
+    [cell.detailLabel setText:[dateFormatter stringFromDate:picker.date]];
+    self.registeredTime = picker.date;
+    [cell setNeedsDisplay];
 }
 
 -(void)severitySliderValueChanged:(UISlider *)slider

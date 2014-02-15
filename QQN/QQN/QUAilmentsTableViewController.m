@@ -59,6 +59,9 @@
 {
     [super didReceiveMemoryWarning];
     self.fetchedResultsController = nil;
+    self.oauth1Controller = nil;
+    self.oauthToken = nil;
+    self.oauthTokenSecret = nil;
     // Dispose of any resources that can be recreated.
 }
 

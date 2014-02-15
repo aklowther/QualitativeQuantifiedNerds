@@ -65,29 +65,29 @@
 
 -(void)testGetUserInfo
 {
-//    if ([[QURESTManager sharedManager] hasTokenForSource:@"fitbit"]) {
-//        NSDictionary *userInfo = [QUFitbitAPI getActivitiesForDate:[NSDate date]];
-//        NSLog(@"%@",userInfo);
-//        NSString *numSteps = [userInfo[@"data"][@"summary"] objectForKey:@"steps"];
-//        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Steps"
-//                                                        message:[NSString stringWithFormat:@"You've taken %@ steps today", numSteps]
-//                                                       delegate:nil
-//                                              cancelButtonTitle:@"OK"
-//                                              otherButtonTitles:nil, nil];
-//        [alert show];
-//        
-//    }
-    
-    if (!([[[NXOAuth2AccountStore sharedStore] accountsWithAccountType:@"jawboneService"] count] > 0)) {
-//        [QUJawboneAPI initAuth];
-        [[[UIAlertView alloc] initWithTitle:@"Error" message:@"Please Auth First" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil] show];
+    if ([[QURESTManager sharedManager] hasTokenForSource:@"fitbit"]) {
+        NSDictionary *userInfo = [QUFitbitAPI getWaterForDate:[NSDate date]];
+        NSLog(@"%@",userInfo);
+        NSString *numSteps = [userInfo[@"data"][@"summary"] objectForKey:@"steps"];
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Steps"
+                                                        message:[NSString stringWithFormat:@"You've taken %@ steps today", numSteps]
+                                                       delegate:nil
+                                              cancelButtonTitle:@"OK"
+                                              otherButtonTitles:nil, nil];
+        [alert show];
+        
     }
     
-    NXOAuth2Request *theRequest = [[NXOAuth2Request alloc] initWithResource:[NSURL URLWithString:@"https://jawbone.com/nudge/api/v.1.0/users/@me/moves"] method:@"GET" parameters:nil];
-    theRequest.account = [[[NXOAuth2AccountStore sharedStore] accountsWithAccountType:@"jawboneService"] firstObject];
-    
-    NSURLRequest *signedRequest = [theRequest signedURLRequest];
-    NSDictionary *returnData = [[QURESTManager sharedManager] doGetWithNSURLRequest:signedRequest];
+//    if (!([[[NXOAuth2AccountStore sharedStore] accountsWithAccountType:@"jawboneService"] count] > 0)) {
+////        [QUJawboneAPI initAuth];
+//        [[[UIAlertView alloc] initWithTitle:@"Error" message:@"Please Auth First" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil] show];
+//    }
+//    
+//    NXOAuth2Request *theRequest = [[NXOAuth2Request alloc] initWithResource:[NSURL URLWithString:@"https://jawbone.com/nudge/api/v.1.0/users/@me/moves"] method:@"GET" parameters:nil];
+//    theRequest.account = [[[NXOAuth2AccountStore sharedStore] accountsWithAccountType:@"jawboneService"] firstObject];
+//    
+//    NSURLRequest *signedRequest = [theRequest signedURLRequest];
+//    NSDictionary *returnData = [[QURESTManager sharedManager] doGetWithNSURLRequest:signedRequest];
 }
 
 - (void)didReceiveMemoryWarning
