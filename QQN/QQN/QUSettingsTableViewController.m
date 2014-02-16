@@ -66,7 +66,7 @@
 -(void)testGetUserInfo
 {
     if ([[QURESTManager sharedManager] hasTokenForSource:@"fitbit"]) {
-        NSDictionary *userInfo = [QUFitbitAPI getWaterForDate:[NSDate date]];
+        NSDictionary *userInfo = [QUFitbitAPI getActivitiesForDate:[NSDate date]];
         NSLog(@"%@",userInfo);
         NSString *numSteps = [userInfo[@"data"][@"summary"] objectForKey:@"steps"];
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Steps"

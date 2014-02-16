@@ -15,6 +15,7 @@
 #import "User.h"
 #import "QURESTManager.h"
 #import "QUDateManagementTableViewCell.h"
+#import "QUFitbitAPI.h"
 
 #define forecastAPIKey @"e1dcdf6858860bc839fc93808acd6b51"
 
@@ -442,7 +443,26 @@
             NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
         }
     }
-    [self dismissViewControllerAnimated:YES completion:nil];
+    [self dismissViewControllerAnimated:YES completion:^{
+        [self updateLocalFitbitData];
+    }];
+}
+
+-(void)updateLocalFitbitData
+{
+    if ([[QURESTManager sharedManager] hasTokenForSource:@"fitbit"]) {
+        NSDictionary *userInfo = [QUFitbitAPI getActivitiesForDate:self.registeredTime];
+        [QUFitbitAPI getWaterForDate:self.registeredTime];
+//        NSLog(@"%@",userInfo);
+//        NSString *numSteps = [userInfo[@"data"][@"summary"] objectForKey:@"steps"];
+//        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Steps"
+//                                                        message:[NSString stringWithFormat:@"You've taken %@ steps today", numSteps]
+//                                                       delegate:nil
+//                                              cancelButtonTitle:@"OK"
+//                                              otherButtonTitles:nil, nil];
+//        [alert show];
+//        
+    }
 }
 
 -(void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations

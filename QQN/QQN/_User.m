@@ -13,6 +13,7 @@ const struct UserAttributes UserAttributes = {
 
 const struct UserRelationships UserRelationships = {
 	.ailment = @"ailment",
+	.userTrackedData = @"userTrackedData",
 };
 
 const struct UserFetchedProperties UserFetchedProperties = {
@@ -95,6 +96,19 @@ const struct UserFetchedProperties UserFetchedProperties = {
 	NSMutableSet *result = (NSMutableSet*)[self mutableSetValueForKey:@"ailment"];
   
 	[self didAccessValueForKey:@"ailment"];
+	return result;
+}
+	
+
+@dynamic userTrackedData;
+
+	
+- (NSMutableSet*)userTrackedDataSet {
+	[self willAccessValueForKey:@"userTrackedData"];
+  
+	NSMutableSet *result = (NSMutableSet*)[self mutableSetValueForKey:@"userTrackedData"];
+  
+	[self didAccessValueForKey:@"userTrackedData"];
 	return result;
 }
 	

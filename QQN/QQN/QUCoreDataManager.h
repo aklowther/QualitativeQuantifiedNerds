@@ -19,5 +19,6 @@
 +(QUCoreDataManager*)sharedManager;
 -(NSArray*)getArrayOfDataFromEntity:(NSString*)entityName withPredicate:(NSPredicate*)predicate;
 -(void)setAilments:(NSArray*)ailments;
+-(void)setUserTrackedData:(NSDictionary *)trackData forDate:(NSDate*)dateToSet;
 
 @end

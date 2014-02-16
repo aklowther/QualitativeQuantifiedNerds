@@ -11,6 +11,7 @@
 #import "OAuth1Controller.h"
 #import "PDKeychainBindings.h"
 #import "NSString+URLEncoding.h"
+#import "QUCoreDataManager.h"
 
 #define OAUTH_CALLBACK       @"http://www.mycallbackurl.com"
 #define CONSUMER_KEY         @"fc15da9d5542486cb97c3faf1e6cef88"
@@ -83,6 +84,10 @@
     
     NSString *methodURL = [NSString stringWithFormat:@"1/user/-/foods/log/water/date/%@.json", dateString];
     NSDictionary *userInfo = [self.class getInfoFromFitbitAPI:methodURL];
+    
+    if (userInfo[@"data"] != nil) {
+        [[QUCoreDataManager sharedManager] setUserTrackedData:userInfo[@"data"] forDate:date];
+    }
     return userInfo;
 }
 
@@ -96,6 +101,11 @@
     
     NSString *methodURL = [NSString stringWithFormat:@"1/user/-/activities/date/%@.json", dateString];
     NSDictionary *userInfo = [self.class getInfoFromFitbitAPI:methodURL];
+    
+    if (userInfo[@"data"] != nil) {
+        [[QUCoreDataManager sharedManager] setUserTrackedData:userInfo[@"data"] forDate:date];
+    }
+    
     return userInfo;
 }
 

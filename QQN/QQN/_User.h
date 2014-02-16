@@ -14,12 +14,14 @@ extern const struct UserAttributes {
 
 extern const struct UserRelationships {
 	__unsafe_unretained NSString *ailment;
+	__unsafe_unretained NSString *userTrackedData;
 } UserRelationships;
 
 extern const struct UserFetchedProperties {
 } UserFetchedProperties;
 
 @class Ailment;
+@class UserTrackedData;
 
 
 
@@ -97,6 +99,13 @@ extern const struct UserFetchedProperties {
 
 
 
+@property (nonatomic, strong) NSSet *userTrackedData;
+
+- (NSMutableSet*)userTrackedDataSet;
+
+
+
+
 + (NSArray*)fetchCheckFirstLastName:(NSManagedObjectContext*)moc_ CHECK:(NSString*)CHECK_ ;
 + (NSArray*)fetchCheckFirstLastName:(NSManagedObjectContext*)moc_ CHECK:(NSString*)CHECK_ error:(NSError**)error_;
 
@@ -111,6 +120,11 @@ extern const struct UserFetchedProperties {
 - (void)removeAilment:(NSSet*)value_;
 - (void)addAilmentObject:(Ailment*)value_;
 - (void)removeAilmentObject:(Ailment*)value_;
+
+- (void)addUserTrackedData:(NSSet*)value_;
+- (void)removeUserTrackedData:(NSSet*)value_;
+- (void)addUserTrackedDataObject:(UserTrackedData*)value_;
+- (void)removeUserTrackedDataObject:(UserTrackedData*)value_;
 
 @end
 
@@ -150,6 +164,11 @@ extern const struct UserFetchedProperties {
 
 - (NSMutableSet*)primitiveAilment;
 - (void)setPrimitiveAilment:(NSMutableSet*)value;
+
+
+
+- (NSMutableSet*)primitiveUserTrackedData;
+- (void)setPrimitiveUserTrackedData:(NSMutableSet*)value;
 
 
 @end

@@ -9,6 +9,8 @@
 #import "QUCoreDataManager.h"
 #import "AilmentInfo.h"
 #import "Ailment.h"
+#import "UserTrackedData.h"
+#import "NSPredicate+NSDateWholeDayPredicate.h"
 
 #import <Parse/Parse.h>
 
@@ -79,6 +81,49 @@
 //    dateFormatter.dateFormat = @"hh:mm a";
 //    NSString *pmamDateString = [dateFormatter stringFromDate:date];
 
+}
+
+-(void)setUserTrackedData:(NSDictionary *)trackData forDate:(NSDate*)dateToSet
+{
+    NSPredicate *datePredicate = [NSPredicate predicateToRetrieveEventsForDate:dateToSet];
+    NSPredicate *userPredicate = [NSPredicate predicateWithFormat:@"user.firstName = %@",  @"Temp"];
+    NSPredicate *predicate = [NSCompoundPredicate andPredicateWithSubpredicates:@[userPredicate, datePredicate]];
+    
+    NSArray *existingData = [self getArrayOfDataFromEntity:@"UserTrackedData" withPredicate:predicate];
+    [self addUserTrackedData:trackData unlessExisting:existingData forDate:dateToSet];
+//    if ([trackData count] < [existingSavedStaffMembers count]) {
+//        [self removeHoursOfService:staffData fromExistingServices:existingSavedStaffMembers];
+//    }
+    
+}
+
+-(void)addUserTrackedData:(NSDictionary*)data unlessExisting:(NSArray*)existingData forDate:(NSDate*)dateToSet
+{
+    UserTrackedData *trackedEntity = nil;
+    if (existingData.count == 1) {
+        trackedEntity = (UserTrackedData*)[existingData firstObject];
+        
+    } else {
+        User *person = [User findTheRegisteredUserWithName:@"Temp" inContext:[self context]];
+        trackedEntity = (UserTrackedData*)[NSEntityDescription insertNewObjectForEntityForName:@"UserTrackedData" inManagedObjectContext:[self context]];
+        [trackedEntity setUser:person];
+        [trackedEntity setDate:dateToSet];
+    }
+    
+    if (data[@"summary"] != nil) {
+        if (data[@"summary"][@"water"] != nil) {
+            [trackedEntity setWater:data[@"summary"][@"water"]];
+        } else if (data[@"summary"][@"steps"] != nil) {
+            [trackedEntity setSteps:data[@"summary"][@"steps"]];
+        }
+    }
+    [trackedEntity setDate:dateToSet];
+    
+    NSError *error = nil;
+    [self.context save:&error];
+    if (error != nil) {
+        NSLog(@"[%@ saveContext] Error saving context: Error = %@, details = %@",[self class], error,error.userInfo);
+    }
 }
 
 -(NSArray*)getArrayOfDataFromEntity:(NSString*)entityName withPredicate:(NSPredicate*)predicate

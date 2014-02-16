@@ -46,6 +46,9 @@
 		143E81CF187B8B7100BEFE8D /* QQNTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 143E81CE187B8B7100BEFE8D /* QQNTests.m */; };
 		148DDAF818A3BF1C00927A4D /* QUNewAilmentHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 148DDAF718A3BF1C00927A4D /* QUNewAilmentHeaderView.m */; };
 		148DEFDA18A839AF007D6613 /* QUJawboneAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 148DEFD918A839AF007D6613 /* QUJawboneAPI.m */; };
+		1491B30B18B02158008F1034 /* _UserTrackedData.m in Sources */ = {isa = PBXBuildFile; fileRef = 1491B30818B02158008F1034 /* _UserTrackedData.m */; };
+		1491B30C18B02158008F1034 /* UserTrackedData.m in Sources */ = {isa = PBXBuildFile; fileRef = 1491B30A18B02158008F1034 /* UserTrackedData.m */; };
+		1491B31318B02EC1008F1034 /* NSPredicate+NSDateWholeDayPredicate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1491B31218B02EC1008F1034 /* NSPredicate+NSDateWholeDayPredicate.m */; };
 		149F466C18A03ED500CA70B2 /* QUser.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 149F466A18A03ED500CA70B2 /* QUser.xcdatamodeld */; };
 		149F467C18A040E500CA70B2 /* _Ailment.m in Sources */ = {isa = PBXBuildFile; fileRef = 149F467518A040E500CA70B2 /* _Ailment.m */; };
 		149F467D18A040E500CA70B2 /* _User.m in Sources */ = {isa = PBXBuildFile; fileRef = 149F467718A040E500CA70B2 /* _User.m */; };
@@ -141,6 +144,13 @@
 		148DDAF718A3BF1C00927A4D /* QUNewAilmentHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QUNewAilmentHeaderView.m; sourceTree = "<group>"; };
 		148DEFD818A839AF007D6613 /* QUJawboneAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QUJawboneAPI.h; sourceTree = "<group>"; };
 		148DEFD918A839AF007D6613 /* QUJawboneAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QUJawboneAPI.m; sourceTree = "<group>"; };
+		1491B30618B02079008F1034 /* QUser 4.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "QUser 4.xcdatamodel"; sourceTree = "<group>"; };
+		1491B30718B02158008F1034 /* _UserTrackedData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _UserTrackedData.h; sourceTree = "<group>"; };
+		1491B30818B02158008F1034 /* _UserTrackedData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _UserTrackedData.m; sourceTree = "<group>"; };
+		1491B30918B02158008F1034 /* UserTrackedData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserTrackedData.h; sourceTree = "<group>"; };
+		1491B30A18B02158008F1034 /* UserTrackedData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserTrackedData.m; sourceTree = "<group>"; };
+		1491B31118B02EC1008F1034 /* NSPredicate+NSDateWholeDayPredicate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSPredicate+NSDateWholeDayPredicate.h"; sourceTree = "<group>"; };
+		1491B31218B02EC1008F1034 /* NSPredicate+NSDateWholeDayPredicate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSPredicate+NSDateWholeDayPredicate.m"; sourceTree = "<group>"; };
 		149F466B18A03ED500CA70B2 /* QUser.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = QUser.xcdatamodel; sourceTree = "<group>"; };
 		149F466D18A0400D00CA70B2 /* AilmentTypes.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AilmentTypes.h; sourceTree = "<group>"; };
 		149F467418A040E500CA70B2 /* _Ailment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _Ailment.h; sourceTree = "<group>"; };
@@ -383,6 +393,8 @@
 		149F467318A040D400CA70B2 /* CoreData */ = {
 			isa = PBXGroup;
 			children = (
+				1491B31118B02EC1008F1034 /* NSPredicate+NSDateWholeDayPredicate.h */,
+				1491B31218B02EC1008F1034 /* NSPredicate+NSDateWholeDayPredicate.m */,
 				149F468318A041DC00CA70B2 /* EntityClasses */,
 				149F466A18A03ED500CA70B2 /* QUser.xcdatamodeld */,
 				149F466D18A0400D00CA70B2 /* AilmentTypes.h */,
@@ -395,6 +407,10 @@
 		149F468318A041DC00CA70B2 /* EntityClasses */ = {
 			isa = PBXGroup;
 			children = (
+				1491B30718B02158008F1034 /* _UserTrackedData.h */,
+				1491B30818B02158008F1034 /* _UserTrackedData.m */,
+				1491B30918B02158008F1034 /* UserTrackedData.h */,
+				1491B30A18B02158008F1034 /* UserTrackedData.m */,
 				141A4CAB18A1B13B00531350 /* _AilmentInfo.h */,
 				141A4CAC18A1B13B00531350 /* _AilmentInfo.m */,
 				141A4CAD18A1B13B00531350 /* AilmentInfo.h */,
@@ -613,7 +629,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "cd QQN/\nmogenerator -m QUser.xcdatamodeld/QUser\\ 3.xcdatamodel --template-var arc=true";
+			shellScript = "cd QQN/\nmogenerator -m QUser.xcdatamodeld/QUser\\ 4.xcdatamodel --template-var arc=true";
 		};
 		14CD15F818A47EAD00ECB26C /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -666,6 +682,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				14CD15F118A4630200ECB26C /* QUAppDelegate.m in Sources */,
+				1491B30B18B02158008F1034 /* _UserTrackedData.m in Sources */,
 				141A4CA918A1B11300531350 /* Severity.m in Sources */,
 				149F467E18A040E500CA70B2 /* Ailment.m in Sources */,
 				14A6F92D18A45FBC0015E0BE /* OAuth1Controller.m in Sources */,
@@ -689,10 +706,12 @@
 				14A6F93018A460790015E0BE /* AMGProgressView.m in Sources */,
 				141A4CB018A1B13B00531350 /* AilmentInfo.m in Sources */,
 				149F466C18A03ED500CA70B2 /* QUser.xcdatamodeld in Sources */,
+				1491B31318B02EC1008F1034 /* NSPredicate+NSDateWholeDayPredicate.m in Sources */,
 				149F467C18A040E500CA70B2 /* _Ailment.m in Sources */,
 				1425B340189FCF530096C5CC /* QUExistingHeadacheTableViewCell.m in Sources */,
 				8C399C2705F67A4513E4E754 /* sha1.c in Sources */,
 				14A9243718A580D90008DA66 /* QUSettingsTableViewController.m in Sources */,
+				1491B30C18B02158008F1034 /* UserTrackedData.m in Sources */,
 				8C399C0441A07035D096294E /* hmac.c in Sources */,
 				14D2A50218AEACA00041B899 /* QUDateManagementTableViewCell.m in Sources */,
 				14A9243A18A5BD090008DA66 /* QURESTManager.m in Sources */,
@@ -992,11 +1011,12 @@
 		149F466A18A03ED500CA70B2 /* QUser.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
+				1491B30618B02079008F1034 /* QUser 4.xcdatamodel */,
 				148829E118ADB23E007D1ED9 /* QUser 3.xcdatamodel */,
 				14A6F92718A457BE0015E0BE /* QUser 2.xcdatamodel */,
 				149F466B18A03ED500CA70B2 /* QUser.xcdatamodel */,
 			);
-			currentVersion = 148829E118ADB23E007D1ED9 /* QUser 3.xcdatamodel */;
+			currentVersion = 1491B30618B02079008F1034 /* QUser 4.xcdatamodel */;
 			path = QUser.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
