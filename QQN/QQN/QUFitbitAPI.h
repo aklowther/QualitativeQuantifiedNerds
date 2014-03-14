@@ -15,6 +15,7 @@
 +(NSDictionary *)getUserInfo;
 +(NSDictionary *)getWaterForDate:(NSDate*)date;
 +(NSDictionary*) getActivitiesForDate:(NSDate*)date;
++(NSDictionary*) getBodyMeasurementsForDate:(NSDate*)date;
 
 
 @end

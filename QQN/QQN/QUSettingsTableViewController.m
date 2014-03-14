@@ -39,7 +39,8 @@
     [self setTitle:@"Settings"];
     [QUJawboneAPI initAuth];
     
-    UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAction target:self action:@selector(testGetUserInfo)];
+    UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAction
+                                                                          target:self action:@selector(testGetUserInfo)];
     [self.navigationItem setRightBarButtonItem:item];
     
     [[NSNotificationCenter defaultCenter] addObserverForName:NXOAuth2AccountStoreAccountsDidChangeNotification
@@ -55,7 +56,8 @@
                                                       object:[NXOAuth2AccountStore sharedStore]
                                                        queue:nil
                                                   usingBlock:^(NSNotification *aNotification){
-                                                      NSError *error = [aNotification.userInfo objectForKey:NXOAuth2AccountStoreErrorKey];
+                                                      NSError *error = [aNotification.userInfo
+                                                              objectForKey:NXOAuth2AccountStoreErrorKey];
                                                       // Do something with the error
                                                       NSLog(@"error: %@", [error userInfo]);
                                                       [self dismissViewControllerAnimated:NO completion:nil];
@@ -65,35 +67,32 @@
 
 -(void)testGetUserInfo
 {
+
     if ([[QURESTManager sharedManager] hasTokenForSource:@"fitbit"]) {
-        NSDictionary *userInfo = [QUFitbitAPI getWaterForDate:[NSDate date]];
-        NSLog(@"%@",userInfo);
-        NSString *numSteps = [userInfo[@"data"][@"summary"] objectForKey:@"steps"];
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Steps"
-                                                        message:[NSString stringWithFormat:@"You've taken %@ steps today", numSteps]
-                                                       delegate:nil
-                                              cancelButtonTitle:@"OK"
-                                              otherButtonTitles:nil, nil];
-        [alert show];
-        
+        NSDate *today = [NSDate date];
+        NSDictionary *waterData = [QUFitbitAPI getWaterForDate:today];
+        NSString *p = @"data.summary.steps";
+        NSString *numSteps = ([waterData valueForKeyPath:p]) ? [waterData valueForKeyPath:p] : @"0";
+        NSLog(@"waterData:%@", waterData);
+
+        NSDictionary *activity = [QUFitbitAPI getActivitiesForDate:today];
+        NSLog(@"activity:%@", activity);
+
+        NSDictionary *userInfo = [QUFitbitAPI getUserInfo];
+        NSLog(@"userInfo:%@", userInfo);
+
+        NSDictionary *measurements = [QUFitbitAPI getBodyMeasurementsForDate:today];
+        NSLog(@"measurements:%@", measurements);
+
+        //TODO:Store Above responses as Core Data objects (and in the future on server)
+
     }
-    
-//    if (!([[[NXOAuth2AccountStore sharedStore] accountsWithAccountType:@"jawboneService"] count] > 0)) {
-////        [QUJawboneAPI initAuth];
-//        [[[UIAlertView alloc] initWithTitle:@"Error" message:@"Please Auth First" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil] show];
-//    }
-//    
-//    NXOAuth2Request *theRequest = [[NXOAuth2Request alloc] initWithResource:[NSURL URLWithString:@"https://jawbone.com/nudge/api/v.1.0/users/@me/moves"] method:@"GET" parameters:nil];
-//    theRequest.account = [[[NXOAuth2AccountStore sharedStore] accountsWithAccountType:@"jawboneService"] firstObject];
-//    
-//    NSURLRequest *signedRequest = [theRequest signedURLRequest];
-//    NSDictionary *returnData = [[QURESTManager sharedManager] doGetWithNSURLRequest:signedRequest];
+    //TODO: jawbone
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 #pragma mark - Table view data source
@@ -126,16 +125,16 @@
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-        LoginWebViewController *loginWebViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"loginWebViewController"];
+        LoginWebViewController *loginWebViewController = [self.storyboard instantiateViewControllerWithIdentifier:
+                @"loginWebViewController"];
     if (indexPath.row == 0) {
-//    [self.navigationController pushViewController:loginWebViewController animated:YES];
     __block NSDictionary *data = [QUFitbitAPI getConsumerAppData];
     __block NSDictionary *oauthData = [QUFitbitAPI getOAuthData];
     [self presentViewController:loginWebViewController
                        animated:YES
                      completion:^{
-                         [[self oauth1Controller] loginWithConsumerData:data andStandardOauth:oauthData inWebView:loginWebViewController.webView completion:^(NSDictionary *oauthTokens, NSError *error)
-//                          [[self oauth1Controller] loginWithWebView:loginWebViewController.webView completion:^(NSDictionary *oauthTokens, NSError *error)
+                         [[self oauth1Controller] loginWithConsumerData:data andStandardOauth:oauthData inWebView:
+                                 loginWebViewController.webView completion:^(NSDictionary *oauthTokens, NSError *error)
                          {
                              if (!error) {                                 
                                  NSString *token = oauthTokens[@"oauth_token"];
@@ -145,7 +144,8 @@
                                  self.oauthTokenSecret = tokenSecret;
                                  
                                  
-                                 NSDictionary *dataToSet = [NSDictionary dictionaryWithObjects:@[token, tokenSecret, @"fitbit"] forKeys:@[@"token", @"secretToken", @"source"]];
+                                 NSDictionary *dataToSet = [NSDictionary dictionaryWithObjects:@[token, tokenSecret,
+                                         @"fitbit"] forKeys:@[@"token", @"secretToken", @"source"]];
                                  
                                  [[QURESTManager sharedManager] setTokensForSource:dataToSet];
                             
@@ -162,7 +162,6 @@
                          }];
                      }];
     } else if (indexPath.row == 1) {
-//        [QUJawboneAPI initAuth];
         [self presentViewController:loginWebViewController animated:YES completion:^{
             [loginWebViewController.webView setDelegate:self];
             [QUJawboneAPI requestAcessUsingViewController:loginWebViewController.webView];
@@ -171,10 +170,11 @@
 
 }
 
--(BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navType {
+-(BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request
+                                                navigationType:(UIWebViewNavigationType)navType {
+
     if ([[request.URL absoluteString] hasPrefix:[[NSURL URLWithString:@"qqn://jawbone"] absoluteString]]) {
         [[NXOAuth2AccountStore sharedStore] handleRedirectURL:request.URL];
-//        [self webViewDidFinishLoad:webView];
         return NO;
     } else {
     }
@@ -193,18 +193,4 @@
 {
     [self dismissViewControllerAnimated:YES completion:nil];
 }
-
-
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
-
 @end

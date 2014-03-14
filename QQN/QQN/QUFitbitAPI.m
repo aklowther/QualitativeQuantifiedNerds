@@ -85,6 +85,23 @@
     NSDictionary *userInfo = [self.class getInfoFromFitbitAPI:methodURL];
     return userInfo;
 }
++(NSString *)dateFormatter:(NSDate *)date{
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"yyyy-MM-dd"];
+    return [dateFormatter stringFromDate:date];
+}
++(NSDictionary *)getBodyMeasurementsForDate:(NSDate *)date{
+    //GET /<api-version>/user/<user-id>/body/date/<date>.<response-format>
+
+    NSString *dateString = [self.class dateFormatter:date];
+
+    //api-version == 1
+    //userId = - ?
+
+    NSString *methodURl = [NSString stringWithFormat:@"1/user/-/body/date/%@.json", dateString];
+    NSDictionary *response = [self getInfoFromFitbitAPI:methodURl];
+    return response;
+}
 
 +(NSDictionary*) getActivitiesForDate:(NSDate*)date
 {
