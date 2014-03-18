@@ -25,7 +25,7 @@
         [stepCount queryStepCountStartingFrom:todayStart to:[NSDate date] toQueue:queue withHandler:^(NSInteger numberOfSteps, NSError *error) {
             if (!error) {
                 [[[UIAlertView alloc] initWithTitle:@"Steps"
-                                           message:[NSString stringWithFormat:@"You've taken %i steps today", numberOfSteps]
+                                           message:[NSString stringWithFormat:@"You've taken %i steps with your phone today", numberOfSteps]
                                           delegate:nil
                                  cancelButtonTitle:@"Ok"
                                  otherButtonTitles:nil, nil] show];

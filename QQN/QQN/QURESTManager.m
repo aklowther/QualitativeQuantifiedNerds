@@ -257,7 +257,12 @@
 {
     NSString *token = [[PDKeychainBindings sharedKeychainBindings] stringForKey:[NSString stringWithFormat:@"%@Token", source]];
     NSString *secretToken = [[PDKeychainBindings sharedKeychainBindings] stringForKey:[NSString stringWithFormat:@"%@SecretToken", source]];
-    NSDictionary *returnTokens = [NSDictionary dictionaryWithObjects:@[token, secretToken] forKeys:@[@"token", @"secretToken"]];
+    
+    NSDictionary *returnTokens = nil;
+    
+    if (token != nil && secretToken != nil) {
+        returnTokens = [NSDictionary dictionaryWithObjects:@[token, secretToken] forKeys:@[@"token", @"secretToken"]];
+    }
     return returnTokens;
 }
 

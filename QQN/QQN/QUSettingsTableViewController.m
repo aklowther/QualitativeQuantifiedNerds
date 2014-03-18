@@ -39,8 +39,8 @@
     [self setTitle:@"Settings"];
     [QUJawboneAPI initAuth];
     
-    UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAction target:self action:@selector(testGetUserInfo)];
-    [self.navigationItem setRightBarButtonItem:item];
+//    UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAction target:self action:@selector(testGetUserInfo)];
+//    [self.navigationItem setRightBarButtonItem:item];
     
     [[NSNotificationCenter defaultCenter] addObserverForName:NXOAuth2AccountStoreAccountsDidChangeNotification
                                                       object:[NXOAuth2AccountStore sharedStore]
@@ -60,24 +60,24 @@
                                                       NSLog(@"error: %@", [error userInfo]);
                                                       [self dismissViewControllerAnimated:NO completion:nil];
                                                   }];
-    [QUM7Manager getStepsIfM7Available];
+//    [QUM7Manager getStepsIfM7Available];
 }
 
--(void)testGetUserInfo
-{
-    if ([[QURESTManager sharedManager] hasTokenForSource:@"fitbit"]) {
-        NSDictionary *userInfo = [QUFitbitAPI getActivitiesForDate:[NSDate date]];
-        NSLog(@"%@",userInfo);
-        NSString *numSteps = [userInfo[@"data"][@"summary"] objectForKey:@"steps"];
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Steps"
-                                                        message:[NSString stringWithFormat:@"You've taken %@ steps today", numSteps]
-                                                       delegate:nil
-                                              cancelButtonTitle:@"OK"
-                                              otherButtonTitles:nil, nil];
-        [alert show];
-        
-    }
-    
+//-(void)testGetUserInfo
+//{
+//    if ([[QURESTManager sharedManager] hasTokenForSource:@"fitbit"]) {
+//        NSDictionary *userInfo = [QUFitbitAPI getActivitiesForDate:[NSDate date]];
+//        NSLog(@"%@",userInfo);
+//        NSString *numSteps = [userInfo[@"data"][@"summary"] objectForKey:@"steps"];
+//        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Steps"
+//                                                        message:[NSString stringWithFormat:@"You've taken %@ steps today", numSteps]
+//                                                       delegate:nil
+//                                              cancelButtonTitle:@"OK"
+//                                              otherButtonTitles:nil, nil];
+//        [alert show];
+//        
+//    }
+
 //    if (!([[[NXOAuth2AccountStore sharedStore] accountsWithAccountType:@"jawboneService"] count] > 0)) {
 ////        [QUJawboneAPI initAuth];
 //        [[[UIAlertView alloc] initWithTitle:@"Error" message:@"Please Auth First" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil] show];
@@ -88,7 +88,7 @@
 //    
 //    NSURLRequest *signedRequest = [theRequest signedURLRequest];
 //    NSDictionary *returnData = [[QURESTManager sharedManager] doGetWithNSURLRequest:signedRequest];
-}
+//}
 
 - (void)didReceiveMemoryWarning
 {
@@ -105,7 +105,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 2;
+    return 1;
 }
 
 
@@ -141,8 +141,8 @@
                                  NSString *token = oauthTokens[@"oauth_token"];
                                  NSString *tokenSecret = oauthTokens[@"oauth_token_secret"];
                                  
-                                 self.oauthToken = token;
-                                 self.oauthTokenSecret = tokenSecret;
+//                                 self.oauthToken = token;
+//                                 self.oauthTokenSecret = tokenSecret;
                                  
                                  
                                  NSDictionary *dataToSet = [NSDictionary dictionaryWithObjects:@[token, tokenSecret, @"fitbit"] forKeys:@[@"token", @"secretToken", @"source"]];

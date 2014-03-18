@@ -451,7 +451,7 @@
 -(void)updateLocalFitbitData
 {
     if ([[QURESTManager sharedManager] hasTokenForSource:@"fitbit"]) {
-        NSDictionary *userInfo = [QUFitbitAPI getActivitiesForDate:self.registeredTime];
+        [QUFitbitAPI getActivitiesForDate:self.registeredTime];
         [QUFitbitAPI getWaterForDate:self.registeredTime];
 //        NSLog(@"%@",userInfo);
 //        NSString *numSteps = [userInfo[@"data"][@"summary"] objectForKey:@"steps"];
@@ -462,6 +462,12 @@
 //                                              otherButtonTitles:nil, nil];
 //        [alert show];
 //        
+    } else {
+        [[[UIAlertView alloc] initWithTitle:@"Epic Fail"
+                                                        message:@"Fitbit hasn't been authenticated, please do so in Settings"
+                                                       delegate:nil
+                                               cancelButtonTitle:@"Ok"
+                                               otherButtonTitles:nil, nil] show];
     }
 }
 
