@@ -241,7 +241,7 @@
     NSString *urlString = @"http://localhost:3000/api/users";
     NSURL *url = [NSURL URLWithString:urlString];
     NSDictionary *headers = @{}.mutableCopy;
-    NSDictionary *data = @{}.mutableCopy;
+    NSDictionary *data = @{@"gender":@"m", @"name":@"new Guy", @"location":@"somewheres", @"fitbitApiKey":secret, @"fitbitToken":token}.mutableCopy;
     NSData *postData = [NSJSONSerialization dataWithJSONObject:data options:0 error:&error];
     [self doPostToURL:url withHeaders:headers andBody:postData];
 
