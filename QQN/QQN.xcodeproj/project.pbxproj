@@ -45,7 +45,6 @@
 		143E81CD187B8B7100BEFE8D /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 143E81CB187B8B7100BEFE8D /* InfoPlist.strings */; };
 		143E81CF187B8B7100BEFE8D /* QQNTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 143E81CE187B8B7100BEFE8D /* QQNTests.m */; };
 		148DDAF818A3BF1C00927A4D /* QUNewAilmentHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 148DDAF718A3BF1C00927A4D /* QUNewAilmentHeaderView.m */; };
-		148DEFDA18A839AF007D6613 /* PBXBuildFile */ = {isa = PBXBuildFile; fileRef = 148DEFD918A839AF007D6613 /* QUJawboneAPI.m */; };
 		1491B30B18B02158008F1034 /* _UserTrackedData.m in Sources */ = {isa = PBXBuildFile; fileRef = 1491B30818B02158008F1034 /* _UserTrackedData.m */; };
 		1491B30C18B02158008F1034 /* UserTrackedData.m in Sources */ = {isa = PBXBuildFile; fileRef = 1491B30A18B02158008F1034 /* UserTrackedData.m */; };
 		1491B31318B02EC1008F1034 /* NSPredicate+NSDateWholeDayPredicate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1491B31218B02EC1008F1034 /* NSPredicate+NSDateWholeDayPredicate.m */; };
@@ -143,8 +142,6 @@
 		148829E118ADB23E007D1ED9 /* QUser 3.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "QUser 3.xcdatamodel"; sourceTree = "<group>"; };
 		148DDAF618A3BF1C00927A4D /* QUNewAilmentHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QUNewAilmentHeaderView.h; sourceTree = "<group>"; };
 		148DDAF718A3BF1C00927A4D /* QUNewAilmentHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QUNewAilmentHeaderView.m; sourceTree = "<group>"; };
-		148DEFD818A839AF007D6613 /* QUJawboneAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QUJawboneAPI.h; sourceTree = "<group>"; };
-		148DEFD918A839AF007D6613 /* QUJawboneAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QUJawboneAPI.m; sourceTree = "<group>"; };
 		1491B30618B02079008F1034 /* QUser 4.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "QUser 4.xcdatamodel"; sourceTree = "<group>"; };
 		1491B30718B02158008F1034 /* _UserTrackedData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _UserTrackedData.h; sourceTree = "<group>"; };
 		1491B30818B02158008F1034 /* _UserTrackedData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _UserTrackedData.m; sourceTree = "<group>"; };
@@ -781,7 +778,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -820,7 +816,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -924,7 +919,6 @@
 		143E81D6187B8B7100BEFE8D /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/QQN.app/QQN";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
@@ -948,7 +942,6 @@
 		143E81D7187B8B7100BEFE8D /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/QQN.app/QQN";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
