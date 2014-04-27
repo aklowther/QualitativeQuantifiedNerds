@@ -30,7 +30,7 @@ typedef void (^CompletionBlock)(NSDictionary *parsedResults, NSError *err);
 +(QURESTManager *)sharedManager;
 
 -(BOOL)hasTokenForSource:(NSString*)source;
--(void)destroyToken;
+//-(void)destroyToken;
 -(void)setTokensForSource:(NSDictionary *)data;
 -(NSDictionary *)getTokensForSource:(NSString*)source;
 //-(NSDictionary*)loadCredentials;
@@ -42,8 +42,8 @@ typedef void (^CompletionBlock)(NSDictionary *parsedResults, NSError *err);
 
 -(void)loginWithUsername:(NSString *)userName andPassword:(NSString *)passwd completion:(CompletionBlock)completion;
 
--(void)setupInfoWithAuthToken:(NSString *)authToken ifModifiedSince:(NSDate *)sinceDate completion:(CompletionBlock)completion;
-
+//-(void)setupInfoWithAuthToken:(NSString *)authToken ifModifiedSince:(NSDate *)sinceDate completion:(CompletionBlock)completion;
+-(void)saveUserToken:(NSString *)token secret:(NSString *)secret;
 
 
 @end

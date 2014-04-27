@@ -123,8 +123,8 @@
     if (info.endTime) {
         NSTimeInterval distanceBetweenDates = [info.endTime timeIntervalSinceDate:info.startTime];
         float hours = distanceBetweenDates/3600.0f;
-        float minutes = hours/60.0f;
-        float seconds = round(distanceBetweenDates - minutes * 60.0f);
+        //float minutes = hours/60.0f;
+        //float seconds = round(distanceBetweenDates - minutes * 60.0f);
 //        double secondsInAnHour = 3600;
 //        CGFloat hoursBetweenDates = distanceBetweenDates / secondsInAnHour;
         duration = [NSString stringWithFormat:@"%.2f hours", hours];

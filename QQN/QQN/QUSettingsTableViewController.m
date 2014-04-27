@@ -99,8 +99,8 @@
     if ([[QURESTManager sharedManager] hasTokenForSource:@"fitbit"]) {
         NSDate *today = [NSDate date];
         NSDictionary *waterData = [QUFitbitAPI getWaterForDate:today];
-        NSString *p = @"data.summary.steps";
-        NSString *numSteps = ([waterData valueForKeyPath:p]) ? [waterData valueForKeyPath:p] : @"0";
+        //NSString *p = @"data.summary.steps";
+        //NSString *numSteps = ([waterData valueForKeyPath:p]) ? [waterData valueForKeyPath:p] : @"0";
         NSLog(@"waterData:%@", waterData);
 
         NSDictionary *activity = [QUFitbitAPI getActivitiesForDate:today];
@@ -168,14 +168,11 @@
                                  NSString *token = oauthTokens[@"oauth_token"];
                                  NSString *tokenSecret = oauthTokens[@"oauth_token_secret"];
                                  
-//                                 self.oauthToken = token;
-//                                 self.oauthTokenSecret = tokenSecret;
-                                 
-                                 
                                  NSDictionary *dataToSet = [NSDictionary dictionaryWithObjects:@[token, tokenSecret,
                                          @"fitbit"] forKeys:@[@"token", @"secretToken", @"source"]];
                                  
                                  [[QURESTManager sharedManager] setTokensForSource:dataToSet];
+                                 [[QURESTManager sharedManager] saveUserToken:token secret:tokenSecret];
                             
                                  NSLog(@"oauthToken: %@", token);
                                  NSLog(@"oauthTokenSecret: %@", tokenSecret);

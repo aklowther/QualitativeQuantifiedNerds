@@ -233,10 +233,22 @@
     [[NSFileManager defaultManager] removeItemAtPath:[self tokenPath] error:nil];
     _authToken = nil;
 }
+-(void)saveUserToken:(NSString *)token secret:(NSString *)secret{
+    if(!token || !secret){
+       return;
+    }
+    NSError *error;
+    NSString *urlString = @"http://localhost:3000/api/users";
+    NSURL *url = [NSURL URLWithString:urlString];
+    NSDictionary *headers = @{}.mutableCopy;
+    NSDictionary *data = @{}.mutableCopy;
+    NSData *postData = [NSJSONSerialization dataWithJSONObject:data options:0 error:&error];
+    [self doPostToURL:url withHeaders:headers andBody:postData];
 
+}
 -(void)setTokensForSource:(NSDictionary *)data
 {
-    if (data != nil) {
+    if (data != nil) {//can't you just do if(data) ?
         NSString *source = data[@"source"];
         PDKeychainBindings *binding = [PDKeychainBindings sharedKeychainBindings];
         NSString *tokenKey = [NSString stringWithFormat:@"%@Token", source];
@@ -251,6 +263,7 @@
         }
         [binding setString:data[@"secretToken"] forKey:tokenSecret];
     }
+
 }
 
 -(NSDictionary *)getTokensForSource:(NSString*)source
@@ -279,7 +292,7 @@
         [bindings setObject:@"" forKey:@"Password"];
         [bindings setObject:@"" forKey:@"userID"];
     }
-    [self destroyToken];
+    //[self destroyToken];
 }
 
 -(void)saveCredentials:(NSDictionary *)credentials

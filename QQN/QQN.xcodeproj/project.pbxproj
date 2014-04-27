@@ -45,7 +45,7 @@
 		143E81CD187B8B7100BEFE8D /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 143E81CB187B8B7100BEFE8D /* InfoPlist.strings */; };
 		143E81CF187B8B7100BEFE8D /* QQNTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 143E81CE187B8B7100BEFE8D /* QQNTests.m */; };
 		148DDAF818A3BF1C00927A4D /* QUNewAilmentHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 148DDAF718A3BF1C00927A4D /* QUNewAilmentHeaderView.m */; };
-		148DEFDA18A839AF007D6613 /* QUJawboneAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 148DEFD918A839AF007D6613 /* QUJawboneAPI.m */; };
+		148DEFDA18A839AF007D6613 /* PBXBuildFile */ = {isa = PBXBuildFile; fileRef = 148DEFD918A839AF007D6613 /* QUJawboneAPI.m */; };
 		1491B30B18B02158008F1034 /* _UserTrackedData.m in Sources */ = {isa = PBXBuildFile; fileRef = 1491B30818B02158008F1034 /* _UserTrackedData.m */; };
 		1491B30C18B02158008F1034 /* UserTrackedData.m in Sources */ = {isa = PBXBuildFile; fileRef = 1491B30A18B02158008F1034 /* UserTrackedData.m */; };
 		1491B31318B02EC1008F1034 /* NSPredicate+NSDateWholeDayPredicate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1491B31218B02EC1008F1034 /* NSPredicate+NSDateWholeDayPredicate.m */; };
